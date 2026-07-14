@@ -104,4 +104,4 @@ This pillar is a UiPath solution *for* the UiPath platform, built on the **Orche
 
 This project extends my earlier **Meridian Loan Intake** build (Maestro BPMN + Document Understanding + AI agent triage + Action Center + Data Fabric, DU project score 91%) in two directions: from single-document loan intake to multi-document mortgage packages, and downward into the platform-governance layer where automation programs actually scale or stall.
 
-**Johnlenny Tejada** · JohnlennyT@gmail.com · (401) 212-9805 · Providence, RI
+
