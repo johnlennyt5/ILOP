@@ -1,0 +1,105 @@
+{
+  "version": "2.0",
+  "resources": [
+    {
+      "resource": "EventTrigger",
+      "key": "8306d123-4a99-4a15-b9d3-50554490842c_Event_start",
+      "id": "EventTrigger8306d123-4a99-4a15-b9d3-50554490842c_Event_start",
+      "value": {
+        "ConnectionId": {
+          "defaultValue": "8306d123-4a99-4a15-b9d3-50554490842c",
+          "isExpression": false
+        },
+        "EntryPointUniqueId": {
+          "defaultValue": "b5d245e2-8d9f-4d85-b401-96555c6d5db4",
+          "isExpression": false
+        }
+      },
+      "metadata": {
+        "UseConnectionService": "true",
+        "Connector": "uipath-google-gmail",
+        "ActivityName": "Email recievede",
+        "BindingsVersion": "2.2",
+        "ObjectName": "Message",
+        "Operation": "EMAIL_RECEIVED",
+        "FilterExpression": "(ParentFolders[?ID=='INBOX'])"
+      }
+    },
+    {
+      "resource": "Property",
+      "key": "EMAIL_RECEIVED_EventTrigger.8306d123-4a99-4a15-b9d3-50554490842c_Event_start",
+      "value": {
+        "ParentFolders[*].ID": {
+          "defaultValue": "INBOX",
+          "isExpression": false
+        }
+      },
+      "activityDisplayName": "Connector",
+      "metadata": {
+        "ActivityName": "Email recievede",
+        "BindingsVersion": "2.2",
+        "ObjectName": "Message",
+        "ParentResourceKey": "EventTrigger.8306d123-4a99-4a15-b9d3-50554490842c_Event_start",
+        "TriggerCreateParameters": "ParentFolders[*].ID",
+        "DebugQueryParameters": "ParentFolders[*].ID"
+      },
+      "id": "Property_Event_start"
+    },
+    {
+      "resource": "Connection",
+      "key": "8306d123-4a99-4a15-b9d3-50554490842c",
+      "id": "Connection8306d123-4a99-4a15-b9d3-50554490842c",
+      "value": {
+        "ConnectionId": {
+          "defaultValue": "8306d123-4a99-4a15-b9d3-50554490842c",
+          "isExpression": false,
+          "displayName": "uipath-google-gmail connection"
+        }
+      },
+      "metadata": {
+        "ActivityName": "Email recievede",
+        "BindingsVersion": "2.2",
+        "DisplayLabel": "uipath-google-gmail connection",
+        "UseConnectionService": "true",
+        "Connector": "uipath-google-gmail"
+      }
+    },
+    {
+      "resource": "process",
+      "key": "Agent",
+      "id": "processAgent",
+      "value": {
+        "name": {
+          "defaultValue": "Agent",
+          "isExpression": false,
+          "displayName": "Process name"
+        }
+      },
+      "metadata": {
+        "ActivityName": "Intake Router Agent ",
+        "BindingsVersion": "2.2",
+        "DisplayLabel": "name",
+        "SolutionsSupport": "true",
+        "subType": "Agent"
+      }
+    },
+    {
+      "resource": "queue",
+      "key": "Loan-Mortgage-Intake",
+      "id": "queueLoan-Mortgage-Intake",
+      "value": {
+        "name": {
+          "defaultValue": "Loan-Mortgage-Intake",
+          "isExpression": false,
+          "displayName": "Queue"
+        }
+      },
+      "metadata": {
+        "ActivityName": "Email Queue",
+        "BindingsVersion": "2.2",
+        "DisplayLabel": "name",
+        "SolutionsSupport": "true"
+      }
+    }
+  ]
+}

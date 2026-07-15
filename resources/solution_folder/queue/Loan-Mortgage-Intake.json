@@ -1,0 +1,42 @@
+{
+  "docVersion": "1.0.0",
+  "resource": {
+    "name": "Loan-Mortgage-Intake",
+    "kind": "queue",
+    "apiVersion": "orchestrator.uipath.com/v1",
+    "isOverridable": true,
+    "dependencies": [],
+    "runtimeDependencies": [],
+    "files": [],
+    "folders": [
+      {
+        "fullyQualifiedName": "solution_folder"
+      }
+    ],
+    "spec": {
+      "name": "Loan-Mortgage-Intake",
+      "description": "Inbound loan and mortgage requests waiting for AI classification.",
+      "enforceUniqueReference": false,
+      "encrypted": false,
+      "acceptAutomaticallyRetry": true,
+      "maxNumberOfRetries": 1,
+      "specificDataJsonSchema": null,
+      "outputDataJsonSchema": null,
+      "analyticsDataJsonSchema": null,
+      "slaProcessRef": null,
+      "slaInHours": 0,
+      "slaInMinutes": 0,
+      "riskSlaInHours": 0,
+      "riskSlaInMinutes": 0,
+      "retentionAction": "Delete",
+      "retentionPeriod": 30,
+      "retentionBucketRef": null,
+      "staleRetentionAction": "Delete",
+      "staleRetentionPeriod": 180,
+      "staleRetentionBucketRef": null,
+      "tags": []
+    },
+    "locks": [],
+    "key": "d2f3c9ff-9db2-47e5-840b-7a4558fb67c5"
+  }
+}

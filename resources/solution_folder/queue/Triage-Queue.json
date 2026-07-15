@@ -1,0 +1,42 @@
+{
+  "docVersion": "1.0.0",
+  "resource": {
+    "name": "Triage-Queue",
+    "kind": "queue",
+    "apiVersion": "orchestrator.uipath.com/v1",
+    "isOverridable": true,
+    "dependencies": [],
+    "runtimeDependencies": [],
+    "files": [],
+    "folders": [
+      {
+        "fullyQualifiedName": "solution_folder"
+      }
+    ],
+    "spec": {
+      "name": "Triage-Queue",
+      "description": "",
+      "enforceUniqueReference": false,
+      "encrypted": false,
+      "acceptAutomaticallyRetry": true,
+      "maxNumberOfRetries": 1,
+      "specificDataJsonSchema": null,
+      "outputDataJsonSchema": null,
+      "analyticsDataJsonSchema": null,
+      "slaProcessRef": null,
+      "slaInHours": 0,
+      "slaInMinutes": 0,
+      "riskSlaInHours": 0,
+      "riskSlaInMinutes": 0,
+      "retentionAction": "Delete",
+      "retentionPeriod": 30,
+      "retentionBucketRef": null,
+      "staleRetentionAction": "Delete",
+      "staleRetentionPeriod": 180,
+      "staleRetentionBucketRef": null,
+      "tags": []
+    },
+    "locks": [],
+    "key": "121138e9-ef9d-44c0-8250-da72cf08f75c"
+  }
+}

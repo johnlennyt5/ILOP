@@ -1,0 +1,18 @@
+{
+  "DocVersion": "1.0.0",
+  "StudioMinVersion": "2025.04.0",
+  "SolutionId": "4d16962a-b7a8-4f2a-b50b-08dee1b4c240",
+  "Projects": [
+    {
+      "Type": "Agent",
+      "ProjectRelativePath": "Agent/project.uiproj",
+      "Id": "e9ffa0ee-fc30-4fff-b25b-b39648835184"
+    },
+    {
+      "Type": "ProcessOrchestration",
+      "ProjectRelativePath": "Maestro BPMN/project.uiproj",
+      "Id": "6932ec63-475a-4944-b234-6f33e5a78a20"
+    }
+  ],
+  "AutomationHubIdeaUrl": null
+}

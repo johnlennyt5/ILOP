@@ -1,226 +1,239 @@
-# Implementation Plan — Harborview Mortgage Intake & Robot Identity Governance
+# Implementation Plan — Harborview Lending Intake & Robot Identity Governance
 
 **Author:** Johnlenny Tejada
-**Duration:** 8 weeks · 8 one-week sprints
-**Platform:** UiPath — Maestro, Document Understanding, Agent Builder, Action Center, Orchestrator, Data Fabric, Apps, Integration Service
-**Method:** Solo-developer Scrum. Weekly sprints, each ending with a working increment and a short demo clip (these clips become raw footage for the final video).
+**Plan date:** July 14, 2026 · replaces v1 (archived)
+**Status:** Sprint 1 complete. BPMN diagram complete end to end. Current work: node-by-node wiring, front of pipeline first.
+**Platform:** UiPath — Maestro (BPMN), Agent Builder, Document Understanding, Action Center, Orchestrator, Data Fabric, Apps, Integration Service (Gmail)
 
 ---
 
-## Story Point Scale
+## Why this plan
 
-| Points | Meaning |
+The project pivoted from the original mortgage-only, file-drop design to a stronger architecture built in Sprint 1: **email-driven intake with an AI router feeding two parallel product pipelines (loans and mortgages)** that converge on a shared compliance → risk → disposition → notification backbone. This plan matches the BPMN as actually built and re-sequences all remaining work around it.
+
+**Build principle for everything below: wire the pipeline front-to-back, one node at a time, testing each node before moving to the next.** The diagram is the map; every sprint makes a contiguous stretch of it real.
+
+---
+
+## ✅ Completed (Sprint 1, Week 1)
+
+| Item | Evidence |
 |---|---|
-| 1 | Under an hour, no unknowns |
-| 2 | Half a day |
-| 3 | A full day |
-| 5 | 2–3 days, some unknowns |
-| 8 | Most of a week, real risk — must be split or de-risked early |
+| Tenant verified: unattended execution, Agent Builder, Maestro, Integration Service | Smoke test job ran unattended |
+| Folder `Harborview-Mortgage-Prod` with unattended robot (Automation User role) + machine binding | Manage Access + Jobs history |
+| Gmail connection + `EMAIL_RECEIVED` trigger (polling, INBOX) | Trigger fires on inbound mail |
+| Queues created: `Intake-Raw`, `Loan-Queue`, `Mortgage-Queue`, `Auto-Approved`, `Auto-Denied`, `Human-Review`, `Triage`, `Exceptions` | Orchestrator Queues view |
+| **Full BPMN diagram, end to end** — dual-pipeline routing, OTHER/triage default exit, 3-way disposition, Action Center user task, human disposition, notification split (agent vs. template), merge → log → single end | `Process.bpmn` in repo + architecture image |
+| Provisioning log started (`/docs/provisioning-log.md`) — every manual admin action recorded | The living spec for Pillar 2 |
+| Repo live: README (aligned), BPMN, `.ius` solution package, diagram image | GitHub |
 
-Capacity assumption: ~20 points per weekly sprint (part-time build alongside other commitments). Total plan: ~160 points.
+Validation issues remaining in Studio (~12) are the expected unwired conditions/agents — they are the to-do list this plan burns down.
+
+---
+
+## The Wiring Map
+
+Node numbers below refer to the diagram, front to back. Each epic owns a contiguous stretch.
+
+```
+[1] Email trigger → [2] Email Queue task → [3] Intake Router Agent → [4] Document Type Routing
+→ [5a] Extract Loan Details / [5b] Extract Mortgage Details / [5c] Triage exit
+→ [6] Unified Pipeline merge → [7] Compliance Check Agent → [8] Risk Assessment Agent
+→ [9] Disposition Routing → [10a/b] Auto queues / [10c] Human-Review queue
+→ [11] Human Review (Action Center) → [12] Human Disposition Routing → [13] Notification Routing
+→ [14a] Approval Email Agent / [14b] Adverse-Action Template → [15] Log Final Record → [16] End
+```
 
 ---
 
 # EPICS
 
-## EPIC 1 — Platform Foundation & Environment (Sprint 1)
-*Goal: a correctly provisioned UiPath tenant where unattended execution verifiably works — before any business logic exists.*
+## EPIC A — Front of Pipeline: Intake, Router, Routing (nodes 2–5c) — *current sprint*
+
+*Goal: a loan email, a mortgage email, and a junk email each land in the correct queue with an auditable agent decision.*
 
 | ID | Story | Acceptance Criteria | Pts |
 |---|---|---|---|
-| E1-S1 | As the developer, I need to verify tenant licensing supports unattended triggers, DU, Agent Builder, Data Fabric, and Apps | Written checklist of each capability tested with a trivial workflow; any licensing gaps documented with workaround (e.g., manual Start Job fallback for demo) | 3 |
-| E1-S2 | As the developer, I need a clean folder structure (`Harborview-Mortgage-Prod`) with an unattended robot correctly allocated | Folder shows robot account with Robot Type = Unattended, role = Automation User; machine template bound; test job runs unattended end to end | 3 |
-| E1-S3 | As the developer, I need Integration Service connections (Google Drive or SharePoint intake, email) established and stored as governed connections | Connections authenticated; a trigger fires on file drop into `Mortgage-Inbox`; trigger history shows success | 2 |
-| E1-S4 | As the developer, I need a Git repo with the folder structure, README, and CI-free export discipline | Repo public; README (already drafted) committed; export convention documented (project JSONs/XAML exported per sprint) | 2 |
-| E1-S5 | As the developer, I need to document every manual provisioning step performed in E1-S2 | A numbered log of every admin click — this becomes the requirements spec for Pillar 2's provisioning automation | 2 |
+| A1 | Wire `Email Queue` task as **Add Queue Item → `Intake-Raw`** | Reference = Gmail Message ID from trigger response; SpecificContent carries From.Email, Subject, HasAttachments, ThreadID, attachment names; duplicate delivery of same message is rejected by unique reference (verify by re-sending) | 3 |
+| A2 | Build **Intake Router Agent** in Agent Builder | Input: single string `intakePayload` (JSON envelope). Output schema enforced: `{category: LOAN\|MORTGAGE\|OTHER, confidence: 0–1, reasoning, signalsFound[]}`. System prompt: classify only from envelope content; conflicting/absent signals → OTHER low-confidence; never guess. Published to folder | 5 |
+| A3 | Map trigger output → envelope and wire agent input (MVP: no attachments yet) | Envelope built from Subject + Body + From + attachment names via expression; agent binding points at published agent (placeholder replaced); agent returns parseable JSON for 5 test emails | 3 |
+| A4 | Wire **Document Type Routing** conditions | MORTGAGE edge: `category=="MORTGAGE" && confidence>=0.8`; LOAN edge: same for LOAN; default flow (slash) → Triage. Low-confidence LOAN/MORTGAGE goes to Triage for now (until Human Review is wired, then revisit) — documented as interim rule | 3 |
+| A5 | Wire `Add to Triage Queue` task + `Not Applicable` end | Junk email ends cleanly with a Triage queue item; no stuck instances | 2 |
+| A6 | **Front-of-pipeline test matrix** | 6 emails run live: clear loan, clear mortgage, junk/newsletter, ambiguous ("need money for a house project"), empty body, duplicate resend. Each lands per expectation; results table screenshotted for test evidence pack | 3 |
 
-**Epic 1 total: 12 pts.** Note: E1-S5 is the quiet keystone — Pillar 2 automates exactly this log.
+**Epic A: 19 pts.** Exit criterion: the pink path in Studio debug reaches the correct branch for all six test emails.
 
----
+## EPIC B — Format-Flexible Intake: Attachment Normalization (feeds node 3)
 
-## EPIC 2 — Synthetic Mortgage Document Set (Sprint 1–2)
-*Goal: realistic, varied test data that exercises every routing path.*
-
-| ID | Story | Acceptance Criteria | Pts |
-|---|---|---|---|
-| E2-S1 | As the developer, I need 6 synthetic borrower profiles spanning the disposition matrix | Profiles defined in a spreadsheet: strong W-2 borrower (auto-clear), thin-file (decline), self-employed (manual review), high-value >$750K (senior review), incomplete package (completeness path), borderline DTI (agent judgment case) | 3 |
-| E2-S2 | As the developer, I need filled URLA Form 1003 PDFs for each profile | 6 completed 1003s, visually realistic, fictional PII only | 3 |
-| E2-S3 | As the developer, I need supporting documents per profile (W-2s, pay stubs, bank statements, ID) | Each package contains 3–5 supporting docs; at least one package deliberately missing a document | 3 |
-| E2-S4 | As the developer, I need packages assembled as multi-document uploads | 6 packages staged; naming convention documented; one "mixed scan" PDF combining several doc types in one file (the classification stress test) | 2 |
-
-**Epic 2 total: 11 pts.**
-
----
-
-## EPIC 3 — Document Understanding: Classification & Extraction (Sprint 2)
-*Goal: every incoming document is identified and its fields extracted with confidence scores.*
+*Goal: PDF, CSV, and JSON attachments become text inside the same envelope — agents never see raw files.*
 
 | ID | Story | Acceptance Criteria | Pts |
 |---|---|---|---|
-| E3-S1 | As the pipeline, I need a DU taxonomy covering 5 document types (1003, W-2, pay stub, bank statement, ID) | Taxonomy created in DU project; document types defined with target fields per type | 2 |
-| E3-S2 | As the pipeline, I need a classifier that splits a mixed package by document type | Mixed-scan test PDF correctly split and typed; classification confidence surfaced per page range | 5 |
-| E3-S3 | As the pipeline, I need extractors for the 1003 (9+ fields: borrower, income, loan amount, property, DTI inputs) | Extraction validated on all 6 profiles; project score ≥ 85%; low-confidence fields flagged, not silently accepted | 5 |
-| E3-S4 | As the pipeline, I need extractors for W-2 and pay stub income fields | Wages, employer, pay period extracted; results feed the income agent's input schema | 3 |
-| E3-S5 | As a reviewer, I need Validation Station wired for low-confidence extractions | Extractions below threshold route to human validation before downstream agents run | 3 |
+| B1 | Download attachments via Gmail Integration Service activity | Attachment files retrieved by ID from trigger metadata; skipped gracefully when none | 3 |
+| B2 | Route by MIMEType | PDF → B3 path; text/csv and application/json → B4 path; unknown types logged and skipped with note in envelope | 2 |
+| B3 | PDF text extraction (Document Understanding) | Extracted text appended to envelope `attachments[].extractedText`; scanned-image PDF degrades gracefully (empty text + flag) | 5 |
+| B4 | CSV/JSON ingestion with size guard | CSV truncated to first 50 rows as text; JSON pretty-printed; per-attachment cap (~10k chars) so envelope can't blow agent context | 3 |
+| B5 | Regression: attachment-bearing test emails | Loan CSV, mortgage PDF, JSON payload emails all classify correctly; envelope inspected in debug for correct structure | 3 |
 
-**Epic 3 total: 18 pts.**
+**Epic B: 16 pts.**
 
----
+## EPIC C — Product Extraction Stages (nodes 5a/5b) + Shared Data Contract
 
-## EPIC 4 — Maestro Orchestration & Routing (Sprint 3)
-*Goal: the BPMN spine — deterministic state, gates, and queues.*
-
-| ID | Story | Acceptance Criteria | Pts |
-|---|---|---|---|
-| E4-S1 | As the system, I need a Maestro BPMN process modeling the full lifecycle (intake → classify → extract → agents → gateway → disposition) | Process.bpmn committed; every path reachable; variables scoped per stage | 5 |
-| E4-S2 | As the system, I need a confidence-gated 4-way gateway (auto-clear / auto-decline / manual review / high-value review) | Rules documented and priority-ordered; each of the 6 test packages lands on its intended path | 5 |
-| E4-S3 | As operations, I need 4 Orchestrator queues (Cleared, Declined, Review, HighValue) with transactions carrying full context | Queue items include extraction payload, agent outputs, confidence scores, and audit reference | 3 |
-| E4-S4 | As the system, I need failure handling: DU errors, agent timeouts, and malformed packages route to an Exceptions queue, never silently drop | Kill a dependency mid-run in test; item lands in Exceptions with error context | 3 |
-
-**Epic 4 total: 16 pts.**
-
----
-
-## EPIC 5 — Specialist AI Agents (Sprint 3–4)
-*Goal: three Agent Builder agents, each with a narrow contract, structured output, and logged prompts.*
+*Goal: each branch produces the same-shaped `applicationRecord` so everything downstream is product-agnostic.*
 
 | ID | Story | Acceptance Criteria | Pts |
 |---|---|---|---|
-| E5-S1 | As underwriting, I need an Income Calculation Agent that computes qualifying monthly income from W-2 + pay stub extractions | Structured JSON output (income, method, confidence, caveats); output schema-validated before use; self-employed profile correctly flagged as "cannot auto-calculate" | 5 |
-| E5-S2 | As intake, I need a Completeness Agent that checks the package against a required-documents matrix and drafts a customer follow-up | Missing-document package produces an itemized gap list + drafted email placed in review (never auto-sent) | 3 |
-| E5-S3 | As compliance, I need a Compliance Agent with hard-veto rules that override any other disposition | Hard vetoes (e.g., ID mismatch, ineligible property type) force manual review regardless of scores; veto reasons persisted | 5 |
-| E5-S4 | As governance, I need every agent invocation logged: prompt version, model, input hash, output, latency | Log entries queryable in Data Fabric; prompt register document lists every prompt with version history | 3 |
-| E5-S5 | As the system, I need agents orchestrated by Maestro with per-agent timeout and retry policy | Agent failure triggers retry then Exceptions path; no infinite waits | 2 |
+| C1 | Define the shared **applicationRecord** contract | One JSON schema: applicant, product (LOAN/MORTGAGE), amounts, income, term/property fields (nullable per product), sourceMessageId, extraction confidences. Committed to `/docs` — this is the variable every downstream node reads | 3 |
+| C2 | Wire **Extract Loan Details** | Populates applicationRecord from envelope (income, requested amount, term, purpose); missing fields null + flagged, never invented | 5 |
+| C3 | Wire **Extract Mortgage Details** | Same contract; adds property, loan amount, 1003-style fields when a 1003 PDF is present (uses B3 text) | 5 |
+| C4 | Unified Pipeline merge verified | Both branches arrive at node 6 with valid applicationRecord; schema-validate before Compliance | 2 |
 
-**Epic 5 total: 18 pts.**
+**Epic C: 15 pts.**
 
----
+## EPIC D — Compliance, Risk & Disposition (nodes 7–10)
 
-## EPIC 6 — Human-in-the-Loop & SLA Escalation (Sprint 4)
-*Goal: no consequential decision without a governed human gate.*
+*Goal: three-way disposition driven by scored, veto-aware logic; ambiguity always defaults to review.*
 
 | ID | Story | Acceptance Criteria | Pts |
 |---|---|---|---|
-| E6-S1 | As a reviewer, I need an Action Center task app showing extraction, agent reasoning, and confidence in one screen | Task renders full context; Approve/Decline/Request-Docs actions write back to the BPMN flow | 5 |
-| E6-S2 | As a manager, I need SLA timers on review tasks with automatic escalation | Task idle past SLA (demo: 10 min) escalates to senior queue and fires a notification | 5 |
-| E6-S3 | As a senior reviewer, I need high-value (> $750K) applications routed to a distinct queue with an enriched task view | High-value test package lands in senior queue; task shows income agent detail and compliance summary | 3 |
-| E6-S4 | As compliance, I need every human action recorded (who, what, when, stated reason) | Reviewer decision with reason code persisted to Data Fabric alongside the automated trail | 2 |
+| D1 | Build **Compliance Check Agent** | Output: `{complianceStatus: PASS\|VETO\|FLAG, reasonCodes[], reasoning}`. Reason codes from a fixed enum committed to `/docs/reason-codes.md` (this table later drives adverse-action templates). VETO can never route to auto-approve — encoded in gateway conditions, not just prompt | 5 |
+| D2 | Build **Risk Assessment Agent** | Output: `{riskScore: 0–100, confidence, factors[], reasonCodes[]}`; deterministic inputs only (applicationRecord); prompt versioned in prompt register | 5 |
+| D3 | Wire **Disposition Routing** | auto-approve: `PASS && riskScore>=70 && confidence>=0.8`; auto-deny: `VETO \|\| riskScore<30` (with confidence floor); default flow → Human-Review. Thresholds stored as Orchestrator assets, not hardcoded — one-line change to retune | 3 |
+| D4 | Wire the three queue tasks (nodes 10a–c) | Queue items carry full applicationRecord + agent outputs + reasonCodes; `finalDecision` set to APPROVED/DECLINED on the auto paths | 3 |
+| D5 | Revisit A4 interim rule | Low-confidence router results now route to Human-Review instead of Triage; test matrix re-run | 2 |
 
-**Epic 6 total: 15 pts.**
+**Epic D: 18 pts.**
 
----
-
-## EPIC 7 — Data Fabric & Operations App (Sprint 4–5)
-*Goal: one source of truth and a live window into it.*
+## EPIC E — Human in the Loop (nodes 11–12)
 
 | ID | Story | Acceptance Criteria | Pts |
 |---|---|---|---|
-| E7-S1 | As the system, I need a MortgageApplication entity capturing lifecycle state, all decisions, and all scores | Entity schema committed; every pipeline stage writes to it; no state lives only in queue items | 3 |
-| E7-S2 | As a loan officer, I need an operations app: live application list, status filters, drill-down to full audit trail | App published in-tenant; all 6 test applications visible with correct states after an end-to-end run | 5 |
-| E7-S3 | As a manager, I need summary tiles: volume by disposition, average cycle time, SLA breaches, agent auto-clear rate | Tiles compute from entity data; refresh reflects new runs | 3 |
+| E1 | Build the Action Center **review task form** | Shows applicant summary, product, extracted fields, both agents' reasoning + reason codes, confidence; actions: Approve / Decline (+ required reason-code pick on decline) | 5 |
+| E2 | Wire the **User Task** suspension | Process suspends at node 11; task appears in Action Center; completing it resumes the flow with `finalDecision` set to the same APPROVED/DECLINED values as auto paths | 5 |
+| E3 | Wire Human Disposition Routing + Human-Approved/Denied tasks | Both edges labeled and conditioned on finalDecision; human decisions downstream-identical to auto decisions | 2 |
+| E4 | **SLA timer + escalation** (boundary timer on node 11) | Task idle past SLA (demo: 10 min, asset-configurable) fires escalation: item flagged/reassigned + notification; demoable on camera | 5 |
 
-**Epic 7 total: 11 pts.**
+**Epic E: 17 pts.**
 
----
-
-## EPIC 8 — Robot Identity Lifecycle Manager (Sprints 5–6)
-*Goal: Pillar 2 — automate and govern the provisioning layer, using the Epic 1 manual log as the spec.*
+## EPIC F — Notification Stage (nodes 13–14)
 
 | ID | Story | Acceptance Criteria | Pts |
 |---|---|---|---|
-| E8-S1 | As the developer, I need an authenticated Orchestrator REST API client (external app / OAuth) with least-privilege scopes | Token flow works; scopes documented; credentials stored as Orchestrator assets, never in code | 3 |
-| E8-S2 | As an automation admin, I need a provisioning workflow: create robot account → allocate to folder (Automation User role) → bind machine template → verify | One governed request replaces the full manual sequence from the E1-S5 log; run against a fresh test folder succeeds end to end | 8 |
-| E8-S3 | As a release manager, I need a pre-flight check workflow that audits any folder for deployment readiness | Checks: unattended robot allocated, machine bound, credentials present, trigger runnable; outputs pass/fail report with the exact missing item named; validated by deliberately breaking a folder | 5 |
-| E8-S4 | As IAM/audit, I need a Robot Identity Inventory app: every digital worker, folder access, roles, machine bindings, credential age | App lists identities pulled live via API; sortable; flags credentials older than policy threshold | 5 |
-| E8-S5 | As IAM, I need credential rotation tracking with a rotation workflow demo | Rotating a credential asset updates last-rotated metadata; inventory app reflects it; CyberArk noted as the enterprise vault path in docs | 3 |
-| E8-S6 | As internal audit, I need an exportable attestation report per robot identity | One-click export (PDF/CSV): identity, access, roles, last rotation, last review date — the access-review artifact | 3 |
+| F1 | Build **Approval Email Composer** agent | Input: applicationRecord + decision context; output: subject + body; warm, personalized, next steps; sent via Gmail connection to the original sender | 5 |
+| F2 | Build the **adverse-action template engine** (NOT an agent) | Reason-code → pre-approved sentence lookup (from D1's enum); template merge fills applicant/product/reasons; every sentence pre-exists in the committed table; unit-tested per reason code | 5 |
+| F3 | Wire Notification Routing conditions + both send tasks | `finalDecision=="APPROVED"` → agent path; `=="DECLINED"` → template path; all four upstream routes verified to arrive correctly | 3 |
+| F4 | (Stretch) Compliance-checker agent on denial output | Agent validates the *finished* template email (reasons stated, nothing extra) YES/NO — checker, never writer. Documented in SDD either way | 3 |
 
-**Epic 8 total: 27 pts.** E8-S2 is the riskiest story in the plan — start Sprint 5 with it.
+**Epic F: 16 pts.**
 
----
-
-## EPIC 9 — Governance Pack & Documentation (Sprint 7)
-*Goal: the artifacts that make this read like an enterprise delivery, not a demo.*
+## EPIC G — Audit Record & Operations App (node 15)
 
 | ID | Story | Acceptance Criteria | Pts |
 |---|---|---|---|
-| E9-S1 | Solution Design Document | 8 sections: business context, architecture, component inventory, design decisions, agent contracts, governance model, validation results, known limitations | 5 |
-| E9-S2 | Governance pack | Data-flow diagram, model inventory, prompt register, sample audit trail (one application end to end), escalation matrix, adverse-action/fair-lending posture note | 5 |
-| E9-S3 | Test evidence pack | All 6 packages run end to end; per-path evidence table (screenshots + entity records); DU project score recorded | 3 |
-| E9-S4 | README finalization | Roadmap statuses flipped to ✅; architecture diagram image embedded; quick-start section for reviewers | 2 |
+| G1 | Data Fabric entity `LendingApplication` | Full lifecycle per application: envelope ref, router result, extraction, compliance, risk, disposition path (auto vs. human + reviewer), notification sent, timestamps | 3 |
+| G2 | Wire **Log Final Record** task | One entity record per completed instance; Triage exits also logged (separate status) so nothing is invisible | 3 |
+| G3 | **Operations app** | Live application list, status filters, drill-down to full audit trail; tiles: volume by disposition, auto-clear rate, SLA breaches | 5 |
 
-**Epic 9 total: 15 pts.**
+**Epic G: 11 pts.**
 
----
-
-## EPIC 10 — Demo Video & Release (Sprint 8)
-*Goal: a tight, professional walkthrough — the artifact most interviewers will actually consume.*
+## EPIC H — Exceptions & Hardening
 
 | ID | Story | Acceptance Criteria | Pts |
 |---|---|---|---|
-| E10-S1 | Record fresh end-to-end runs for all key paths | Clean screen recordings: auto-clear, decline, review + SLA escalation, high-value; plus Pillar 2 provisioning and pre-flight demo | 3 |
-| E10-S2 | Record and edit the final video against the script below | ≤ 7 minutes; voiceover; chapter markers; uploaded (YouTube unlisted) and linked in README | 5 |
-| E10-S3 | Final repo hardening | Dead links checked, exports current, synthetic-data disclaimer present, license file added | 2 |
-| E10-S4 | Send the follow-up email with the live repo + video | Email (already drafted) updated with links and sent to recruiter | 1 |
+| H1 | Boundary error events on all four agent tasks → Exceptions queue | Kill/timeout an agent in test; item lands in Exceptions with error context; instance ends cleanly | 5 |
+| H2 | Timeout + retry policy per agent task | Documented values; no infinite waits anywhere in the flow | 2 |
 
-**Epic 10 total: 11 pts.**
+**Epic H: 7 pts.**
+
+## EPIC I — Pillar 2: Robot Identity Lifecycle Manager
+
+*Unchanged in scope from v1; requirements now grounded in the real provisioning log. Add queue creation to the provisioning scope (the tool stands up robot + machine + queues).*
+
+| ID | Story | Acceptance Criteria | Pts |
+|---|---|---|---|
+| I1 | Orchestrator REST API client (external app, OAuth, least-privilege scopes) | Token flow works; scopes documented; secrets in credential assets | 3 |
+| I2 | **Provisioning workflow** — robot account → folder allocation (Automation User) → machine binding → queue set → verify | Replays the provisioning log against a fresh test folder in one governed run | 8 |
+| I3 | **Pre-flight check** — folder deployment-readiness audit | Detects and names the exact missing item (validated by deliberately breaking a folder); pass/fail report | 5 |
+| I4 | **Identity inventory app** | All digital workers: folder access, roles, machines, credential age; stale-credential flag | 5 |
+| I5 | Credential rotation tracking + demo | Rotation updates metadata; inventory reflects it; CyberArk documented as enterprise path | 3 |
+| I6 | Attestation report export | Per-identity access-review packet (PDF/CSV) | 3 |
+
+**Epic I: 27 pts.** I2 remains the riskiest story in the plan — it opens its sprint.
+
+## EPIC J — Governance Pack, SDD & Test Evidence
+
+| ID | Story | Acceptance Criteria | Pts |
+|---|---|---|---|
+| J1 | SDD | Architecture, the v1→v2 pivot rationale, agent contracts, veto precedence, adverse-action design, known limitations | 5 |
+| J2 | Governance pack | Prompt register (all four agents, versioned), reason-code table, escalation matrix, sample end-to-end audit trail, adverse-action posture note | 5 |
+| J3 | Full regression + test evidence pack | Entire A6/B5/D-matrix re-run on the finished pipeline; per-path evidence table with screenshots | 3 |
+| J4 | README/roadmap finalization | Statuses flipped; diagram image current; quick-start for reviewers | 2 |
+
+**Epic J: 15 pts.**
+
+## EPIC K — Demo Video & Release
+
+| ID | Story | Acceptance Criteria | Pts |
+|---|---|---|---|
+| K1 | Record fresh runs of every demo beat (script below) | Clean captures: loan auto-approve, mortgage → human review → SLA escalation, auto-deny + adverse-action email, junk email triage, Pillar 2 broken-folder→provision→pass sequence | 3 |
+| K2 | Edit final video ≤ 7 min, voiceover, chapters; upload + link in README | Done = watchable by a stranger with zero context | 5 |
+| K3 | Final repo hardening + send follow-up email with links | Dead links checked; synthetic-data disclaimer; email (drafted) sent to recruiter | 2 |
+
+**Epic K: 10 pts.**
 
 ---
 
-# SPRINT PLAN
+# SPRINT PLAN (remaining 7 weeks)
 
-| Sprint | Week | Sprint Goal | Stories | Pts |
+| Sprint | Week | Sprint Goal | Epics/Stories | Pts |
 |---|---|---|---|---|
-| **1** | 1 | Unattended execution verifiably works; test data underway | E1-S1…S5, E2-S1, E2-S2 | 18 |
-| **2** | 2 | Every document type classified and extracted with confidence | E2-S3, E2-S4, E3-S1…S5 | 23 |
-| **3** | 3 | BPMN spine routes all 6 packages to correct queues; first agent live | E4-S1…S4, E5-S1 | 21 |
-| **4** | 4 | All agents live; HITL with SLA escalation working | E5-S2…S5, E6-S1…S4 | 28 * |
-| **5** | 5 | Pillar 1 complete with dashboard; provisioning workflow starts | E7-S1…S3, E8-S1, E8-S2 (start) | 22 |
-| **6** | 6 | Robot Identity Manager complete | E8-S2 (finish), E8-S3…S6 | 24 |
-| **7** | 7 | Documentation & governance pack complete; full regression run | E9-S1…S4 | 15 |
-| **8** | 8 | Demo video shipped; email sent | E10-S1…S4 + buffer | 11 |
+| **2** *(current)* | 2 | Front of pipeline live: 3 email types → 3 correct destinations | Epic A (all) | 19 |
+| **3** | 3 | Attachments normalized; both extraction branches emit the shared contract | Epic B + C1–C2 | 24 |
+| **4** | 4 | Full auto path live: email → agents → auto queues, `finalDecision` set | C3–C4, Epic D | 25 |
+| **5** | 5 | Human loop + notifications: review task, SLA escalation, both email types sending | Epic E + F1–F3 | 25 * |
+| **6** | 6 | Audit record + app; exceptions hardened; Pillar 2 API + provisioning core | Epic G, H, I1–I2 | 29 ** |
+| **7** | 7 | Pillar 2 complete; governance pack + SDD + regression | I3–I6, Epic J | 31 ** |
+| **8** | 8 | Demo video shipped; email sent | Epic K + F4 stretch + buffer | 13 |
 
-\* Sprint 4 is deliberately overloaded — it's the mid-project crunch. Pressure valve: E5-S2 (Completeness Agent) can slip to Sprint 5 without breaking the critical path.
+\* Sprint 5 pressure valve: E4 (SLA escalation) slips to Sprint 6 if needed — it bolts onto an existing node.
+\** Sprints 6–7 are heavy. Pre-decided cuts, in order: G3 tiles reduced to list-only app; I5 demo simplified to metadata-only; F4 dropped. **Pillar 2 stories I2–I4 and the governance pack are never cut** — they're the differentiators.
 
-**Standing weekly ritual (every sprint):** 30-minute review — record a 1–2 minute clip of the increment (raw footage bank for Epic 10), update README roadmap statuses, commit exports, write 3-line retro (what worked / what didn't / next risk).
+**Standing weekly ritual (unchanged):** 30-min review — record a 1–2 min clip of the increment (footage bank for the video), re-export `Process.bpmn` + commit, update README statuses, 3-line retro.
 
 ---
 
-# RISK REGISTER
+# RISK REGISTER (v2)
 
 | Risk | Likelihood | Mitigation |
 |---|---|---|
-| Free/trial tenant blocks unattended triggers or Agent Builder | Medium | E1-S1 tests this in the first two days; fallback = manual Start Job for demo + documented note (worked for Meridian) |
-| DU accuracy below 85% on synthetic docs | Medium | Increase training samples per doc type; simplify field set; Validation Station absorbs the gap honestly |
-| Orchestrator API scopes unavailable on tenant tier | Medium | E8-S1 tests early in Sprint 5; fallback = provisioning against a personal-workspace folder + full API design documented |
-| Sprint 4 overload | High | Pre-identified slip candidate (E5-S2); no new scope enters Sprints 7–8 |
-| Scope creep (new agent ideas mid-build) | High | Parking-lot file in repo; nothing added without removing equal points |
+| Agent output arrives wrapped in prose/markdown instead of clean JSON | High | Enforce output schema in Agent Builder; strip-and-parse guard at every gateway; test in A3 before anything depends on it |
+| Gmail polling trigger re-fires on same message | Medium | Already mitigated: Intake-Raw unique reference = Message ID (verified in A1/A6) |
+| Action Center user task suspension behaves differently than expected in Maestro | Medium | E2 scheduled early in its sprint; fallback = queue-based manual review with documented note |
+| Orchestrator API scopes unavailable on tenant tier | Medium | I1 opens Sprint 6; fallback = personal-workspace demo + full API design documented |
+| Sprints 6–7 overload | High | Pre-decided cut list above; no new scope after Sprint 5 |
+| Scope creep (new agent ideas) | High | Parking-lot file; nothing added without removing equal points |
 
 ---
 
-# DEMO VIDEO SCRIPT (~6:30)
+# DEMO VIDEO SCRIPT v2 (~6:45)
 
-**Format:** screen recording + voiceover. One take per chapter, edited together. Show real runs — no slides except the two title cards.
-
-| Time | Chapter | On screen | Voiceover beats |
+| Time | Chapter | On screen | Beats |
 |---|---|---|---|
-| 0:00–0:25 | Cold open | Title card: project name, your name. Cut to the architecture diagram | "Two problems stall automation programs in banking: document-heavy intake, and the identity layer under the robots themselves. This project takes on both — entirely in UiPath." |
-| 0:25–1:15 | The scenario | Drop a full mortgage package into the intake folder; show the trigger firing in Orchestrator | "A complete mortgage package — 1003, W-2s, pay stubs, bank statement. One file drop. Watch what happens." |
-| 1:15–2:15 | Classification & extraction | DU splitting the mixed package; extraction results with confidence scores; one low-confidence field hitting Validation Station | "Document Understanding classifies every page, extracts fields with confidence scores — and anything below threshold goes to a human, not into a decision." |
-| 2:15–3:15 | Agents & routing | Maestro BPMN view lighting up; Income Agent JSON output; the 4-way gateway routing to a queue | "Three specialist agents — income, completeness, compliance — each with a narrow contract and structured output. Maestro owns the routing; the agents only advise. Compliance carries a hard veto." |
-| 3:15–4:05 | Human in the loop | Action Center task with full context; let the SLA timer expire; escalation to senior queue fires | "Nothing consequential ships without a human. Tasks carry SLA timers — this one just breached, and escalated automatically." |
-| 4:05–4:35 | Audit & operations | Operations app: live applications, drill into one full audit trail | "Every extraction, every agent call, every human action — one entity, one audit trail, one dashboard." |
-| 4:35–5:45 | Pillar 2 | Run pre-flight check against a broken folder → fail report names the missing unattended allocation → run provisioning workflow → re-run pre-flight → pass → trigger executes | "Now the layer underneath. This folder can't run unattended jobs — the pre-flight check says exactly why. One governed provisioning request fixes it: robot account, least-privilege role, machine binding. Re-check: green. This is the difference between a deployment that ships and a week of admin-console archaeology." |
-| 5:45–6:10 | Identity governance | Inventory app; credential-age flag; export the attestation report | "Every digital worker, its access, its credential age — and the attestation report an auditor actually asks for." |
-| 6:10–6:30 | Close | Title card: repo URL + contact | "Built in eight weeks, documented like a delivery. The SDD, governance pack, and full test evidence are in the repo. Thanks for watching." |
-
-**Recording tips:** 1080p minimum, hide bookmarks bar, use a clean demo browser profile, speed up any wait longer than 5 seconds with a timestamp overlay ("+4 min"), and record voiceover separately from screen capture — it's far easier to edit.
+| 0:00–0:25 | Cold open | Title card → the BPMN full canvas | "Loan and mortgage requests arrive by email in every format imaginable. And underneath every automation is an identity layer that can silently block deployment. This project takes on both — entirely in UiPath." |
+| 0:25–1:10 | The front door | Send a real email ("I'd like to refinance my home") → trigger fires → Intake-Raw queue item appears | "Every message is on the audit record before any AI touches it. Duplicates bounce off the Message ID." |
+| 1:10–2:00 | The router | Agent output JSON on screen → Document Type Routing → mortgage branch lights up. Then send a newsletter → Triage exit | "One classifier, strict schema, never guesses — and junk mail exits gracefully instead of jamming the pipeline." |
+| 2:00–2:50 | Dual pipeline + agents | Loan email with CSV attachment → normalized envelope in debug → extraction → compliance PASS → risk score → auto-approve queue | "Loans and mortgages are separate products on a shared governance backbone. Formats vary; the agent contract never does." |
+| 2:50–3:50 | Human loop | Borderline mortgage → Human-Review → Action Center task with both agents' reasoning → let SLA breach → escalation fires → reviewer approves | "Ambiguity never auto-disposes — it defaults to a person. And a person who doesn't act triggers escalation." |
+| 3:50–4:30 | The two emails | Approval email (agent-drafted, personalized) vs. adverse-action email (template) side by side + the reason-code table | "The denial is the one message regulation cares about — so no LLM writes it. Deterministic reason codes, pre-approved language. Knowing where *not* to put AI is the design." |
+| 4:30–5:00 | Audit | Operations app: the day's applications, drill into one full trail | "Every decision — machine or human — one record, one trail." |
+| 5:00–6:10 | Pillar 2 | Pre-flight check on broken folder → names the missing unattended allocation → provisioning workflow → re-check green → trigger runs. Inventory app + attestation export | "This failure blocks real deployments and the reason is invisible to most developers. One governed request fixes it — and every digital worker is inventoried, rotated, attestable." |
+| 6:10–6:45 | Close | Title card: repo URL + contact | "Eight weeks, documented like a delivery. SDD, governance pack, and full test evidence in the repo." |
 
 ---
 
 # DEFINITION OF DONE (every story)
 
-1. Works end to end on the tenant, not just in Studio
-2. Exported and committed to the repo
-3. Referenced in the SDD or governance pack where applicable
+1. Works end to end on the tenant, not just in the designer
+2. `Process.bpmn` re-exported and committed with the change
+3. Referenced in SDD / governance pack where applicable
 4. Demo-able in under 2 minutes without setup

@@ -1,0 +1,42 @@
+{
+  "docVersion": "1.0.0",
+  "resource": {
+    "name": "Human-Denied",
+    "kind": "queue",
+    "apiVersion": "orchestrator.uipath.com/v1",
+    "isOverridable": true,
+    "dependencies": [],
+    "runtimeDependencies": [],
+    "files": [],
+    "folders": [
+      {
+        "fullyQualifiedName": "solution_folder"
+      }
+    ],
+    "spec": {
+      "name": "Human-Denied",
+      "description": "",
+      "enforceUniqueReference": false,
+      "encrypted": false,
+      "acceptAutomaticallyRetry": true,
+      "maxNumberOfRetries": 1,
+      "specificDataJsonSchema": null,
+      "outputDataJsonSchema": null,
+      "analyticsDataJsonSchema": null,
+      "slaProcessRef": null,
+      "slaInHours": 0,
+      "slaInMinutes": 0,
+      "riskSlaInHours": 0,
+      "riskSlaInMinutes": 0,
+      "retentionAction": "Delete",
+      "retentionPeriod": 30,
+      "retentionBucketRef": null,
+      "staleRetentionAction": "Delete",
+      "staleRetentionPeriod": 180,
+      "staleRetentionBucketRef": null,
+      "tags": []
+    },
+    "locks": [],
+    "key": "68def7b3-8937-4b7f-9be1-d806ad079963"
+  }
+}

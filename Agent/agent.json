@@ -1,0 +1,54 @@
+{
+  "version": "1.1.0",
+  "settings": {
+    "model": "gpt-5.4-2026-03-05-community-agents",
+    "maxTokens": 65535,
+    "temperature": 0,
+    "engine": "basic-v2",
+    "maxIterations": 25,
+    "mode": "standard"
+  },
+  "inputSchema": {
+    "type": "object",
+    "properties": {}
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "content": {
+        "type": "string",
+        "description": "Output content"
+      }
+    }
+  },
+  "metadata": {
+    "storageVersion": "50.0.0",
+    "isConversational": false,
+    "showProjectCreationExperience": false,
+    "targetRuntime": "pythonAgent"
+  },
+  "type": "lowCode",
+  "projectId": "b69380e2-efd5-46ca-bb46-54d373f7477e",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are an agentic assistant.",
+      "contentTokens": [
+        {
+          "type": "simpleText",
+          "rawString": "You are an agentic assistant."
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": "What is the current date?",
+      "contentTokens": [
+        {
+          "type": "simpleText",
+          "rawString": "What is the current date?"
+        }
+      ]
+    }
+  ]
+}

@@ -1,7 +1,7 @@
-# Harborview Mortgage — Agentic Intake & Robot Identity Governance
+# Harborview Lending — Agentic Loan & Mortgage Intake + Robot Identity Governance
 
 **Author:** Johnlenny Tejada · Providence, RI
-**Platform:** UiPath (Maestro · Document Understanding · Agent Builder · Action Center · Orchestrator · Data Fabric · Apps)
+**Platform:** UiPath (Maestro · Agent Builder · Document Understanding · Action Center · Orchestrator · Data Fabric · Apps · Integration Service)
 **Status:** In active development — 8-week build (see [Roadmap](#roadmap))
 
 ---
@@ -10,52 +10,123 @@
 
 A two-pillar UiPath solution built around the two problems that most commonly stall enterprise automation programs in banking:
 
-1. **Mortgage intake and processing** — high-volume, multi-document, compliance-heavy, and still largely manual at most institutions.
+1. **Loan and mortgage intake and processing** — high-volume, document-heavy, compliance-bound, and still largely manual at most institutions. Requests arrive by email in every imaginable shape: prose, PDFs, CSVs, JSON exports from partner systems.
 2. **Robot identity management** — the operational layer underneath every automation: provisioning robot accounts, folder allocation, machine bindings, credential governance, and access attestation. When this layer is manual, every new process ships late and every audit hurts.
 
 Pillar 1 automates a business process. Pillar 2 automates the automation program itself.
 
-The demo scenario uses **Harborview Financial Group**, a fictional regional bank in Providence, RI. All documents and data are synthetic.
+The demo scenario uses **Harborview Financial Group**, a fictional regional bank in Providence, RI. All documents, borrowers, and data are synthetic.
 
 ---
 
-## Pillar 1 — Agentic Mortgage Intake Pipeline
+## Pillar 1 — Agentic Intake Pipeline (Loans & Mortgages)
 
-A mortgage application isn't one PDF — it's a package: URLA (Form 1003), W-2s, pay stubs, bank statements, and identification. This pipeline ingests the full package and routes every application to a governed disposition.
+A single email-driven front door, an AI intake router, and **two parallel product pipelines** — loans and mortgages are classified, extracted, and evaluated as distinct products with distinct document sets and rules, then converge on a shared, governed disposition and notification stage.
 
-### Process Flow
+### End-to-End Process Flow (as built in Maestro BPMN)
 
 ```
-Intake Folder (Integration Service trigger)
+Gmail Inbox (EMAIL_RECEIVED trigger — Integration Service, polling)
       │
       ▼
-Classification Agent ──► splits package by document type (1003 / W-2 / pay stub / bank stmt / ID)
+Email Queue ── every message logged to Intake-Raw queue
+      │        (unique reference = Gmail Message ID → duplicate delivery rejected)
+      ▼
+Intake Router Agent ── classifies request from a normalized JSON envelope
+      │                (email body + extracted attachment content: PDF / CSV / JSON)
+      ▼
+◇ Document Type Routing
+      ├── MORTGAGE ──► Extract Mortgage Details ─┐
+      ├── LOAN ──────► Extract Loan Details ─────┤
+      └── OTHER (default) ──► Triage Queue ──► ⊙ Not Applicable
+                                                 │
+      ┌──────────────────────────────────────────┘
+      ▼ ◇ Unified Pipeline (branches converge)
+Compliance Check Agent ── hard-veto rules; a veto can never be outvoted into auto-approve
       │
       ▼
-Document Understanding ──► field extraction per document type (confidence-scored)
+Risk Assessment Agent ── scored evaluation with confidence
       │
       ▼
-Specialist Agents (orchestrated by Maestro BPMN)
-      ├── Income Calculation Agent — qualifying income from W-2s + pay stubs
-      ├── Completeness Agent — flags missing documents, drafts customer follow-up
-      └── Compliance Agent — hard-veto checks, adverse-action readiness
-      │
-      ▼
-Confidence-Gated Gateway
-      ├── Auto-Clear        ──► Orchestrator queue: Cleared
-      ├── Auto-Decline      ──► Orchestrator queue: Declined (adverse-action record)
-      ├── Human Review      ──► Action Center task (SLA timer + escalation)
-      └── High-Value Review ──► Action Center task, senior queue
-      │
-      ▼
-Data Fabric entity (full audit trail) ──► Loan Officer Operations App (live dashboard)
+◇ Disposition Routing
+      ├── auto-approve ──► Auto-Approved Queue ──────────────────┐
+      ├── auto-deny ─────► Auto-Denied Queue ────────────────────┤
+      └── review (default) ──► Human-Review Queue                │
+                                   │                             │
+                                   ▼                             │
+                     Human Review (Action Center User Task)      │
+                     — process suspends until a reviewer acts    │
+                                   │                             │
+                                   ▼                             │
+                     ◇ Human Disposition Routing                 │
+                        ├── APPROVED ──► Human-Approved ─────────┤
+                        └── DECLINED ──► Human-Denied ───────────┤
+                                                                 ▼
+                                              ◇ Notification Routing
+                                                (single variable: finalDecision)
+                        ┌────────────────────────────┴───────────────────────┐
+                        ▼                                                    ▼
+          Compose & Send Approval Email                    Compose & Send Adverse-Action Email
+          (AGENT — personalized, next steps)               (TEMPLATE — deterministic reason codes,
+                        │                                   pre-approved language; no LLM authorship)
+                        └────────────► Log Final Record ◄────────────────────┘
+                                       (Data Fabric entity — full audit trail)
+                                              │
+                                              ▼
+                                       ⊙ Decision Complete
 ```
+
+### The Two Product Pipelines
+
+| | **Loan Pipeline** | **Mortgage Pipeline** |
+|---|---|---|
+| **Products** | Personal, auto, and small-business lending | Home purchase, refinance, home equity |
+| **Typical package** | Application details, W-2s, pay stubs, bank statements | URLA (Form 1003), W-2s, pay stubs, bank statements, ID |
+| **Extraction stage** | `Extract Loan Details` — income, requested amount, term, purpose, DTI inputs | `Extract Mortgage Details` — borrower, property, loan amount, income, DTI inputs from the 1003 |
+| **Risk emphasis** | Income verification, DTI vs. product policy | DTI, property/loan profile, documentation completeness |
+| **Regulatory surface** | ECOA/Reg B adverse-action requirements | ECOA/Reg B adverse-action requirements + mortgage-specific disclosure posture |
+
+Both products share the compliance → risk → disposition → notification backbone, so governance is enforced once, identically — while extraction and evaluation stay product-specific. Adding a third product (e.g., HELOC) means adding one routing edge and one extraction task, not a new pipeline.
+
+### Format-Flexible Intake, Schema-Strict Agents
+
+Requests arrive as free-text email, PDF attachments, CSV rows, or JSON payloads. The pipeline **normalizes every format into one JSON envelope** (source, sender, subject, body text, extracted attachment text) *before* any agent runs. Agents always receive the same strict shape and return schema-enforced structured output:
+
+```json
+{ "category": "LOAN | MORTGAGE | OTHER", "confidence": 0.0–1.0, "reasoning": "...", "signalsFound": [] }
+```
+
+Flexibility lives in the pipeline; strictness lives at the agent boundary. That is what makes agent behavior testable and auditable.
+
+### The Agents
+
+| Agent | Role | Guardrail |
+|---|---|---|
+| **Intake Router Agent** | Classifies each normalized envelope as LOAN / MORTGAGE / OTHER | Conflicting or absent signals → OTHER with low confidence; never guesses |
+| **Compliance Check Agent** | Policy and eligibility screening | Hard veto: can force review or denial, can never be overridden into auto-approve |
+| **Risk Assessment Agent** | Scored risk evaluation with confidence | Low confidence routes to human review by default-flow design |
+| **Approval Email Composer** | Drafts personalized approval notifications | Approval only — the lowest-risk message in the process |
+
+### Where AI Deliberately Is Not
+
+The **adverse-action (denial) notice is not agent-written.** Under ECOA/Reg B a denial must state specific, accurate reasons. Denial emails are generated from **deterministic templates populated with reason codes** produced by the compliance/risk logic (e.g., `DTI_EXCEEDS_POLICY`) and mapped to pre-approved plain-language sentences. Every sentence in a denial existed before the pipeline ran; the pipeline only selects and fills. Knowing where *not* to put an LLM is a design feature of this project, not a gap.
 
 ### Key Design Points
 
-- **Deterministic orchestration, non-deterministic reasoning.** Maestro BPMN owns routing and state; LLM agents own judgment calls — every agent output passes through confidence thresholds and rule-based gates before any disposition.
-- **Human-in-the-loop with SLA escalation.** No application is declined or cleared above threshold limits without a reviewer. Action Center tasks carry SLA timers with automatic escalation to a senior queue.
-- **Audit-first.** Every extraction, agent decision, confidence score, and human action is persisted to Data Fabric. The operations app surfaces the live record set; the audit trail supports fair-lending and adverse-action review.
+- **Deterministic orchestration, non-deterministic reasoning.** Maestro BPMN owns routing and state; agents advise through confidence-scored structured output. Ambiguity always falls to the default flow — human review — never to auto-disposition.
+- **Human-in-the-loop as a real BPMN suspension.** Review items stop at an Action Center User Task until a reviewer acts; the reviewer's verdict sets the same `finalDecision` variable the auto paths set, so human and automated decisions are downstream-identical and equally audited. SLA timers with escalation attach to this task (in progress — see roadmap).
+- **Audit-first.** Every email is queued to `Intake-Raw` before any AI touches it; every decision, score, veto, and human action lands in one Data Fabric record per application.
+- **Nothing drops silently.** Non-lending email exits through a Triage queue with its own end state; failures route to an Exceptions queue (in progress).
+
+### Orchestrator Queues
+
+| Queue | Purpose |
+|---|---|
+| `Intake-Raw` | Every inbound email, logged pre-classification (unique ref: Gmail Message ID) |
+| `Auto-Approved` / `Auto-Denied` | Automated dispositions with full context payload |
+| `Human-Review` | Ambiguous, low-confidence, or compliance-flagged applications |
+| `Triage` | Non-lending email — acknowledged, not processed |
+| `Exceptions` | Agent errors, timeouts, malformed payloads — nothing fails invisibly |
 
 ---
 
@@ -73,18 +144,24 @@ This pillar is a UiPath solution *for* the UiPath platform, built on the **Orche
 | **Credential governance** | Credential assets with rotation tracking; designed for enterprise vault integration (CyberArk) via Orchestrator's native credential store support |
 | **Attestation report** | Exportable access-review packet per robot identity — the artifact an internal audit or SOX review asks for |
 
+The requirements for this pillar are being captured live: every manual provisioning action performed while building Pillar 1 is logged in [`/docs/provisioning-log.md`](docs/provisioning-log.md) — that log is the spec the provisioning workflow automates.
+
 ---
 
 ## Repository Contents
 
 | Path | Description |
 |---|---|
-| `/pillar-1-mortgage-intake/` | Maestro BPMN, DU taxonomy + extractor configs, agent definitions, Action Center app, Data Fabric schema, operations app |
+| `/pillar-1-lending-intake/` | Maestro BPMN (`Process.bpmn`), solution package (`.ius`), agent definitions & prompts, queue configs, Action Center task app |
 | `/pillar-2-robot-identity/` | Provisioning + pre-flight workflows, Orchestrator API integration, identity inventory app, attestation report templates |
 | `/docs/SDD.md` | Solution Design Document — architecture, design decisions, governance model, known limitations |
-| `/docs/governance-pack/` | Audit-trail samples, model inventory, prompt register, escalation matrix, adverse-action posture |
-| `/test-data/` | Synthetic mortgage packages engineered to exercise each routing path |
+| `/docs/provisioning-log.md` | Numbered log of every manual admin action — the living spec for Pillar 2 |
+| `/docs/governance-pack/` | Audit-trail samples, prompt register, escalation matrix, adverse-action posture |
+| `/docs/images/` | Pipeline architecture diagram (exported from Maestro) |
+| `/test-data/` | Synthetic loan and mortgage requests (email, PDF, CSV, JSON) engineered to exercise every routing path |
 | `/demo/` | Demo video + script |
+
+![Pipeline Architecture](docs/images/pipeline-architecture.png)
 
 ---
 
@@ -92,16 +169,16 @@ This pillar is a UiPath solution *for* the UiPath platform, built on the **Orche
 
 | Weeks | Milestone | Status |
 |---|---|---|
-| 1–2 | Synthetic mortgage document set; DU classification + extraction models trained | 🔄 In progress |
-| 3–4 | Maestro orchestration, three specialist agents, queues, HITL with SLA escalation, Data Fabric + operations app | ⬜ Planned |
-| 5–6 | Robot Identity Manager: provisioning workflow, pre-flight check, inventory app, credential rotation demo | ⬜ Planned |
-| 7 | Governance pack, SDD, demo video | ⬜ Planned |
+| 1 | Tenant foundation: folder, unattended robot, machine binding, Gmail connection, queues | ✅ Complete |
+| 2–3 | End-to-end Maestro BPMN: dual-pipeline routing, HITL, notification split, audit path | ✅ Complete (diagram); node-by-node wiring 🔄 In progress |
+| 3–4 | Agents live (router, compliance, risk, approval composer); queue wiring; attachment normalization (PDF/CSV/JSON) | 🔄 In progress |
+| 4–5 | Action Center review task + SLA escalation; adverse-action template engine; Data Fabric entity + operations app | ⬜ Planned |
+| 5–6 | Robot Identity Manager: provisioning workflow, pre-flight check, inventory app, credential rotation | ⬜ Planned |
+| 7 | Governance pack, SDD, test evidence, demo video | ⬜ Planned |
 | 8 | Hardening, documentation polish, final release | ⬜ Planned |
 
 ---
 
 ## Background
 
-This project extends my earlier **Meridian Loan Intake** build (Maestro BPMN + Document Understanding + AI agent triage + Action Center + Data Fabric, DU project score 91%) in two directions: from single-document loan intake to multi-document mortgage packages, and downward into the platform-governance layer where automation programs actually scale or stall.
-
-
+This project extends my earlier **Meridian Loan Intake** build (Maestro BPMN + Document Understanding + AI agent triage + Action Center + Data Fabric, DU project score 91%) in three directions: from a single product to a dual-product routed pipeline, from file-drop intake to format-flexible email intake, and downward into the platform-governance layer where automation programs actually scale or stall.
