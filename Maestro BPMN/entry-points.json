@@ -4,7 +4,7 @@
   "entryPoints": [
     {
       "filePath": "/content/Process.bpmn#Event_start",
-      "uniqueId": "b5d245e2-8d9f-4d85-b401-96555c6d5db4",
+      "uniqueId": "944299a7-6c5f-43d7-9401-a2f12e4180f4",
       "type": "ProcessOrchestration",
       "input": {
         "type": "object",
@@ -14,7 +14,7 @@
         "type": "object",
         "properties": {}
       },
-      "displayName": "Email recievede"
+      "displayName": "Email recieved"
     }
   ]
 }

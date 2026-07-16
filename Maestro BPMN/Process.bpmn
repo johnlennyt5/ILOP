@@ -1,18 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:uipath="http://uipath.org/schema/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="x-uipath-initial-diagram" targetNamespace="http://www.omg.org/spec/BPMN/20100524/MODEL" exporter="UiPath Studio Web (https://uipath.com)" exporterVersion="4fd2af0f">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:uipath="http://uipath.org/schema/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="x-uipath-initial-diagram" targetNamespace="http://www.omg.org/spec/BPMN/20100524/MODEL" exporter="UiPath Studio Web (https://uipath.com)" exporterVersion="4fd2af0f">
   <bpmn:process id="Process_1" name="Process" isExecutable="false">
     <bpmn:extensionElements>
       <uipath:variables version="v1">
         <uipath:inputOutput id="error2" name="Error" type="jsonSchema" elementId="Activity_eOmgXO"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"}}}]]></uipath:inputOutput>
         <uipath:inputOutput id="content" name="content" type="string" elementId="Activity_eOmgXO" />
-        <uipath:inputOutput id="response2" name="response" type="jsonSchema" elementId="Activity_i9M1dZ"><![CDATA[{"type":"object","properties":{"Id":{"type":"integer","title":"Queue Item ID","description":"The unique identifier of the queue item"},"QueueDefinitionId":{"type":"integer","title":"Queue Definition ID","description":"The ID of the queue definition"},"Status":{"type":"string","title":"Status","description":"The status of the queue item","enum":["New","InProgress","Failed","Successful","Abandoned","Retried","Deleted"]},"Reference":{"type":"string","title":"Reference","description":"The reference identifier for the queue item"},"Priority":{"type":"string","title":"Priority","description":"The priority level of the queue item","enum":["Low","Normal","High"]},"DeferDate":{"type":"string","format":"date-time","title":"Defer Date","description":"The date and time when the queue item should be processed"},"DueDate":{"type":"string","format":"date-time","title":"Due Date","description":"The deadline for processing the queue item"},"CreationTime":{"type":"string","format":"date-time","title":"Creation Time","description":"The date and time when the queue item was created"},"Progress":{"type":"string","title":"Progress","description":"The progress status of the queue item"},"SpecificContent":{"type":"object","title":"Item Information","description":"The specific content/data associated with the queue item"},"Output":{"type":"object","title":"Output","description":"The output data produced by processing the queue item"}},"required":["Id","QueueDefinitionId","Status"]}]]></uipath:inputOutput>
-        <uipath:inputOutput id="error3" name="Error" type="jsonSchema" elementId="Activity_i9M1dZ"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"},"response":{"type":"string"}}}]]></uipath:inputOutput>
-        <uipath:inputOutput id="error" name="Error" type="jsonSchema" elementId="Event_start"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"}}}]]></uipath:inputOutput>
-        <uipath:inputOutput id="response" name="response" type="jsonSchema" elementId="Event_start"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"Attachments[*]":{"title":"Attachments","type":"array","items":{"$ref":"#/definitions/Attachments[*]"}},"BCC[*]":{"title":"Bcc","type":"array","items":{"$ref":"#/definitions/BCC[*]"}},"CC[*]":{"title":"Cc","type":"array","items":{"$ref":"#/definitions/CC[*]"}},"HasAttachments":{"title":"With attachments only","type":"boolean"},"Categories[*]":{"title":"Categories","type":"array","items":{"$ref":"#/definitions/Categories[*]"}},"To[*]":{"title":"To","type":"array","items":{"$ref":"#/definitions/To[*]"}},"From":{"title":"From","$ref":"#/definitions/From"},"Subject":{"title":"Subject","type":"string"},"ParentFolders[*]":{"title":"Parent folders","type":"array","items":{"$ref":"#/definitions/ParentFolders[*]"}},"Importance":{"title":"Importance","type":"string"},"Sensitivity":{"title":"Sensitivity","type":"string"},"Type":{"title":"Type","type":"string"},"ThreadID":{"title":"Thread","type":"string"},"ID":{"title":"Id","type":"string"},"Body":{"title":"Body","type":"string"}},"definitions":{"Attachments[*]":{"type":"object","properties":{"MIMEType":{"title":"Attachment mime type","type":"string"},"ID":{"title":"Attachment ID","type":"string"},"Name":{"title":"Attachment name","type":"string"},"Size":{"title":"Attachment size","type":"integer"}}},"BCC[*]":{"type":"object","properties":{"Name":{"title":"Bcc name","type":"string"},"Email":{"title":"Bcc email","type":"string"}}},"CC[*]":{"type":"object","properties":{"Email":{"title":"Cc","type":"string"},"Name":{"title":"Cc name","type":"string"}}},"Categories[*]":{"type":"object","properties":{"ID":{"title":"Category ID","type":"string"},"Name":{"title":"Category name","type":"string"}}},"To[*]":{"type":"object","properties":{"Email":{"title":"To","type":"string"},"Name":{"title":"Recipient name","type":"string"}}},"From":{"type":"object","properties":{"Email":{"title":"From","type":"string"},"Name":{"title":"Sender name","type":"string"}}},"ParentFolders[*]":{"type":"object","properties":{"ID":{"title":"Email folder or label","type":"string"},"Name":{"title":"Label","type":"string"}}}}}]]></uipath:inputOutput>
         <uipath:inputOutput id="response4" name="response" type="jsonSchema" elementId="Activity_Qjnsuy"><![CDATA[{"type":"object","properties":{"Id":{"type":"integer","title":"Queue Item ID","description":"The unique identifier of the queue item"},"QueueDefinitionId":{"type":"integer","title":"Queue Definition ID","description":"The ID of the queue definition"},"Status":{"type":"string","title":"Status","description":"The status of the queue item","enum":["New","InProgress","Failed","Successful","Abandoned","Retried","Deleted"]},"Reference":{"type":"string","title":"Reference","description":"The reference identifier for the queue item"},"Priority":{"type":"string","title":"Priority","description":"The priority level of the queue item","enum":["Low","Normal","High"]},"DeferDate":{"type":"string","format":"date-time","title":"Defer Date","description":"The date and time when the queue item should be processed"},"DueDate":{"type":"string","format":"date-time","title":"Due Date","description":"The deadline for processing the queue item"},"CreationTime":{"type":"string","format":"date-time","title":"Creation Time","description":"The date and time when the queue item was created"},"Progress":{"type":"string","title":"Progress","description":"The progress status of the queue item"},"SpecificContent":{"type":"object","title":"Item Information","description":"The specific content/data associated with the queue item"},"Output":{"type":"object","title":"Output","description":"The output data produced by processing the queue item"}},"required":["Id","QueueDefinitionId","Status"]}]]></uipath:inputOutput>
         <uipath:inputOutput id="error5" name="Error" type="jsonSchema" elementId="Activity_Qjnsuy"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"},"response":{"type":"string"}}}]]></uipath:inputOutput>
-        <uipath:inputOutput id="response5" name="response" type="jsonSchema" elementId="Activity_VX8tS0"><![CDATA[{"type":"object","properties":{"Id":{"type":"integer","title":"Queue Item ID","description":"The unique identifier of the queue item"},"QueueDefinitionId":{"type":"integer","title":"Queue Definition ID","description":"The ID of the queue definition"},"Status":{"type":"string","title":"Status","description":"The status of the queue item","enum":["New","InProgress","Failed","Successful","Abandoned","Retried","Deleted"]},"Reference":{"type":"string","title":"Reference","description":"The reference identifier for the queue item"},"Priority":{"type":"string","title":"Priority","description":"The priority level of the queue item","enum":["Low","Normal","High"]},"DeferDate":{"type":"string","format":"date-time","title":"Defer Date","description":"The date and time when the queue item should be processed"},"DueDate":{"type":"string","format":"date-time","title":"Due Date","description":"The deadline for processing the queue item"},"CreationTime":{"type":"string","format":"date-time","title":"Creation Time","description":"The date and time when the queue item was created"},"Progress":{"type":"string","title":"Progress","description":"The progress status of the queue item"},"SpecificContent":{"type":"object","title":"Item Information","description":"The specific content/data associated with the queue item"},"Output":{"type":"object","title":"Output","description":"The output data produced by processing the queue item"}},"required":["Id","QueueDefinitionId","Status"]}]]></uipath:inputOutput>
-        <uipath:inputOutput id="error6" name="Error" type="jsonSchema" elementId="Activity_VX8tS0"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"},"response":{"type":"string"}}}]]></uipath:inputOutput>
         <uipath:inputOutput id="response3" name="response" type="jsonSchema" elementId="Activity_JOFEik"><![CDATA[{"type":"object","properties":{"Id":{"type":"integer","title":"Queue Item ID","description":"The unique identifier of the queue item"},"QueueDefinitionId":{"type":"integer","title":"Queue Definition ID","description":"The ID of the queue definition"},"Status":{"type":"string","title":"Status","description":"The status of the queue item","enum":["New","InProgress","Failed","Successful","Abandoned","Retried","Deleted"]},"Reference":{"type":"string","title":"Reference","description":"The reference identifier for the queue item"},"Priority":{"type":"string","title":"Priority","description":"The priority level of the queue item","enum":["Low","Normal","High"]},"DeferDate":{"type":"string","format":"date-time","title":"Defer Date","description":"The date and time when the queue item should be processed"},"DueDate":{"type":"string","format":"date-time","title":"Due Date","description":"The deadline for processing the queue item"},"CreationTime":{"type":"string","format":"date-time","title":"Creation Time","description":"The date and time when the queue item was created"},"Progress":{"type":"string","title":"Progress","description":"The progress status of the queue item"},"SpecificContent":{"type":"object","title":"Item Information","description":"The specific content/data associated with the queue item"},"Output":{"type":"object","title":"Output","description":"The output data produced by processing the queue item"}},"required":["Id","QueueDefinitionId","Status"]}]]></uipath:inputOutput>
         <uipath:inputOutput id="error4" name="Error" type="jsonSchema" elementId="Activity_JOFEik"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"},"response":{"type":"string"}}}]]></uipath:inputOutput>
         <uipath:inputOutput id="response6" name="response" type="jsonSchema" elementId="Activity_0lZ4sh"><![CDATA[{"type":"object","properties":{"Id":{"type":"integer","title":"Queue Item ID","description":"The unique identifier of the queue item"},"QueueDefinitionId":{"type":"integer","title":"Queue Definition ID","description":"The ID of the queue definition"},"Status":{"type":"string","title":"Status","description":"The status of the queue item","enum":["New","InProgress","Failed","Successful","Abandoned","Retried","Deleted"]},"Reference":{"type":"string","title":"Reference","description":"The reference identifier for the queue item"},"Priority":{"type":"string","title":"Priority","description":"The priority level of the queue item","enum":["Low","Normal","High"]},"DeferDate":{"type":"string","format":"date-time","title":"Defer Date","description":"The date and time when the queue item should be processed"},"DueDate":{"type":"string","format":"date-time","title":"Due Date","description":"The deadline for processing the queue item"},"CreationTime":{"type":"string","format":"date-time","title":"Creation Time","description":"The date and time when the queue item was created"},"Progress":{"type":"string","title":"Progress","description":"The progress status of the queue item"},"SpecificContent":{"type":"object","title":"Item Information","description":"The specific content/data associated with the queue item"},"Output":{"type":"object","title":"Output","description":"The output data produced by processing the queue item"}},"required":["Id","QueueDefinitionId","Status"]}]]></uipath:inputOutput>
@@ -21,6 +15,24 @@
         <uipath:inputOutput id="error8" name="Error" type="jsonSchema" elementId="Activity_8CsSkN"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"},"response":{"type":"string"}}}]]></uipath:inputOutput>
         <uipath:inputOutput id="response8" name="response" type="jsonSchema" elementId="Activity_CNCnJ8"><![CDATA[{"type":"object","properties":{"Id":{"type":"integer","title":"Queue Item ID","description":"The unique identifier of the queue item"},"QueueDefinitionId":{"type":"integer","title":"Queue Definition ID","description":"The ID of the queue definition"},"Status":{"type":"string","title":"Status","description":"The status of the queue item","enum":["New","InProgress","Failed","Successful","Abandoned","Retried","Deleted"]},"Reference":{"type":"string","title":"Reference","description":"The reference identifier for the queue item"},"Priority":{"type":"string","title":"Priority","description":"The priority level of the queue item","enum":["Low","Normal","High"]},"DeferDate":{"type":"string","format":"date-time","title":"Defer Date","description":"The date and time when the queue item should be processed"},"DueDate":{"type":"string","format":"date-time","title":"Due Date","description":"The deadline for processing the queue item"},"CreationTime":{"type":"string","format":"date-time","title":"Creation Time","description":"The date and time when the queue item was created"},"Progress":{"type":"string","title":"Progress","description":"The progress status of the queue item"},"SpecificContent":{"type":"object","title":"Item Information","description":"The specific content/data associated with the queue item"},"Output":{"type":"object","title":"Output","description":"The output data produced by processing the queue item"}},"required":["Id","QueueDefinitionId","Status"]}]]></uipath:inputOutput>
         <uipath:inputOutput id="error9" name="Error" type="jsonSchema" elementId="Activity_CNCnJ8"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"},"response":{"type":"string"}}}]]></uipath:inputOutput>
+        <uipath:inputOutput id="response5" name="response" type="jsonSchema" elementId="Activity_VX8tS0"><![CDATA[{"type":"object","properties":{"Id":{"type":"integer","title":"Queue Item ID","description":"The unique identifier of the queue item"},"QueueDefinitionId":{"type":"integer","title":"Queue Definition ID","description":"The ID of the queue definition"},"Status":{"type":"string","title":"Status","description":"The status of the queue item","enum":["New","InProgress","Failed","Successful","Abandoned","Retried","Deleted"]},"Reference":{"type":"string","title":"Reference","description":"The reference identifier for the queue item"},"Priority":{"type":"string","title":"Priority","description":"The priority level of the queue item","enum":["Low","Normal","High"]},"DeferDate":{"type":"string","format":"date-time","title":"Defer Date","description":"The date and time when the queue item should be processed"},"DueDate":{"type":"string","format":"date-time","title":"Due Date","description":"The deadline for processing the queue item"},"CreationTime":{"type":"string","format":"date-time","title":"Creation Time","description":"The date and time when the queue item was created"},"Progress":{"type":"string","title":"Progress","description":"The progress status of the queue item"},"SpecificContent":{"type":"object","title":"Item Information","description":"The specific content/data associated with the queue item"},"Output":{"type":"object","title":"Output","description":"The output data produced by processing the queue item"}},"required":["Id","QueueDefinitionId","Status"]}]]></uipath:inputOutput>
+        <uipath:inputOutput id="error6" name="Error" type="jsonSchema" elementId="Activity_VX8tS0"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"},"response":{"type":"string"}}}]]></uipath:inputOutput>
+        <uipath:inputOutput id="error11" name="Error" type="jsonSchema" elementId="Activity_xjYUvD"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"}}}]]></uipath:inputOutput>
+        <uipath:inputOutput id="pdfText" name="pdfText" type="string" elementId="Activity_xjYUvD" />
+        <uipath:inputOutput id="response2" name="response" type="jsonSchema" elementId="Activity_bRH4Js"><![CDATA[{"type":"object","properties":{"Id":{"type":"integer","title":"Queue Item ID","description":"The unique identifier of the queue item"},"QueueDefinitionId":{"type":"integer","title":"Queue Definition ID","description":"The ID of the queue definition"},"Status":{"type":"string","title":"Status","description":"The status of the queue item","enum":["New","InProgress","Failed","Successful","Abandoned","Retried","Deleted"]},"Reference":{"type":"string","title":"Reference","description":"The reference identifier for the queue item"},"Priority":{"type":"string","title":"Priority","description":"The priority level of the queue item","enum":["Low","Normal","High"]},"DeferDate":{"type":"string","format":"date-time","title":"Defer Date","description":"The date and time when the queue item should be processed"},"DueDate":{"type":"string","format":"date-time","title":"Due Date","description":"The deadline for processing the queue item"},"CreationTime":{"type":"string","format":"date-time","title":"Creation Time","description":"The date and time when the queue item was created"},"Progress":{"type":"string","title":"Progress","description":"The progress status of the queue item"},"SpecificContent":{"type":"object","title":"Item Information","description":"The specific content/data associated with the queue item"},"Output":{"type":"object","title":"Output","description":"The output data produced by processing the queue item"}},"required":["Id","QueueDefinitionId","Status"]}]]></uipath:inputOutput>
+        <uipath:inputOutput id="error3" name="Error" type="jsonSchema" elementId="Activity_bRH4Js"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"},"response":{"type":"string"}}}]]></uipath:inputOutput>
+        <uipath:inputOutput id="error" name="Error" type="jsonSchema" elementId="Event_start"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"}}}]]></uipath:inputOutput>
+        <uipath:inputOutput id="response" name="response" type="jsonSchema" elementId="Event_start"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"Attachments[*]":{"title":"Attachments","type":"array","items":{"$ref":"#/definitions/Attachments[*]"}},"BCC[*]":{"title":"Bcc","type":"array","items":{"$ref":"#/definitions/BCC[*]"}},"CC[*]":{"title":"Cc","type":"array","items":{"$ref":"#/definitions/CC[*]"}},"HasAttachments":{"title":"With attachments only","type":"boolean"},"Categories[*]":{"title":"Categories","type":"array","items":{"$ref":"#/definitions/Categories[*]"}},"To[*]":{"title":"To","type":"array","items":{"$ref":"#/definitions/To[*]"}},"From":{"title":"From","$ref":"#/definitions/From"},"Subject":{"title":"Subject","type":"string"},"ParentFolders[*]":{"title":"Parent folders","type":"array","items":{"$ref":"#/definitions/ParentFolders[*]"}},"Importance":{"title":"Importance","type":"string"},"Sensitivity":{"title":"Sensitivity","type":"string"},"Type":{"title":"Type","type":"string"},"ThreadID":{"title":"Thread","type":"string"},"ID":{"title":"Id","type":"string"},"Body":{"title":"Body","type":"string"}},"definitions":{"Attachments[*]":{"type":"object","properties":{"MIMEType":{"title":"Attachment mime type","type":"string"},"ID":{"title":"Attachment ID","type":"string"},"Name":{"title":"Attachment name","type":"string"},"Size":{"title":"Attachment size","type":"integer"}}},"BCC[*]":{"type":"object","properties":{"Name":{"title":"Bcc name","type":"string"},"Email":{"title":"Bcc email","type":"string"}}},"CC[*]":{"type":"object","properties":{"Email":{"title":"Cc","type":"string"},"Name":{"title":"Cc name","type":"string"}}},"Categories[*]":{"type":"object","properties":{"ID":{"title":"Category ID","type":"string"},"Name":{"title":"Category name","type":"string"}}},"To[*]":{"type":"object","properties":{"Email":{"title":"To","type":"string"},"Name":{"title":"Recipient name","type":"string"}}},"From":{"type":"object","properties":{"Email":{"title":"From","type":"string"},"Name":{"title":"Sender name","type":"string"}}},"ParentFolders[*]":{"type":"object","properties":{"ID":{"title":"Email folder or label","type":"string"},"Name":{"title":"Label","type":"string"}}}}}]]></uipath:inputOutput>
+        <uipath:inputOutput id="error12" name="Error" type="jsonSchema" elementId="Activity_L48CqE"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"}}}]]></uipath:inputOutput>
+        <uipath:inputOutput id="response10" name="response" type="jsonSchema" elementId="Activity_L48CqE"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"BCC[*]":{"title":"Bcc","type":"array","items":{"$ref":"#/definitions/BCC[*]"}},"Body":{"title":"Body","type":"string"},"CC[*]":{"title":"Cc","type":"array","items":{"$ref":"#/definitions/CC[*]"}},"ParentFolders[*]":{"title":"Parent folders","type":"array","items":{"$ref":"#/definitions/ParentFolders[*]"}},"ID":{"title":"Id","type":"string"},"From":{"title":"From","$ref":"#/definitions/From"},"Subject":{"title":"Subject","type":"string"},"To[*]":{"title":"To","type":"array","items":{"$ref":"#/definitions/To[*]"}},"HasAttachments":{"title":"With attachments only","type":"boolean"},"Attachments[*]":{"title":"Attachments","type":"array","items":{"$ref":"#/definitions/Attachments[*]"}},"Importance":{"title":"Importance","type":"string"},"Sensitivity":{"title":"Sensitivity","type":"string"},"Categories[*]":{"title":"Categories","type":"array","items":{"$ref":"#/definitions/Categories[*]"}},"Type":{"title":"Type","type":"string"},"ThreadID":{"title":"Thread","type":"string"}},"definitions":{"BCC[*]":{"type":"object","properties":{"Name":{"title":"Bcc name","type":"string"},"Email":{"title":"Bcc email","type":"string"}}},"CC[*]":{"type":"object","properties":{"Name":{"title":"Cc name","type":"string"},"Email":{"title":"Cc","type":"string"}}},"ParentFolders[*]":{"type":"object","properties":{"ID":{"title":"Email folder or label","type":"string"},"Name":{"title":"Label","type":"string"}}},"From":{"type":"object","properties":{"Name":{"title":"Sender name","type":"string"},"Email":{"title":"From","type":"string"}}},"To[*]":{"type":"object","properties":{"Name":{"title":"Recipient name","type":"string"},"Email":{"title":"To","type":"string"}}},"Attachments[*]":{"type":"object","properties":{"Name":{"title":"Attachment name","type":"string"},"Size":{"title":"Attachment size","type":"integer"},"MIMEType":{"title":"Attachment mime type","type":"string"},"ID":{"title":"Attachment ID","type":"string"}}},"Categories[*]":{"type":"object","properties":{"ID":{"title":"Category ID","type":"string"},"Name":{"title":"Category name","type":"string"}}}}}]]></uipath:inputOutput>
+        <uipath:inputOutput id="error10" name="Error" type="jsonSchema" elementId="Activity_60rBjn"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"}}}]]></uipath:inputOutput>
+        <uipath:inputOutput id="response9" name="response" type="file" elementId="Activity_60rBjn"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"ID":{"type":"string","description":"Orchestrator attachment key"},"FullName":{"type":"string","description":"File name"},"MimeType":{"type":"string","description":"The MIME type of the content, such as application/json or image/png"},"Metadata":{"type":"object","description":"Dictionary<string, string> of metadata","additionalProperties":{"type":"string"}}},"required":["ID"],"x-uipath-resource-kind":"JobAttachment"}]]></uipath:inputOutput>
+        <uipath:inputOutput id="error14" name="Error" type="jsonSchema" elementId="Activity_6YxUml"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"}}}]]></uipath:inputOutput>
+        <uipath:inputOutput id="content3" name="content" type="string" elementId="Activity_6YxUml" />
+        <uipath:inputOutput id="error13" name="Error" type="jsonSchema" elementId="Activity_tJyTmM"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"}}}]]></uipath:inputOutput>
+        <uipath:inputOutput id="content2" name="content" type="string" elementId="Activity_tJyTmM" />
+        <uipath:inputOutput id="error15" name="Error" type="jsonSchema" elementId="Activity_r27CoR"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"}}}]]></uipath:inputOutput>
+        <uipath:inputOutput id="content4" name="content" type="string" elementId="Activity_r27CoR" />
       </uipath:variables>
       <uipath:bindings version="v1">
         <uipath:binding id="bAhXriPsj" name="uipath-google-gmail connection" type="string" default="8306d123-4a99-4a15-b9d3-50554490842c" resource="Connection" resourceKey="8306d123-4a99-4a15-b9d3-50554490842c" propertyAttribute="ConnectionId" />
@@ -39,13 +51,23 @@
         <uipath:binding id="blyEiOlr6" name="name" type="string" default="Human-Approved" resource="queue" resourceKey="Human-Approved" propertyAttribute="name" />
         <uipath:binding id="bTA6BYTNL" name="folderPath" type="string" resource="queue" resourceKey="Triage-Queue" propertyAttribute="folderPath" />
         <uipath:binding id="bRz3Yv8oq" name="name" type="string" default="Triage-Queue" resource="queue" resourceKey="Triage-Queue" propertyAttribute="name" />
+        <uipath:binding id="byCUkq4mH" name="folderPath" type="string" resource="queue" resourceKey="Human-Review" propertyAttribute="folderPath" />
+        <uipath:binding id="begbSZOAx" name="name" type="string" default="Human-Review" resource="queue" resourceKey="Human-Review" propertyAttribute="name" />
+        <uipath:binding id="bIQ7BND1N" name="folderPath" type="string" resource="process" resourceKey="RPA Workflow" propertyAttribute="folderPath" />
+        <uipath:binding id="bzn6Y4WkD" name="name" type="string" default="RPA Workflow" resource="process" resourceKey="RPA Workflow" propertyAttribute="name" />
+        <uipath:binding id="bUolCYFM3" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="Agent 1" propertyAttribute="folderPath" />
+        <uipath:binding id="bQEx8EQvT" name="name" type="string" default="Agent 1" resource="process" resourceSubType="Agent" resourceKey="Agent 1" propertyAttribute="name" />
+        <uipath:binding id="bVcfFsevU" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="Agent" propertyAttribute="folderPath" />
+        <uipath:binding id="bpvajdIpZ" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="Agent 1" propertyAttribute="folderPath" />
+        <uipath:binding id="bchl3tK6s" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="Agent 2" propertyAttribute="folderPath" />
+        <uipath:binding id="bfLluDdl8" name="name" type="string" default="Agent 2" resource="process" resourceSubType="Agent" resourceKey="Agent 2" propertyAttribute="name" />
       </uipath:bindings>
       <uipath:migrationVersion version="15" />
       <uipath:intsvcActivityConfig version="v2" />
     </bpmn:extensionElements>
     <bpmn:startEvent id="Event_start" name="Email recieved">
       <bpmn:extensionElements>
-        <uipath:entryPointId value="b5d245e2-8d9f-4d85-b401-96555c6d5db4" />
+        <uipath:entryPointId value="944299a7-6c5f-43d7-9401-a2f12e4180f4" />
         <uipath:event version="v1">
           <uipath:type value="Intsvc.EventTrigger" version="v1" />
           <uipath:context>
@@ -65,7 +87,7 @@
           <uipath:output name="Error" type="jsonSchema" source="=Error" var="error" />
         </uipath:event>
       </bpmn:extensionElements>
-      <bpmn:outgoing>edge_Event_start-Activity_i9M1dZ</bpmn:outgoing>
+      <bpmn:outgoing>edge_Event_start-Activity_bRH4Js</bpmn:outgoing>
       <bpmn:messageEventDefinition />
     </bpmn:startEvent>
     <bpmn:serviceTask id="Activity_eOmgXO" name="Intake Router Agent ">
@@ -84,26 +106,9 @@
           <uipath:output name="content" type="string" description="Output content" source="=content" var="content" />
         </uipath:activity>
       </bpmn:extensionElements>
-      <bpmn:incoming>edge_EFkCDy</bpmn:incoming>
+      <bpmn:incoming>edge_p46jKm</bpmn:incoming>
+      <bpmn:incoming>edge_J9NO4E</bpmn:incoming>
       <bpmn:outgoing>edge_CfNHra</bpmn:outgoing>
-    </bpmn:serviceTask>
-    <bpmn:serviceTask id="Activity_i9M1dZ" name="Email Queue">
-      <bpmn:extensionElements>
-        <uipath:activity version="v1">
-          <uipath:type value="Orchestrator.CreateAndWaitForQueueItem" version="v2" />
-          <uipath:context>
-            <uipath:input name="name" type="string" value="=bindings.bsGaUh94q" />
-            <uipath:input name="folderPath" type="string" value="=bindings.b3Cb1CXPt" />
-            <uipath:input name="_label" type="string" value="Loan-Mortgage-Intake" />
-            <uipath:inputSchema type="jsonSchema"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"SpecificContent":{"type":"object","title":"Item information"},"DueDate":{"type":"datetime","title":"Deadline"},"DeferDate":{"type":"datetime","title":"Postpone"},"Priority":{"type":"dropdown","title":"Priority"},"Reference":{"type":"string","title":"Reference"}},"required":[]}]]></uipath:inputSchema>
-          </uipath:context>
-          <uipath:input name="ItemData" type="json" target="body"><![CDATA[{"SpecificContent":{},"DueDate":null,"DeferDate":null,"Priority":null,"Reference":null}]]></uipath:input>
-          <uipath:output name="response" type="jsonSchema" source="=result" var="response2" />
-          <uipath:output name="Error" type="jsonSchema" source="=Error" var="error3" />
-        </uipath:activity>
-      </bpmn:extensionElements>
-      <bpmn:incoming>edge_Event_start-Activity_i9M1dZ</bpmn:incoming>
-      <bpmn:outgoing>edge_EFkCDy</bpmn:outgoing>
     </bpmn:serviceTask>
     <bpmn:exclusiveGateway id="Gateway_YXrWQO" name="Document Type Routing" default="edge_RtbwLH">
       <bpmn:incoming>edge_CfNHra</bpmn:incoming>
@@ -131,6 +136,13 @@
         </uipath:tags>
         <uipath:activity version="v1">
           <uipath:type value="Orchestrator.StartAgentJob" version="v2" />
+          <uipath:context>
+            <uipath:input name="name" type="string" value="=bindings.bQEx8EQvT" />
+            <uipath:input name="folderPath" type="string" value="=bindings.bpvajdIpZ" />
+            <uipath:input name="_label" type="string" value="Agent 1" />
+          </uipath:context>
+          <uipath:output name="Error" type="jsonSchema" source="=Error" var="error13" />
+          <uipath:output name="content" type="string" description="Output content" source="=content" var="content2" />
         </uipath:activity>
       </bpmn:extensionElements>
       <bpmn:incoming>edge_IJcxlw</bpmn:incoming>
@@ -143,12 +155,19 @@
         </uipath:tags>
         <uipath:activity version="v1">
           <uipath:type value="Orchestrator.StartAgentJob" version="v2" />
+          <uipath:context>
+            <uipath:input name="name" type="string" value="=bindings.bENqKJgP1" />
+            <uipath:input name="folderPath" type="string" value="=bindings.bVcfFsevU" />
+            <uipath:input name="_label" type="string" value="Agent" />
+          </uipath:context>
+          <uipath:output name="Error" type="jsonSchema" source="=Error" var="error14" />
+          <uipath:output name="content" type="string" description="Output content" source="=content" var="content3" />
         </uipath:activity>
       </bpmn:extensionElements>
       <bpmn:incoming>edge_qTFxnM</bpmn:incoming>
       <bpmn:outgoing>edge_IJcxlw</bpmn:outgoing>
     </bpmn:serviceTask>
-    <bpmn:exclusiveGateway id="Gateway_3bdMPw" name="Disposition Routing">
+    <bpmn:exclusiveGateway id="Gateway_3bdMPw" name="Disposition Routing" default="edge_HPKP9I">
       <bpmn:incoming>edge_XNnh6d</bpmn:incoming>
       <bpmn:outgoing>edge_xd0MRM</bpmn:outgoing>
       <bpmn:outgoing>edge_GSxzGo</bpmn:outgoing>
@@ -162,7 +181,7 @@
             <uipath:input name="name" type="string" value="=bindings.boVE9LBAz" />
             <uipath:input name="folderPath" type="string" value="=bindings.b7x7bhfq9" />
             <uipath:input name="_label" type="string" value="Auto-Denied" />
-            <uipath:inputSchema type="jsonSchema"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"SpecificContent":{"type":"object","title":"Item information"},"DueDate":{"type":"datetime","title":"Deadline"},"DeferDate":{"type":"datetime","title":"Postpone"},"Priority":{"type":"dropdown","title":"Priority"},"Reference":{"type":"string","title":"Reference"}},"required":[]}]]></uipath:inputSchema>
+            <uipath:inputSchema type="jsonSchema"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"SpecificContent":{"type":"object"},"DueDate":{"type":"datetime"},"DeferDate":{"type":"datetime"},"Priority":{"type":"dropdown"},"Reference":{"type":"string"}},"required":[]}]]></uipath:inputSchema>
           </uipath:context>
           <uipath:input name="ItemData" type="json" target="body"><![CDATA[{"SpecificContent":{},"DueDate":null,"DeferDate":null,"Priority":null,"Reference":null}]]></uipath:input>
           <uipath:output name="response" type="jsonSchema" source="=result" var="response3" />
@@ -180,7 +199,7 @@
             <uipath:input name="name" type="string" value="=bindings.brDM2fdvy" />
             <uipath:input name="folderPath" type="string" value="=bindings.bXQ2zBVVf" />
             <uipath:input name="_label" type="string" value="Auto-Approved" />
-            <uipath:inputSchema type="jsonSchema"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"SpecificContent":{"type":"object","title":"Item information"},"DueDate":{"type":"datetime","title":"Deadline"},"DeferDate":{"type":"datetime","title":"Postpone"},"Priority":{"type":"dropdown","title":"Priority"},"Reference":{"type":"string","title":"Reference"}},"required":[]}]]></uipath:inputSchema>
+            <uipath:inputSchema type="jsonSchema"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"SpecificContent":{"type":"object"},"DueDate":{"type":"datetime"},"DeferDate":{"type":"datetime"},"Priority":{"type":"dropdown"},"Reference":{"type":"string"}},"required":[]}]]></uipath:inputSchema>
           </uipath:context>
           <uipath:input name="ItemData" type="json" target="body"><![CDATA[{"SpecificContent":{},"DueDate":null,"DeferDate":null,"Priority":null,"Reference":null}]]></uipath:input>
           <uipath:output name="response" type="jsonSchema" source="=result" var="response4" />
@@ -195,10 +214,10 @@
         <uipath:activity version="v1">
           <uipath:type value="Orchestrator.CreateQueueItem" version="v2" />
           <uipath:context>
-            <uipath:input name="name" type="string" value="=bindings.brDM2fdvy" />
-            <uipath:input name="folderPath" type="string" value="=bindings.bXQ2zBVVf" />
-            <uipath:input name="_label" type="string" value="Auto-Approved" />
-            <uipath:inputSchema type="jsonSchema"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"SpecificContent":{"type":"object","title":"Item information"},"DueDate":{"type":"datetime","title":"Deadline"},"DeferDate":{"type":"datetime","title":"Postpone"},"Priority":{"type":"dropdown","title":"Priority"},"Reference":{"type":"string","title":"Reference"}},"required":[]}]]></uipath:inputSchema>
+            <uipath:input name="name" type="string" value="=bindings.begbSZOAx" />
+            <uipath:input name="folderPath" type="string" value="=bindings.byCUkq4mH" />
+            <uipath:input name="_label" type="string" value="Human-Review" />
+            <uipath:inputSchema type="jsonSchema"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"SpecificContent":{"type":"object"},"DueDate":{"type":"datetime"},"DeferDate":{"type":"datetime"},"Priority":{"type":"dropdown"},"Reference":{"type":"string"}},"required":[]}]]></uipath:inputSchema>
           </uipath:context>
           <uipath:input name="ItemData" type="json" target="body"><![CDATA[{"SpecificContent":{},"DueDate":null,"DeferDate":null,"Priority":null,"Reference":null}]]></uipath:input>
           <uipath:output name="response" type="jsonSchema" source="=result" var="response5" />
@@ -208,7 +227,7 @@
       <bpmn:incoming>edge_HPKP9I</bpmn:incoming>
       <bpmn:outgoing>edge_oy6iXU</bpmn:outgoing>
     </bpmn:sendTask>
-    <bpmn:exclusiveGateway id="Gateway_tHd0JW" name="Notification Routing">
+    <bpmn:exclusiveGateway id="Gateway_tHd0JW" name="Notification Routing" default="edge_pVR0nZ">
       <bpmn:incoming>edge_x5xxqr</bpmn:incoming>
       <bpmn:incoming>edge_o6NTBZ</bpmn:incoming>
       <bpmn:incoming>edge_mOmEgN</bpmn:incoming>
@@ -223,12 +242,19 @@
         </uipath:tags>
         <uipath:activity version="v1">
           <uipath:type value="Orchestrator.StartAgentJob" version="v2" />
+          <uipath:context>
+            <uipath:input name="name" type="string" value="=bindings.bfLluDdl8" />
+            <uipath:input name="folderPath" type="string" value="=bindings.bchl3tK6s" />
+            <uipath:input name="_label" type="string" value="Agent 2" />
+          </uipath:context>
+          <uipath:output name="Error" type="jsonSchema" source="=Error" var="error15" />
+          <uipath:output name="content" type="string" description="Output content" source="=content" var="content4" />
         </uipath:activity>
       </bpmn:extensionElements>
       <bpmn:incoming>edge_JE8FmZ</bpmn:incoming>
       <bpmn:outgoing>edge_nV5708</bpmn:outgoing>
     </bpmn:serviceTask>
-    <bpmn:exclusiveGateway id="Gateway_wEEv1R" name="Human Disposition routing">
+    <bpmn:exclusiveGateway id="Gateway_wEEv1R" name="Human Disposition routing" default="edge_qFrlDT">
       <bpmn:incoming>edge_7N00OK</bpmn:incoming>
       <bpmn:outgoing>edge_83dfBW</bpmn:outgoing>
       <bpmn:outgoing>edge_qFrlDT</bpmn:outgoing>
@@ -241,7 +267,7 @@
             <uipath:input name="name" type="string" value="=bindings.blyEiOlr6" />
             <uipath:input name="folderPath" type="string" value="=bindings.b3eQKEyem" />
             <uipath:input name="_label" type="string" value="Human-Approved" />
-            <uipath:inputSchema type="jsonSchema"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"SpecificContent":{"type":"object","title":"Item information"},"DueDate":{"type":"datetime","title":"Deadline"},"DeferDate":{"type":"datetime","title":"Postpone"},"Priority":{"type":"dropdown","title":"Priority"},"Reference":{"type":"string","title":"Reference"}},"required":[]}]]></uipath:inputSchema>
+            <uipath:inputSchema type="jsonSchema"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"SpecificContent":{"type":"object"},"DueDate":{"type":"datetime"},"DeferDate":{"type":"datetime"},"Priority":{"type":"dropdown"},"Reference":{"type":"string"}},"required":[]}]]></uipath:inputSchema>
           </uipath:context>
           <uipath:input name="ItemData" type="json" target="body"><![CDATA[{"SpecificContent":{},"DueDate":null,"DeferDate":null,"Priority":null,"Reference":null}]]></uipath:input>
           <uipath:output name="response" type="jsonSchema" source="=result" var="response7" />
@@ -259,7 +285,7 @@
             <uipath:input name="name" type="string" value="=bindings.b9NTaijVO" />
             <uipath:input name="folderPath" type="string" value="=bindings.buq3jMF1H" />
             <uipath:input name="_label" type="string" value="Human-Denied" />
-            <uipath:inputSchema type="jsonSchema"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"SpecificContent":{"type":"object","title":"Item information"},"DueDate":{"type":"datetime","title":"Deadline"},"DeferDate":{"type":"datetime","title":"Postpone"},"Priority":{"type":"dropdown","title":"Priority"},"Reference":{"type":"string","title":"Reference"}},"required":[]}]]></uipath:inputSchema>
+            <uipath:inputSchema type="jsonSchema"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"SpecificContent":{"type":"object"},"DueDate":{"type":"datetime"},"DeferDate":{"type":"datetime"},"Priority":{"type":"dropdown"},"Reference":{"type":"string"}},"required":[]}]]></uipath:inputSchema>
           </uipath:context>
           <uipath:input name="ItemData" type="json" target="body"><![CDATA[{"SpecificContent":{},"DueDate":null,"DeferDate":null,"Priority":null,"Reference":null}]]></uipath:input>
           <uipath:output name="response" type="jsonSchema" source="=result" var="response6" />
@@ -297,7 +323,7 @@
             <uipath:input name="name" type="string" value="=bindings.bRz3Yv8oq" />
             <uipath:input name="folderPath" type="string" value="=bindings.bTA6BYTNL" />
             <uipath:input name="_label" type="string" value="Triage-Queue" />
-            <uipath:inputSchema type="jsonSchema"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"SpecificContent":{"type":"object","title":"Item information"},"DueDate":{"type":"datetime","title":"Deadline"},"DeferDate":{"type":"datetime","title":"Postpone"},"Priority":{"type":"dropdown","title":"Priority"},"Reference":{"type":"string","title":"Reference"}},"required":[]}]]></uipath:inputSchema>
+            <uipath:inputSchema type="jsonSchema"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"SpecificContent":{"type":"object"},"DueDate":{"type":"datetime"},"DeferDate":{"type":"datetime"},"Priority":{"type":"dropdown"},"Reference":{"type":"string"}},"required":[]}]]></uipath:inputSchema>
           </uipath:context>
           <uipath:input name="ItemData" type="json" target="body"><![CDATA[{"SpecificContent":{},"DueDate":null,"DeferDate":null,"Priority":null,"Reference":null}]]></uipath:input>
           <uipath:output name="response" type="jsonSchema" source="=result" var="response8" />
@@ -310,23 +336,123 @@
     <bpmn:endEvent id="Event_4LExVk" name="Not Applicable ">
       <bpmn:incoming>edge_HOss6W</bpmn:incoming>
     </bpmn:endEvent>
-    <bpmn:sequenceFlow id="edge_Event_start-Activity_i9M1dZ" sourceRef="Event_start" targetRef="Activity_i9M1dZ" />
-    <bpmn:sequenceFlow id="edge_EFkCDy" sourceRef="Activity_i9M1dZ" targetRef="Activity_eOmgXO" />
+    <bpmn:sendTask id="Activity_bRH4Js" name="Email Queue">
+      <bpmn:extensionElements>
+        <uipath:activity version="v1">
+          <uipath:type value="Orchestrator.CreateQueueItem" version="v2" />
+          <uipath:context>
+            <uipath:input name="name" type="string" value="=bindings.bsGaUh94q" />
+            <uipath:input name="folderPath" type="string" value="=bindings.b3Cb1CXPt" />
+            <uipath:input name="_label" type="string" value="Loan-Mortgage-Intake" />
+            <uipath:inputSchema type="jsonSchema"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"SpecificContent":{"type":"object"},"DueDate":{"type":"datetime"},"DeferDate":{"type":"datetime"},"Priority":{"type":"dropdown"},"Reference":{"type":"string"}},"required":[]}]]></uipath:inputSchema>
+          </uipath:context>
+          <uipath:input name="ItemData" type="json" target="body"><![CDATA[{"SpecificContent":"=js:({\n  \"FromEmail\": vars.response.From.Email,\n  \"Subject\": vars.response.Subject,\n  \"HasAttachments\": vars.response.HasAttachments,\n  \"ThreadID\": vars.response.ThreadID,\n  \"Body\": vars.response.Body\n})","DueDate":null,"DeferDate":null,"Priority":null,"Reference":"=vars.response.ID"}]]></uipath:input>
+          <uipath:output name="response" type="jsonSchema" source="=result" var="response2" />
+          <uipath:output name="Error" type="jsonSchema" source="=Error" var="error3" />
+        </uipath:activity>
+      </bpmn:extensionElements>
+      <bpmn:incoming>edge_Event_start-Activity_bRH4Js</bpmn:incoming>
+      <bpmn:outgoing>edge_GXk7Bh</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:exclusiveGateway id="Gateway_BxeiM8" name="Has Attachments?" default="edge_p46jKm">
+      <bpmn:incoming>edge_GXk7Bh</bpmn:incoming>
+      <bpmn:outgoing>edge_p46jKm</bpmn:outgoing>
+      <bpmn:outgoing>edge_mCrTaT</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sendTask id="Activity_60rBjn" name="Download Attachments">
+      <bpmn:extensionElements>
+        <uipath:activity version="v1">
+          <uipath:type value="Intsvc.ActivityExecution" version="v1" />
+          <uipath:context>
+            <uipath:input name="connectorKey" type="string" value="uipath-google-gmail" />
+            <uipath:input name="connection" type="string" value="=bindings.bAhXriPsj" />
+            <uipath:input name="resourceKey" type="string" value="8306d123-4a99-4a15-b9d3-50554490842c" />
+            <uipath:input name="folderKey" type="string" value="=bindings.bnAtGspHT" />
+            <uipath:input name="method" type="string" value="GET" />
+            <uipath:input name="path" type="string" value="/DownloadAttachmentByID/{id}" />
+            <uipath:input name="objectName" type="string" value="DownloadAttachmentByID" />
+            <uipath:input name="metadata" type="json"><![CDATA[{"activityPropertyConfiguration":{"configuration":"=jsonString:{\"essentialConfiguration\":{\"connectorVersion\":\"1.24.8\",\"customFieldsRequestDetails\":null,\"instanceParameters\":{\"connectorKey\":\"uipath-google-gmail\",\"objectName\":\"DownloadAttachmentByID\",\"httpMethod\":\"GETBYID\",\"activityType\":\"Curated\",\"version\":\"1.0.0\",\"supportsStreaming\":false,\"subType\":\"standard\"},\"objectName\":\"DownloadAttachmentByID\",\"operation\":\"retrieve\",\"packageVersion\":\"1.0.0\",\"httpMethod\":\"GET\",\"path\":\"/DownloadAttachmentByID/{id}\",\"unifiedTypesCompatible\":true},\"optionalConfiguration\":{\"_textBlocks\":[],\"objectActions\":[],\"connectorName\":\"Gmail\",\"maxPageSize\":500,\"jobArguments\":null,\"isAutopilotInvalidConfig\":false,\"additionalHeaders\":null,\"cachedLookupValues\":[],\"cachedBrowserItems\":[],\"cachedPropertyMappings\":[],\"primaryKeys\":[],\"objectDisplayName\":\"Download Attachment By ID\",\"eventMode\":null,\"eventOperation\":null,\"hasBreakingChanges\":false,\"fieldsContainer\":{\"outputTypeDefinition\":\"{\\\"Response\\\":octet-stream}\",\"outputJsonSchema\":{\"$schema\":\"http://json-schema.org/draft-07/schema#\",\"type\":\"object\",\"properties\":{\"Response\":{\"title\":\"Response\",\"$ref\":\"#/definitions/Response\"}},\"definitions\":{\"Response\":{\"type\":\"object\",\"properties\":{}}}},\"hasFileOutput\":true,\"populateOutputFields\":true,\"inputFields\":[{\"typeScriptDefinition\":null,\"id\":\"id\",\"name\":\"id\",\"displayName\":\"Attachment ID\",\"description\":\"The ID of attachment to be downloaded\",\"type\":\"string\",\"sortOrder\":1,\"primaryKey\":false,\"design\":{\"loadByDefault\":false,\"isMultiSelect\":false,\"enableUserOverride\":false,\"isHidden\":false,\"position\":\"primary\",\"validation\":false},\"fieldActions\":null,\"searchable\":false,\"searchableOperators\":null,\"searchableNames\":null,\"required\":true,\"request\":true,\"response\":false,\"responseCurated\":false,\"fieldLocation\":\"path\",\"onCanvas\":null,\"isJitField\":false,\"isFieldActionParent\":false,\"isMainResponseField\":false,\"isMethodParameter\":true,\"isBackgroundField\":false,\"filterTree\":null,\"filterNeedsRefresh\":null,\"arrayInputPaths\":null,\"clrType\":{\"_elementType\":null,\"_isNullable\":false,\"isArray\":false,\"genericTypeArguments\":[],\"fullName\":null,\"name\":\"String\",\"assemblyQualifiedName\":\"String\",\"isValueType\":true},\"forceExpressionEditor\":false,\"requiredGroups\":null,\"disableExpressions\":false,\"backingField\":null,\"searchableDisplayName\":null,\"selectedResourceId\":null},{\"typeScriptDefinition\":null,\"id\":\"excludeInlineAttachment\",\"name\":\"excludeInlineAttachment\",\"displayName\":\"Exclude inline attachment\",\"description\":\"Indicates whether to exclude the inline attachments, i.e. Attachments embedded in the email body\",\"type\":\"boolean\",\"sortOrder\":2,\"defaultValue\":false,\"primaryKey\":false,\"design\":{\"loadByDefault\":false,\"isMultiSelect\":false,\"enableUserOverride\":false,\"isHidden\":false,\"position\":\"secondary\",\"validation\":false},\"fieldActions\":null,\"searchable\":false,\"searchableOperators\":null,\"searchableNames\":null,\"required\":false,\"request\":true,\"response\":false,\"responseCurated\":false,\"fieldLocation\":\"query\",\"onCanvas\":true,\"isJitField\":false,\"isFieldActionParent\":false,\"isMainResponseField\":false,\"isMethodParameter\":true,\"isBackgroundField\":false,\"filterTree\":null,\"filterNeedsRefresh\":null,\"arrayInputPaths\":null,\"clrType\":{\"_elementType\":null,\"_isNullable\":false,\"isArray\":false,\"genericTypeArguments\":[],\"fullName\":null,\"name\":\"Boolean\",\"assemblyQualifiedName\":\"Boolean\",\"isValueType\":true},\"forceExpressionEditor\":false,\"requiredGroups\":null,\"disableExpressions\":false,\"backingField\":null,\"searchableDisplayName\":null,\"selectedResourceId\":null}],\"outputFields\":[{\"typeScriptDefinition\":\"{ \\\"ID\\\": string; \\\"FullName\\\"?: string; \\\"MimeType\\\"?: string; \\\"Metadata\\\"?: Record<string, unknown>; }\",\"id\":\"Response\",\"name\":\"Response\",\"displayName\":\"Attachment\",\"description\":\"Final output file\",\"type\":\"octet-stream\",\"sortOrder\":4,\"primaryKey\":false,\"fieldActions\":null,\"searchable\":false,\"searchableJoins\":null,\"required\":false,\"request\":true,\"response\":true,\"responseCurated\":true,\"fieldLocation\":\"output\",\"onCanvas\":null,\"isJitField\":false,\"isFieldActionParent\":false,\"isMainResponseField\":true,\"isMethodParameter\":false,\"isBackgroundField\":false,\"filterTree\":null,\"filterNeedsRefresh\":null,\"arrayInputPaths\":null,\"clrType\":{\"_elementType\":null,\"_isNullable\":false,\"isArray\":false,\"genericTypeArguments\":[],\"fullName\":null,\"name\":\"IResource\",\"assemblyQualifiedName\":\"IResource\",\"isValueType\":false},\"forceExpressionEditor\":false,\"requiredGroups\":null,\"disableExpressions\":false,\"backingField\":null,\"searchableDisplayName\":null,\"selectedResourceId\":null}],\"jitTypeNeedsRefresh\":false,\"jitInputField\":null,\"inputMode\":null,\"searchableFields\":[],\"hasUnifiedTypes\":true,\"jitTypeHash\":null}}}","uiPathActivityTypeId":"13d29d13-54f3-396c-9a7e-e6f367c2ae1e","errorState":{"issues":[]}},"activityMetadata":{"activity":{"isAppActivity":false,"packageId":113548,"svgIconUrl":"icons/70091673b4573a26ec5090fa697c3bf61a0bedf4c77a302986b69d53bea30191.svg","displayName":"Download Email Attachment By Attachment ID","assemblyQualifiedName":"UiPath.IntegrationService.Activities.Runtime.Activities.ConnectorActivity, UiPath.IntegrationService.Activities.Runtime, Version=1.29.0.0, Culture=neutral, PublicKeyToken=null","description":"Download an attachment from email by attachment ID","category":"","activityColor":"#E56D5C","configuration":{"connectorKey":"uipath-google-gmail","objectName":"DownloadAttachmentByID","httpMethod":"GETBYID","activityType":"Curated","version":"1.0.0","supportsStreaming":false,"subType":"standard"},"uiPathActivityTypeId":"13d29d13-54f3-396c-9a7e-e6f367c2ae1e","isExperimental":false,"helpUrlTemplate":"https://docs.uipath.com/{0}/activities/other/latest/integration-service/uipath-google-gmail-Download-Email-Attachment-By-Attachment-ID","isEnabled":true,"targetPlatform":"CrossPlatform","isAdvanced":false,"isRestricted":false,"hasWpfOnlyDesigner":false,"tags":["API.File.Download"]},"meta":{"packageName":"UiPath.IntegrationService.Activities","packageVersion":"1.29.0","activityColor":"#E56D5C","packageCategoryDisplayName":"Gmail"}},"inputMetadata":{},"telemetryData":{"connectorKey":"uipath-google-gmail","connectorName":"Gmail","operationType":"retrieve","objectName":"DownloadAttachmentByID","objectDisplayName":"Download Attachment By ID","primaryKeyName":""},"bindings":[]}]]></uipath:input>
+            <uipath:input name="activityConfigurationVersion" type="string" value="v2" />
+          </uipath:context>
+          <uipath:input name="pathParameters" type="json" target="pathParameters"><![CDATA[{"id":"=js:((vars.response10.Attachments[0].ID))"}]]></uipath:input>
+          <uipath:input name="queryParameters" type="json" target="queryParameters"><![CDATA[{"excludeInlineAttachment":false}]]></uipath:input>
+          <uipath:output name="response" type="file" source="=response" var="response9" target="=orchestrator.JobAttachments" />
+          <uipath:output name="Error" type="jsonSchema" source="=Error" var="error10" />
+        </uipath:activity>
+      </bpmn:extensionElements>
+      <bpmn:incoming>edge_VAVNIH</bpmn:incoming>
+      <bpmn:outgoing>edge_tICnZ9</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:serviceTask id="Activity_xjYUvD" name="Extract PDF Text">
+      <bpmn:extensionElements>
+        <uipath:tags>
+          <uipath:tag key="caseTaskType">rpa</uipath:tag>
+        </uipath:tags>
+        <uipath:activity version="v1">
+          <uipath:type value="Orchestrator.StartJob" version="v2" />
+          <uipath:context>
+            <uipath:input name="name" type="string" value="=bindings.bzn6Y4WkD" />
+            <uipath:input name="folderPath" type="string" value="=bindings.bIQ7BND1N" />
+            <uipath:input name="_label" type="string" value="RPA Workflow" />
+            <uipath:inputSchema type="jsonSchema"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"inputFile":{"type":"file"}},"required":[]}]]></uipath:inputSchema>
+          </uipath:context>
+          <uipath:input name="JobArguments" type="json" target="bodyField"><![CDATA[{"inputFile":"=vars.response9"}]]></uipath:input>
+          <uipath:output name="Error" type="jsonSchema" source="=Error" var="error11" />
+          <uipath:output name="pdfText" type="string" source="=pdfText" var="pdfText" />
+        </uipath:activity>
+      </bpmn:extensionElements>
+      <bpmn:incoming>edge_tICnZ9</bpmn:incoming>
+      <bpmn:outgoing>edge_J9NO4E</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sendTask id="Activity_L48CqE" name="Get Full Email">
+      <bpmn:extensionElements>
+        <uipath:activity version="v1">
+          <uipath:type value="Intsvc.ActivityExecution" version="v1" />
+          <uipath:context>
+            <uipath:input name="connectorKey" type="string" value="uipath-google-gmail" />
+            <uipath:input name="connection" type="string" value="=bindings.bAhXriPsj" />
+            <uipath:input name="resourceKey" type="string" value="8306d123-4a99-4a15-b9d3-50554490842c" />
+            <uipath:input name="folderKey" type="string" value="=bindings.bnAtGspHT" />
+            <uipath:input name="method" type="string" value="GET" />
+            <uipath:input name="path" type="string" value="/hubs/general/NormalizedMessage/{id}" />
+            <uipath:input name="objectName" type="string" value="NormalizedMessage" />
+            <uipath:input name="metadata" type="json"><![CDATA[{"activityPropertyConfiguration":{"configuration":"=jsonString:{\"essentialConfiguration\":{\"connectorVersion\":\"1.24.8\",\"executionType\":null,\"customFieldsRequestDetails\":null,\"instanceParameters\":{\"connectorKey\":\"uipath-google-gmail\",\"objectName\":\"NormalizedMessage\",\"httpMethod\":\"GETBYID\",\"activityType\":\"Curated\",\"version\":\"1.0.0\",\"supportsStreaming\":false,\"subType\":\"method\"},\"objectName\":\"NormalizedMessage\",\"operation\":\"retrieve\",\"packageVersion\":\"1.0.0\",\"httpMethod\":\"GET\",\"path\":\"/hubs/general/NormalizedMessage/{id}\",\"unifiedTypesCompatible\":true},\"optionalConfiguration\":{\"_textBlocks\":[],\"objectActions\":[],\"connectorName\":\"Gmail\",\"maxPageSize\":500,\"jobArguments\":null,\"isAutopilotInvalidConfig\":false,\"additionalHeaders\":null,\"cachedLookupValues\":[],\"cachedBrowserItems\":[],\"cachedPropertyMappings\":[],\"primaryKeys\":[],\"objectDisplayName\":\"Normalizedmessage\",\"baseObject\":null,\"eventMode\":null,\"eventOperation\":null,\"language\":\"en-US\",\"hasBreakingChanges\":false,\"fieldsContainer\":{\"outputTypeDefinition\":\"{\\\"Attachments\\\":{\\\"ID\\\":string;\\\"MIMEType\\\":string;\\\"Name\\\":string;\\\"Size\\\":number}[];\\\"BCC\\\":{\\\"Email\\\":string;\\\"Name\\\":string}[];\\\"Body\\\":string;\\\"CC\\\":{\\\"Email\\\":string;\\\"Name\\\":string}[];\\\"Categories\\\":{\\\"ID\\\":string;\\\"Name\\\":string}[];\\\"From\\\":{\\\"Email\\\":string;\\\"Name\\\":string};\\\"HasAttachments\\\":boolean;\\\"ID\\\":string;\\\"Importance\\\":string;\\\"ParentFolders\\\":{\\\"ID\\\":string;\\\"Name\\\":string}[];\\\"Sensitivity\\\":string;\\\"Subject\\\":string;\\\"ThreadID\\\":string;\\\"To\\\":{\\\"Email\\\":string;\\\"Name\\\":string}[];\\\"Type\\\":string}\",\"outputJsonSchema\":{\"$schema\":\"http://json-schema.org/draft-07/schema#\",\"type\":\"object\",\"properties\":{\"BCC[*]\":{\"title\":\"Bcc\",\"type\":\"array\",\"items\":{\"$ref\":\"#/definitions/BCC[*]\"}},\"Body\":{\"title\":\"Body\",\"type\":\"string\"},\"CC[*]\":{\"title\":\"Cc\",\"type\":\"array\",\"items\":{\"$ref\":\"#/definitions/CC[*]\"}},\"ParentFolders[*]\":{\"title\":\"Parent folders\",\"type\":\"array\",\"items\":{\"$ref\":\"#/definitions/ParentFolders[*]\"}},\"ID\":{\"title\":\"Id\",\"type\":\"string\"},\"From\":{\"title\":\"From\",\"$ref\":\"#/definitions/From\"},\"Subject\":{\"title\":\"Subject\",\"type\":\"string\"},\"To[*]\":{\"title\":\"To\",\"type\":\"array\",\"items\":{\"$ref\":\"#/definitions/To[*]\"}},\"HasAttachments\":{\"title\":\"With attachments only\",\"type\":\"boolean\"},\"Attachments[*]\":{\"title\":\"Attachments\",\"type\":\"array\",\"items\":{\"$ref\":\"#/definitions/Attachments[*]\"}},\"Importance\":{\"title\":\"Importance\",\"type\":\"string\"},\"Sensitivity\":{\"title\":\"Sensitivity\",\"type\":\"string\"},\"Categories[*]\":{\"title\":\"Categories\",\"type\":\"array\",\"items\":{\"$ref\":\"#/definitions/Categories[*]\"}},\"Type\":{\"title\":\"Type\",\"type\":\"string\"},\"ThreadID\":{\"title\":\"Thread\",\"type\":\"string\"}},\"definitions\":{\"BCC[*]\":{\"type\":\"object\",\"properties\":{\"Name\":{\"title\":\"Bcc name\",\"type\":\"string\"},\"Email\":{\"title\":\"Bcc email\",\"type\":\"string\"}}},\"CC[*]\":{\"type\":\"object\",\"properties\":{\"Name\":{\"title\":\"Cc name\",\"type\":\"string\"},\"Email\":{\"title\":\"Cc\",\"type\":\"string\"}}},\"ParentFolders[*]\":{\"type\":\"object\",\"properties\":{\"ID\":{\"title\":\"Email folder or label\",\"type\":\"string\"},\"Name\":{\"title\":\"Label\",\"type\":\"string\"}}},\"From\":{\"type\":\"object\",\"properties\":{\"Name\":{\"title\":\"Sender name\",\"type\":\"string\"},\"Email\":{\"title\":\"From\",\"type\":\"string\"}}},\"To[*]\":{\"type\":\"object\",\"properties\":{\"Name\":{\"title\":\"Recipient name\",\"type\":\"string\"},\"Email\":{\"title\":\"To\",\"type\":\"string\"}}},\"Attachments[*]\":{\"type\":\"object\",\"properties\":{\"Name\":{\"title\":\"Attachment name\",\"type\":\"string\"},\"Size\":{\"title\":\"Attachment size\",\"type\":\"integer\"},\"MIMEType\":{\"title\":\"Attachment mime type\",\"type\":\"string\"},\"ID\":{\"title\":\"Attachment ID\",\"type\":\"string\"}}},\"Categories[*]\":{\"type\":\"object\",\"properties\":{\"ID\":{\"title\":\"Category ID\",\"type\":\"string\"},\"Name\":{\"title\":\"Category name\",\"type\":\"string\"}}}}},\"hasFileOutput\":false,\"populateOutputFields\":true,\"inputFields\":[{\"typeScriptDefinition\":null,\"id\":\"id\",\"name\":\"id\",\"displayName\":\"Email ID\",\"description\":\"The unique identifier for the email\",\"type\":\"string\",\"sortOrder\":1,\"primaryKey\":false,\"fieldActions\":null,\"searchable\":false,\"searchableOperators\":null,\"searchableNames\":null,\"required\":true,\"request\":true,\"response\":false,\"responseCurated\":false,\"fieldLocation\":\"path\",\"onCanvas\":null,\"isJitField\":false,\"isFieldActionParent\":false,\"isMainResponseField\":false,\"isMethodParameter\":true,\"isBackgroundField\":false,\"filterTree\":null,\"filterNeedsRefresh\":null,\"arrayInputPaths\":null,\"clrType\":{\"_elementType\":null,\"_isNullable\":false,\"isArray\":false,\"genericTypeArguments\":[],\"fullName\":null,\"name\":\"String\",\"assemblyQualifiedName\":\"String\",\"isValueType\":true},\"forceExpressionEditor\":false,\"requiredGroups\":null,\"disableExpressions\":false,\"backingField\":null,\"searchableDisplayName\":null,\"selectedResourceId\":null},{\"typeScriptDefinition\":null,\"id\":\"excludeAttachments\",\"name\":\"excludeAttachments\",\"displayName\":\"Exclude Attachments\",\"description\":\"Set to true if attachments are nt requested to be returned in response\",\"type\":\"boolean\",\"primaryKey\":false,\"design\":{},\"fieldActions\":null,\"searchable\":false,\"searchableOperators\":null,\"searchableNames\":null,\"required\":false,\"request\":true,\"response\":false,\"responseCurated\":false,\"fieldLocation\":\"query\",\"onCanvas\":null,\"isJitField\":false,\"isFieldActionParent\":false,\"isMainResponseField\":false,\"isMethodParameter\":true,\"isBackgroundField\":false,\"filterTree\":null,\"filterNeedsRefresh\":null,\"arrayInputPaths\":null,\"clrType\":{\"_elementType\":null,\"_isNullable\":false,\"isArray\":false,\"genericTypeArguments\":[],\"fullName\":null,\"name\":\"Boolean\",\"assemblyQualifiedName\":\"Boolean\",\"isValueType\":true},\"forceExpressionEditor\":false,\"requiredGroups\":null,\"disableExpressions\":false,\"backingField\":null,\"searchableDisplayName\":null,\"selectedResourceId\":null},{\"typeScriptDefinition\":null,\"id\":\"metadataHeaders\",\"name\":\"metadataHeaders\",\"displayName\":\"Metadata headers\",\"description\":\"Metadata fields to be returned\",\"type\":\"string\",\"primaryKey\":false,\"fieldActions\":null,\"searchable\":false,\"searchableOperators\":null,\"searchableNames\":null,\"required\":false,\"request\":true,\"response\":false,\"responseCurated\":false,\"fieldLocation\":\"query\",\"onCanvas\":null,\"isJitField\":false,\"isFieldActionParent\":false,\"isMainResponseField\":false,\"isMethodParameter\":true,\"isBackgroundField\":false,\"filterTree\":null,\"filterNeedsRefresh\":null,\"arrayInputPaths\":null,\"clrType\":{\"_elementType\":null,\"_isNullable\":false,\"isArray\":false,\"genericTypeArguments\":[],\"fullName\":null,\"name\":\"String\",\"assemblyQualifiedName\":\"String\",\"isValueType\":true},\"forceExpressionEditor\":false,\"requiredGroups\":null,\"disableExpressions\":false,\"backingField\":null,\"searchableDisplayName\":null,\"selectedResourceId\":null},{\"typeScriptDefinition\":null,\"id\":\"returnId\",\"name\":\"returnId\",\"displayName\":\"Return id\",\"description\":\"Set to true if ID and ThreadId is required to be returned in response.\",\"type\":\"boolean\",\"primaryKey\":false,\"fieldActions\":null,\"searchable\":false,\"searchableOperators\":null,\"searchableNames\":null,\"required\":false,\"request\":true,\"response\":false,\"responseCurated\":false,\"fieldLocation\":\"query\",\"onCanvas\":null,\"isJitField\":false,\"isFieldActionParent\":false,\"isMainResponseField\":false,\"isMethodParameter\":true,\"isBackgroundField\":false,\"filterTree\":null,\"filterNeedsRefresh\":null,\"arrayInputPaths\":null,\"clrType\":{\"_elementType\":null,\"_isNullable\":false,\"isArray\":false,\"genericTypeArguments\":[],\"fullName\":null,\"name\":\"Boolean\",\"assemblyQualifiedName\":\"Boolean\",\"isValueType\":true},\"forceExpressionEditor\":false,\"requiredGroups\":null,\"disableExpressions\":false,\"backingField\":null,\"searchableDisplayName\":null,\"selectedResourceId\":null}],\"outputFields\":[{\"typeScriptDefinition\":null,\"id\":\"NormalizedMessage\",\"name\":\"NormalizedMessage\",\"displayName\":\"Email\",\"description\":\"\",\"type\":\"GeneratedNormalizedMessage\",\"sortOrder\":null,\"format\":null,\"mask\":null,\"defaultValue\":null,\"primaryKey\":false,\"lookup\":null,\"enum\":null,\"design\":null,\"fieldActions\":null,\"searchable\":false,\"searchableOperators\":null,\"searchableNames\":null,\"searchableJoins\":null,\"required\":false,\"request\":false,\"response\":true,\"responseCurated\":false,\"fieldLocation\":\"output\",\"onCanvas\":null,\"isJitField\":true,\"isFieldActionParent\":false,\"isMainResponseField\":true,\"isMethodParameter\":false,\"isBackgroundField\":false,\"filterTree\":null,\"filterNeedsRefresh\":null,\"arrayInputPaths\":null,\"clrType\":{\"_elementType\":null,\"_isNullable\":false,\"isArray\":false,\"genericTypeArguments\":[],\"fullName\":null,\"name\":\"Object\",\"assemblyQualifiedName\":\"Object\",\"isValueType\":false},\"forceExpressionEditor\":false,\"requiredGroups\":null,\"disableExpressions\":false,\"backingField\":null,\"searchableDisplayName\":null,\"selectedResourceId\":null}],\"jitTypeNeedsRefresh\":false,\"jitInputField\":null,\"inputMode\":null,\"searchableFields\":[],\"hasUnifiedTypes\":true,\"jitTypeHash\":null}}}","uiPathActivityTypeId":"9d941cc8-bff4-3ed4-aff4-7d7617e2c4e0","errorState":{"issues":[]}},"activityMetadata":{"activity":{"isAppActivity":false,"packageId":113548,"svgIconUrl":"icons/70091673b4573a26ec5090fa697c3bf61a0bedf4c77a302986b69d53bea30191.svg","displayName":"Get Email by ID","assemblyQualifiedName":"UiPath.IntegrationService.Activities.Runtime.Activities.ConnectorActivity, UiPath.IntegrationService.Activities.Runtime, Version=1.29.0.0, Culture=neutral, PublicKeyToken=null","description":"Fetch an email based on ID","category":"","activityColor":"#E56D5C","configuration":{"connectorKey":"uipath-google-gmail","objectName":"NormalizedMessage","httpMethod":"GETBYID","activityType":"Curated","version":"1.0.0","supportsStreaming":false,"subType":"method"},"uiPathActivityTypeId":"9d941cc8-bff4-3ed4-aff4-7d7617e2c4e0","isExperimental":false,"helpUrlTemplate":"https://docs.uipath.com/{0}/activities/other/latest/integration-service/uipath-google-gmail-Get-Email-By-ID","isEnabled":true,"targetPlatform":"CrossPlatform","isAdvanced":false,"isRestricted":false,"hasWpfOnlyDesigner":false,"tags":[""]},"meta":{"packageName":"UiPath.IntegrationService.Activities","packageVersion":"1.29.0","activityColor":"#E56D5C","packageCategoryDisplayName":"Gmail"}},"inputMetadata":{},"telemetryData":{"connectorKey":"uipath-google-gmail","connectorName":"Gmail","operationType":"retrieve","objectName":"NormalizedMessage","objectDisplayName":"Normalizedmessage","primaryKeyName":""},"bindings":[]}]]></uipath:input>
+            <uipath:input name="activityConfigurationVersion" type="string" value="v2" />
+          </uipath:context>
+          <uipath:input name="pathParameters" type="json" target="pathParameters"><![CDATA[{"id":"=js:(vars.response.ID)"}]]></uipath:input>
+          <uipath:input name="queryParameters" type="json" target="queryParameters" />
+          <uipath:output name="response" type="jsonSchema" source="=response" var="response10" />
+          <uipath:output name="Error" type="jsonSchema" source="=Error" var="error12" />
+        </uipath:activity>
+      </bpmn:extensionElements>
+      <bpmn:incoming>edge_mCrTaT</bpmn:incoming>
+      <bpmn:outgoing>edge_VAVNIH</bpmn:outgoing>
+    </bpmn:sendTask>
     <bpmn:sequenceFlow id="edge_CfNHra" sourceRef="Activity_eOmgXO" targetRef="Gateway_YXrWQO" />
-    <bpmn:sequenceFlow id="edge_zUj0aS" sourceRef="Gateway_YXrWQO" targetRef="Activity_5L3fM4" />
+    <bpmn:sequenceFlow id="edge_zUj0aS" sourceRef="Gateway_YXrWQO" targetRef="Activity_5L3fM4">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=1 == 2</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="edge_agUOTb" sourceRef="Activity_5L3fM4" targetRef="Gateway_FXulZe" />
     <bpmn:sequenceFlow id="edge_IJcxlw" sourceRef="Activity_6YxUml" targetRef="Activity_tJyTmM" />
     <bpmn:sequenceFlow id="edge_qTFxnM" sourceRef="Gateway_FXulZe" targetRef="Activity_6YxUml" />
     <bpmn:sequenceFlow id="edge_XNnh6d" sourceRef="Activity_tJyTmM" targetRef="Gateway_3bdMPw" />
-    <bpmn:sequenceFlow id="edge_xd0MRM" sourceRef="Gateway_3bdMPw" targetRef="Activity_Qjnsuy" />
-    <bpmn:sequenceFlow id="edge_GSxzGo" sourceRef="Gateway_3bdMPw" targetRef="Activity_JOFEik" />
+    <bpmn:sequenceFlow id="edge_xd0MRM" sourceRef="Gateway_3bdMPw" targetRef="Activity_Qjnsuy">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=1 == 2</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="edge_GSxzGo" sourceRef="Gateway_3bdMPw" targetRef="Activity_JOFEik">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=1 == 2</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="edge_x5xxqr" sourceRef="Activity_JOFEik" targetRef="Gateway_tHd0JW" />
-    <bpmn:sequenceFlow id="edge_83dfBW" name="Final Decision == APPROVED" sourceRef="Gateway_wEEv1R" targetRef="Activity_8CsSkN" />
+    <bpmn:sequenceFlow id="edge_83dfBW" name="Final Decision == APPROVED" sourceRef="Gateway_wEEv1R" targetRef="Activity_8CsSkN">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=1 == 2</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="edge_qFrlDT" name="Final Decision == DECLINED" sourceRef="Gateway_wEEv1R" targetRef="Activity_0lZ4sh" />
     <bpmn:sequenceFlow id="edge_o6NTBZ" sourceRef="Activity_Qjnsuy" targetRef="Gateway_tHd0JW" />
     <bpmn:sequenceFlow id="edge_mOmEgN" sourceRef="Activity_8CsSkN" targetRef="Gateway_tHd0JW" />
     <bpmn:sequenceFlow id="edge_1cB7cp" sourceRef="Activity_0lZ4sh" targetRef="Gateway_tHd0JW" />
-    <bpmn:sequenceFlow id="edge_JE8FmZ" name="Final Decision == APPROVED" sourceRef="Gateway_tHd0JW" targetRef="Activity_r27CoR" />
+    <bpmn:sequenceFlow id="edge_JE8FmZ" name="Final Decision == APPROVED" sourceRef="Gateway_tHd0JW" targetRef="Activity_r27CoR">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=1 == 2</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="edge_pVR0nZ" name="Final Decision == DECLINED" sourceRef="Gateway_tHd0JW" targetRef="Activity_HKelus" />
     <bpmn:sequenceFlow id="edge_5vLtcl" sourceRef="Activity_HKelus" targetRef="Gateway_MEiwpW" />
     <bpmn:sequenceFlow id="edge_nV5708" sourceRef="Activity_r27CoR" targetRef="Gateway_MEiwpW" />
@@ -335,29 +461,34 @@
     <bpmn:sequenceFlow id="edge_HPKP9I" sourceRef="Gateway_3bdMPw" targetRef="Activity_VX8tS0" />
     <bpmn:sequenceFlow id="edge_oy6iXU" sourceRef="Activity_VX8tS0" targetRef="Activity_arK2rt" />
     <bpmn:sequenceFlow id="edge_7N00OK" sourceRef="Activity_arK2rt" targetRef="Gateway_wEEv1R" />
-    <bpmn:sequenceFlow id="edge_qdLM6I" sourceRef="Gateway_YXrWQO" targetRef="Activity_rAbXYV" />
+    <bpmn:sequenceFlow id="edge_qdLM6I" sourceRef="Gateway_YXrWQO" targetRef="Activity_rAbXYV">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=1 == 2</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="edge_MB9iMc" sourceRef="Activity_rAbXYV" targetRef="Gateway_FXulZe" />
     <bpmn:sequenceFlow id="edge_RtbwLH" sourceRef="Gateway_YXrWQO" targetRef="Activity_CNCnJ8" />
     <bpmn:sequenceFlow id="edge_HOss6W" sourceRef="Activity_CNCnJ8" targetRef="Event_4LExVk" />
+    <bpmn:sequenceFlow id="edge_Event_start-Activity_bRH4Js" sourceRef="Event_start" targetRef="Activity_bRH4Js" />
+    <bpmn:sequenceFlow id="edge_GXk7Bh" sourceRef="Activity_bRH4Js" targetRef="Gateway_BxeiM8" />
+    <bpmn:sequenceFlow id="edge_p46jKm" name="No Attachment" sourceRef="Gateway_BxeiM8" targetRef="Activity_eOmgXO" />
+    <bpmn:sequenceFlow id="edge_tICnZ9" sourceRef="Activity_60rBjn" targetRef="Activity_xjYUvD" />
+    <bpmn:sequenceFlow id="edge_J9NO4E" sourceRef="Activity_xjYUvD" targetRef="Activity_eOmgXO" />
+    <bpmn:sequenceFlow id="edge_mCrTaT" name="Has Attachments" sourceRef="Gateway_BxeiM8" targetRef="Activity_L48CqE">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=js:vars.response.HasAttachments == true</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="edge_VAVNIH" sourceRef="Activity_L48CqE" targetRef="Activity_60rBjn" />
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
       <bpmndi:BPMNShape id="S_Event_start" bpmnElement="Event_start">
-        <dc:Bounds x="0" y="-32" width="36" height="36" />
+        <dc:Bounds x="-304" y="-32" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="0" y="9" width="36" height="14" />
+          <dc:Bounds x="-304" y="9" width="36" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="S_Activity_eOmgXO" bpmnElement="Activity_eOmgXO">
         <dc:Bounds x="256" y="-48" width="100" height="80" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="256" y="37" width="100" height="14" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="S_Activity_i9M1dZ" bpmnElement="Activity_i9M1dZ">
-        <dc:Bounds x="84" y="-54" width="100" height="80" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="84" y="31" width="100" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="S_Gateway_YXrWQO" bpmnElement="Gateway_YXrWQO">
@@ -492,16 +623,36 @@
           <dc:Bounds x="656" y="153" width="36" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="BPMNEdge_edge_Event_start-Activity_i9M1dZ" bpmnElement="edge_Event_start-Activity_i9M1dZ">
-        <di:waypoint x="36" y="-14" />
-        <di:waypoint x="84" y="-14" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="BPMNEdge_edge_EFkCDy" bpmnElement="edge_EFkCDy">
-        <di:waypoint x="184" y="-14" />
-        <di:waypoint x="220" y="-14" />
-        <di:waypoint x="220" y="-8" />
-        <di:waypoint x="256" y="-8" />
-      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="S_Activity_bRH4Js" bpmnElement="Activity_bRH4Js">
+        <dc:Bounds x="-208" y="-48" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="-208" y="37" width="100" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Gateway_BxeiM8" bpmnElement="Gateway_BxeiM8">
+        <dc:Bounds x="-80" y="-32" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="-80" y="23" width="50" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Activity_60rBjn" bpmnElement="Activity_60rBjn">
+        <dc:Bounds x="64" y="-176" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="64" y="-91" width="100" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Activity_xjYUvD" bpmnElement="Activity_xjYUvD">
+        <dc:Bounds x="256" y="-176" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="256" y="-91" width="100" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Activity_L48CqE" bpmnElement="Activity_L48CqE">
+        <dc:Bounds x="-112" y="-176" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="-112" y="-91" width="100" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="BPMNEdge_edge_CfNHra" bpmnElement="edge_CfNHra">
         <di:waypoint x="356" y="-8" />
         <di:waypoint x="400" y="-7" />
@@ -632,6 +783,38 @@
         <di:waypoint x="626" y="120" />
         <di:waypoint x="626" y="130" />
         <di:waypoint x="656" y="130" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge_Event_start-Activity_bRH4Js" bpmnElement="edge_Event_start-Activity_bRH4Js">
+        <di:waypoint x="-268" y="-14" />
+        <di:waypoint x="-238" y="-14" />
+        <di:waypoint x="-238" y="-8" />
+        <di:waypoint x="-208" y="-8" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge_GXk7Bh" bpmnElement="edge_GXk7Bh">
+        <di:waypoint x="-108" y="-8" />
+        <di:waypoint x="-80" y="-7" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge_p46jKm" bpmnElement="edge_p46jKm">
+        <di:waypoint x="-30" y="-7" />
+        <di:waypoint x="256" y="-8" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge_tICnZ9" bpmnElement="edge_tICnZ9">
+        <di:waypoint x="164" y="-136" />
+        <di:waypoint x="256" y="-136" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge_J9NO4E" bpmnElement="edge_J9NO4E">
+        <di:waypoint x="306" y="-96" />
+        <di:waypoint x="306" y="-48" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge_mCrTaT" bpmnElement="edge_mCrTaT">
+        <di:waypoint x="-55" y="-32" />
+        <di:waypoint x="-55" y="-64" />
+        <di:waypoint x="-62" y="-64" />
+        <di:waypoint x="-62" y="-96" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge_VAVNIH" bpmnElement="edge_VAVNIH">
+        <di:waypoint x="-12" y="-136" />
+        <di:waypoint x="64" y="-136" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>

@@ -12,6 +12,21 @@
       "Type": "ProcessOrchestration",
       "ProjectRelativePath": "Maestro BPMN/project.uiproj",
       "Id": "6932ec63-475a-4944-b234-6f33e5a78a20"
+    },
+    {
+      "Type": "Process",
+      "ProjectRelativePath": "RPA Workflow/project.uiproj",
+      "Id": "e46539bb-48af-4f8e-a5f0-f5a16acbc86b"
+    },
+    {
+      "Type": "Agent",
+      "ProjectRelativePath": "Agent 1/project.uiproj",
+      "Id": "cdef9163-a8bc-4f9b-ae8b-6e730986b06a"
+    },
+    {
+      "Type": "Agent",
+      "ProjectRelativePath": "Agent 2/project.uiproj",
+      "Id": "e27fba4c-1658-4a45-a8a5-67decc5169a3"
     }
   ],
   "AutomationHubIdeaUrl": null

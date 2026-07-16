@@ -11,14 +11,14 @@
           "isExpression": false
         },
         "EntryPointUniqueId": {
-          "defaultValue": "b5d245e2-8d9f-4d85-b401-96555c6d5db4",
+          "defaultValue": "944299a7-6c5f-43d7-9401-a2f12e4180f4",
           "isExpression": false
         }
       },
       "metadata": {
         "UseConnectionService": "true",
         "Connector": "uipath-google-gmail",
-        "ActivityName": "Email recievede",
+        "ActivityName": "Email recieved",
         "BindingsVersion": "2.2",
         "ObjectName": "Message",
         "Operation": "EMAIL_RECEIVED",
@@ -36,7 +36,7 @@
       },
       "activityDisplayName": "Connector",
       "metadata": {
-        "ActivityName": "Email recievede",
+        "ActivityName": "Email recieved",
         "BindingsVersion": "2.2",
         "ObjectName": "Message",
         "ParentResourceKey": "EventTrigger.8306d123-4a99-4a15-b9d3-50554490842c_Event_start",
@@ -57,7 +57,7 @@
         }
       },
       "metadata": {
-        "ActivityName": "Email recievede",
+        "ActivityName": "Email recieved",
         "BindingsVersion": "2.2",
         "DisplayLabel": "uipath-google-gmail connection",
         "UseConnectionService": "true",
@@ -99,6 +99,170 @@
         "BindingsVersion": "2.2",
         "DisplayLabel": "name",
         "SolutionsSupport": "true"
+      }
+    },
+    {
+      "resource": "queue",
+      "key": "Auto-Approved",
+      "id": "queueAuto-Approved",
+      "value": {
+        "name": {
+          "defaultValue": "Auto-Approved",
+          "isExpression": false,
+          "displayName": "Queue"
+        }
+      },
+      "metadata": {
+        "ActivityName": "Auto-Approved Queue",
+        "BindingsVersion": "2.2",
+        "DisplayLabel": "name",
+        "SolutionsSupport": "true"
+      }
+    },
+    {
+      "resource": "queue",
+      "key": "Auto-Denied",
+      "id": "queueAuto-Denied",
+      "value": {
+        "name": {
+          "defaultValue": "Auto-Denied",
+          "isExpression": false,
+          "displayName": "Queue"
+        }
+      },
+      "metadata": {
+        "ActivityName": "Auto-Denied Queue",
+        "BindingsVersion": "2.2",
+        "DisplayLabel": "name",
+        "SolutionsSupport": "true"
+      }
+    },
+    {
+      "resource": "queue",
+      "key": "Human-Denied",
+      "id": "queueHuman-Denied",
+      "value": {
+        "name": {
+          "defaultValue": "Human-Denied",
+          "isExpression": false,
+          "displayName": "Queue"
+        }
+      },
+      "metadata": {
+        "ActivityName": "Human-Denied",
+        "BindingsVersion": "2.2",
+        "DisplayLabel": "name",
+        "SolutionsSupport": "true"
+      }
+    },
+    {
+      "resource": "queue",
+      "key": "Human-Approved",
+      "id": "queueHuman-Approved",
+      "value": {
+        "name": {
+          "defaultValue": "Human-Approved",
+          "isExpression": false,
+          "displayName": "Queue"
+        }
+      },
+      "metadata": {
+        "ActivityName": "Human-Approved",
+        "BindingsVersion": "2.2",
+        "DisplayLabel": "name",
+        "SolutionsSupport": "true"
+      }
+    },
+    {
+      "resource": "queue",
+      "key": "Triage-Queue",
+      "id": "queueTriage-Queue",
+      "value": {
+        "name": {
+          "defaultValue": "Triage-Queue",
+          "isExpression": false,
+          "displayName": "Queue"
+        }
+      },
+      "metadata": {
+        "ActivityName": "Add to Triage Queue (Not Processed)",
+        "BindingsVersion": "2.2",
+        "DisplayLabel": "name",
+        "SolutionsSupport": "true"
+      }
+    },
+    {
+      "resource": "queue",
+      "key": "Human-Review",
+      "id": "queueHuman-Review",
+      "value": {
+        "name": {
+          "defaultValue": "Human-Review",
+          "isExpression": false,
+          "displayName": "Queue"
+        }
+      },
+      "metadata": {
+        "ActivityName": "Human-Review Queue",
+        "BindingsVersion": "2.2",
+        "DisplayLabel": "name",
+        "SolutionsSupport": "true"
+      }
+    },
+    {
+      "resource": "process",
+      "key": "RPA Workflow",
+      "id": "processRPA Workflow",
+      "value": {
+        "name": {
+          "defaultValue": "RPA Workflow",
+          "isExpression": false,
+          "displayName": "Process name"
+        }
+      },
+      "metadata": {
+        "ActivityName": "Extract PDF Text",
+        "BindingsVersion": "2.2",
+        "DisplayLabel": "name",
+        "SolutionsSupport": "true"
+      }
+    },
+    {
+      "resource": "process",
+      "key": "Agent 1",
+      "id": "processAgent 1",
+      "value": {
+        "name": {
+          "defaultValue": "Agent 1",
+          "isExpression": false,
+          "displayName": "Process name"
+        }
+      },
+      "metadata": {
+        "ActivityName": "Risk Assessment Agent",
+        "BindingsVersion": "2.2",
+        "DisplayLabel": "name",
+        "SolutionsSupport": "true",
+        "subType": "Agent"
+      }
+    },
+    {
+      "resource": "process",
+      "key": "Agent 2",
+      "id": "processAgent 2",
+      "value": {
+        "name": {
+          "defaultValue": "Agent 2",
+          "isExpression": false,
+          "displayName": "Process name"
+        }
+      },
+      "metadata": {
+        "ActivityName": "Compose & Send Approval Email Agent",
+        "BindingsVersion": "2.2",
+        "DisplayLabel": "name",
+        "SolutionsSupport": "true",
+        "subType": "Agent"
       }
     }
   ]
