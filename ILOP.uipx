@@ -5,7 +5,7 @@
   "Projects": [
     {
       "Type": "Agent",
-      "ProjectRelativePath": "Agent/project.uiproj",
+      "ProjectRelativePath": "intakeRouterAgent/project.uiproj",
       "Id": "e9ffa0ee-fc30-4fff-b25b-b39648835184"
     },
     {
@@ -20,12 +20,12 @@
     },
     {
       "Type": "Agent",
-      "ProjectRelativePath": "Agent 1/project.uiproj",
+      "ProjectRelativePath": "complianceCheckAgent/project.uiproj",
       "Id": "cdef9163-a8bc-4f9b-ae8b-6e730986b06a"
     },
     {
       "Type": "Agent",
-      "ProjectRelativePath": "Agent 2/project.uiproj",
+      "ProjectRelativePath": "riskAssessmentAgent/project.uiproj",
       "Id": "e27fba4c-1658-4a45-a8a5-67decc5169a3"
     }
   ],

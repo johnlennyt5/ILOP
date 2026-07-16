@@ -65,25 +65,6 @@
       }
     },
     {
-      "resource": "process",
-      "key": "Agent",
-      "id": "processAgent",
-      "value": {
-        "name": {
-          "defaultValue": "Agent",
-          "isExpression": false,
-          "displayName": "Process name"
-        }
-      },
-      "metadata": {
-        "ActivityName": "Intake Router Agent ",
-        "BindingsVersion": "2.2",
-        "DisplayLabel": "name",
-        "SolutionsSupport": "true",
-        "subType": "Agent"
-      }
-    },
-    {
       "resource": "queue",
       "key": "Loan-Mortgage-Intake",
       "id": "queueLoan-Mortgage-Intake",
@@ -211,29 +192,11 @@
     },
     {
       "resource": "process",
-      "key": "RPA Workflow",
-      "id": "processRPA Workflow",
+      "key": "complianceCheckAgent",
+      "id": "processcomplianceCheckAgent",
       "value": {
         "name": {
-          "defaultValue": "RPA Workflow",
-          "isExpression": false,
-          "displayName": "Process name"
-        }
-      },
-      "metadata": {
-        "ActivityName": "Extract PDF Text",
-        "BindingsVersion": "2.2",
-        "DisplayLabel": "name",
-        "SolutionsSupport": "true"
-      }
-    },
-    {
-      "resource": "process",
-      "key": "Agent 1",
-      "id": "processAgent 1",
-      "value": {
-        "name": {
-          "defaultValue": "Agent 1",
+          "defaultValue": "complianceCheckAgent",
           "isExpression": false,
           "displayName": "Process name"
         }
@@ -248,17 +211,54 @@
     },
     {
       "resource": "process",
-      "key": "Agent 2",
-      "id": "processAgent 2",
+      "key": "riskAssessmentAgent",
+      "id": "processriskAssessmentAgent",
       "value": {
         "name": {
-          "defaultValue": "Agent 2",
+          "defaultValue": "riskAssessmentAgent",
           "isExpression": false,
           "displayName": "Process name"
         }
       },
       "metadata": {
         "ActivityName": "Compose & Send Approval Email Agent",
+        "BindingsVersion": "2.2",
+        "DisplayLabel": "name",
+        "SolutionsSupport": "true",
+        "subType": "Agent"
+      }
+    },
+    {
+      "resource": "process",
+      "key": "ILOP.process.RPA.Workflow",
+      "id": "processILOP.process.RPA.Workflow",
+      "value": {
+        "name": {
+          "defaultValue": "ILOP.process.RPA.Workflow",
+          "isExpression": false,
+          "displayName": "Process name"
+        }
+      },
+      "metadata": {
+        "ActivityName": "Extract PDF Text",
+        "BindingsVersion": "2.2",
+        "DisplayLabel": "name",
+        "SolutionsSupport": "true"
+      }
+    },
+    {
+      "resource": "process",
+      "key": "ILOP.agent.intakeRouterAgent",
+      "id": "processILOP.agent.intakeRouterAgent",
+      "value": {
+        "name": {
+          "defaultValue": "ILOP.agent.intakeRouterAgent",
+          "isExpression": false,
+          "displayName": "Process name"
+        }
+      },
+      "metadata": {
+        "ActivityName": "Intake Router Agent ",
         "BindingsVersion": "2.2",
         "DisplayLabel": "name",
         "SolutionsSupport": "true",

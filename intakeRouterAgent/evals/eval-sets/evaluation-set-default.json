@@ -1,0 +1,41 @@
+{
+  "fileName": "evaluation-set-default.json",
+  "id": "63cd7387-9518-469b-9a3c-b35e3d4f8c45",
+  "name": "Default Evaluation Set",
+  "batchSize": 10,
+  "evaluatorRefs": [
+    "7b0bb092-3e20-4ca6-b6e7-4c3d66aa1042"
+  ],
+  "evaluations": [
+    {
+      "id": "e4973a15-d3f5-4028-8fa1-ab300eab0173",
+      "name": "Debug Run 7/16/2026, 6:03:30 PM",
+      "inputs": {
+        "intakePayload": "{\"from\":\"johnbanktest@gmail.com\",\"subject\":\"application\",\"body\":\"my mortgage application\\r\\n\",\"attachmentText\":\"Uniform Residential Loan Application (Form 1003) — Summary SYNTHETIC TEST DOCUMENT — Harborview Financial Group demo. All data fictional. Section 1 — Borrower Information Borrower Name Sarah A. Mitchell Date of Birth 03/14/1988 Phone (401) 555-0184 Email s.mitchell.demo@example.com Current Address 412 Elmwood Avenue, Providence, RI 02907 Years at Address 7 Marital Status Married Section 2 — Employment & Income Employer Narragansett Health Systems Position Clinical Operations Manager Years Employed 6 Gross Annual Income $112,000 Other Income $4,800/yr (rental) Section 3 — Loan & Property Loan Purpose Refinance (rate & term) Property Address 412 Elmwood Avenue, Providence, RI 02907 Property Type Single-family, primary residence Estimated Property Value $465,000 Current Mortgage Balance $285,000 Requested Loan Amount $285,000 Requested Term 30-year fixed Section 4 — Liabilities (Monthly) Current Mortgage Payment $2,140 Auto Loan $385 Student Loans $220 Credit Cards (min.) $95 Borrower certification: The undersigned certifies the information provided in this application is true and complete. Signature: Sarah A. Mitchell Date: 07/15/2026\"}"
+      },
+      "expectedOutput": {
+        "category": "OTHER",
+        "confidence": 0.1,
+        "reasoning": "No actual intake envelope content was provided beyond the placeholder \"{{intakePayload}}\", so there are no concrete lending signals to classify. Per the rules, when signals are absent or unclear, the request must be classified as OTHER with low confidence.",
+        "signalsFound": [
+          "Placeholder text \"{{intakePayload}}\" only; no from, subject, body, or attachmentText content provided"
+        ]
+      },
+      "expectedAgentBehavior": "",
+      "simulationInstructions": "",
+      "simulateInput": false,
+      "inputGenerationInstructions": "",
+      "simulateTools": false,
+      "evalSetId": "63cd7387-9518-469b-9a3c-b35e3d4f8c45",
+      "createdAt": "2026-07-16T22:03:30.613Z",
+      "updatedAt": "2026-07-16T22:03:30.613Z",
+      "source": "firstSuccessfulRun"
+    }
+  ],
+  "modelSettings": [],
+  "createdAt": "2026-07-14T21:03:36.988Z",
+  "updatedAt": "2026-07-16T22:03:30.613Z",
+  "agentMemoryEnabled": false,
+  "agentMemorySettings": [],
+  "lineByLineEvaluation": false
+}

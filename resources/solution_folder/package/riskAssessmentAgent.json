@@ -1,0 +1,26 @@
+{
+  "docVersion": "1.0.0",
+  "resource": {
+    "name": "riskAssessmentAgent",
+    "kind": "package",
+    "apiVersion": "orchestrator.uipath.com/v1",
+    "projectKey": "e27fba4c-1658-4a45-a8a5-67decc5169a3",
+    "isOverridable": true,
+    "dependencies": [],
+    "runtimeDependencies": [],
+    "files": [],
+    "folders": [
+      {
+        "fullyQualifiedName": "solution_folder"
+      }
+    ],
+    "spec": {
+      "fileName": null,
+      "fileReference": null,
+      "name": "riskAssessmentAgent",
+      "description": null
+    },
+    "locks": [],
+    "key": "1d81fd22-6bac-4e42-9f8c-df63ea9eb033"
+  }
+}

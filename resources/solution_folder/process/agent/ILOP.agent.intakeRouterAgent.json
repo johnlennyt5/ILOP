@@ -1,0 +1,61 @@
+{
+  "docVersion": "1.0.0",
+  "resource": {
+    "name": "ILOP.agent.intakeRouterAgent",
+    "kind": "process",
+    "type": "agent",
+    "apiVersion": "orchestrator.uipath.com/v1",
+    "isOverridable": true,
+    "dependencies": [
+      {
+        "name": "ILOP.agent.intakeRouterAgent",
+        "kind": "Package"
+      }
+    ],
+    "runtimeDependencies": [],
+    "files": [],
+    "folders": [
+      {
+        "fullyQualifiedName": "solution_folder"
+      }
+    ],
+    "spec": {
+      "type": "Agent",
+      "agentMemory": null,
+      "targetRuntime": "pythonAgent",
+      "environmentVariables": "",
+      "referencedAssets": null,
+      "isConversational": false,
+      "name": "ILOP.agent.intakeRouterAgent",
+      "description": "Classifies inbound lending emails (LOAN / MORTGAGE / OTHER) with confidence scoring for the Maestro intake pipeline. Structured JSON output; ambiguity defaults to OTHER.",
+      "package": {
+        "name": "ILOP.agent.intakeRouterAgent",
+        "key": "ILOP.agent.intakeRouterAgent:1.0.2"
+      },
+      "packageName": "ILOP.agent.intakeRouterAgent",
+      "packageVersion": "1.0.2",
+      "entryPointUniqueId": "82017fed-cc1d-4f99-b3d8-2ebf55240cce",
+      "entryPointName": "content/agent.json",
+      "inputArguments": null,
+      "inputArgumentsSchema": null,
+      "outputArgumentsSchema": null,
+      "inputArgumentsSchemaV2": "{\n  \u0022type\u0022: \u0022object\u0022,\n  \u0022required\u0022: [\n    \u0022intakePayload\u0022\n  ],\n  \u0022properties\u0022: {\n    \u0022intakePayload\u0022: {\n      \u0022type\u0022: \u0022string\u0022\n    }\n  }\n}",
+      "outputArgumentsSchemaV2": "{\n  \u0022type\u0022: \u0022object\u0022,\n  \u0022required\u0022: [\n    \u0022category\u0022,\n    \u0022confidence\u0022,\n    \u0022reasoning\u0022,\n    \u0022signalsFound\u0022\n  ],\n  \u0022properties\u0022: {\n    \u0022category\u0022: {\n      \u0022type\u0022: \u0022string\u0022,\n      \u0022description\u0022: \u0022\u0022\n    },\n    \u0022confidence\u0022: {\n      \u0022type\u0022: \u0022number\u0022\n    },\n    \u0022reasoning\u0022: {\n      \u0022type\u0022: \u0022string\u0022\n    },\n    \u0022signalsFound\u0022: {\n      \u0022type\u0022: \u0022array\u0022,\n      \u0022items\u0022: {}\n    }\n  }\n}",
+      "hiddenForAttendedUser": false,
+      "alwaysRunning": false,
+      "autoStartProcess": false,
+      "targetFrameworkValue": "Portable",
+      "retentionAction": "Delete",
+      "retentionPeriod": 30,
+      "retentionBucketRef": null,
+      "staleRetentionAction": "Delete",
+      "staleRetentionPeriod": 180,
+      "staleRetentionBucketRef": null,
+      "entryPoints": "[{\u0022UniqueId\u0022:\u002282017fed-cc1d-4f99-b3d8-2ebf55240cce\u0022,\u0022Path\u0022:\u0022content/agent.json\u0022,\u0022DisplayName\u0022:null,\u0022InputArguments\u0022:\u0022{\\n  \\\u0022type\\\u0022: \\\u0022object\\\u0022,\\n  \\\u0022required\\\u0022: [\\n    \\\u0022intakePayload\\\u0022\\n  ],\\n  \\\u0022properties\\\u0022: {\\n    \\\u0022intakePayload\\\u0022: {\\n      \\\u0022type\\\u0022: \\\u0022string\\\u0022\\n    }\\n  }\\n}\u0022,\u0022OutputArguments\u0022:\u0022{\\n  \\\u0022type\\\u0022: \\\u0022object\\\u0022,\\n  \\\u0022required\\\u0022: [\\n    \\\u0022category\\\u0022,\\n    \\\u0022confidence\\\u0022,\\n    \\\u0022reasoning\\\u0022,\\n    \\\u0022signalsFound\\\u0022\\n  ],\\n  \\\u0022properties\\\u0022: {\\n    \\\u0022category\\\u0022: {\\n      \\\u0022type\\\u0022: \\\u0022string\\\u0022,\\n      \\\u0022description\\\u0022: \\\u0022\\\u0022\\n    },\\n    \\\u0022confidence\\\u0022: {\\n      \\\u0022type\\\u0022: \\\u0022number\\\u0022\\n    },\\n    \\\u0022reasoning\\\u0022: {\\n      \\\u0022type\\\u0022: \\\u0022string\\\u0022\\n    },\\n    \\\u0022signalsFound\\\u0022: {\\n      \\\u0022type\\\u0022: \\\u0022array\\\u0022,\\n      \\\u0022items\\\u0022: {}\\n    }\\n  }\\n}\u0022,\u0022Type\u0022:4,\u0022TargetRuntime\u0022:null,\u0022ContentRoot\u0022:null,\u0022DataVariation\u0022:null,\u0022Id\u0022:6481684}]",
+      "connections": null,
+      "tags": []
+    },
+    "locks": [],
+    "key": "d74f21a8-8dad-49eb-99ed-20a87a6f57aa"
+  }
+}

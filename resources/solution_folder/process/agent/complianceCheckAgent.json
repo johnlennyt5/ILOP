@@ -1,0 +1,59 @@
+{
+  "docVersion": "1.0.0",
+  "resource": {
+    "name": "complianceCheckAgent",
+    "kind": "process",
+    "type": "agent",
+    "apiVersion": "orchestrator.uipath.com/v1",
+    "projectKey": "cdef9163-a8bc-4f9b-ae8b-6e730986b06a",
+    "isOverridable": true,
+    "dependencies": [
+      {
+        "name": "complianceCheckAgent",
+        "kind": "package"
+      }
+    ],
+    "runtimeDependencies": [],
+    "files": [],
+    "folders": [
+      {
+        "fullyQualifiedName": "solution_folder"
+      }
+    ],
+    "spec": {
+      "targetRuntime": null,
+      "referencedAssets": null,
+      "entryPointUniqueId": null,
+      "inputArgumentsSchema": null,
+      "inputArgumentsSchemaV2": null,
+      "type": "Agent",
+      "name": "complianceCheckAgent",
+      "description": null,
+      "package": {
+        "key": "7652bd59-2493-48df-9062-3ec6fa532c2b"
+      },
+      "packageName": "ILOP.agent.complianceCheckAgent",
+      "packageVersion": null,
+      "entryPointName": null,
+      "inputArguments": null,
+      "hiddenForAttendedUser": false,
+      "alwaysRunning": false,
+      "autoStartProcess": false,
+      "targetFrameworkValue": "Portable",
+      "agentMemory": false,
+      "environmentVariables": null,
+      "isConversational": false,
+      "retentionAction": "Delete",
+      "retentionPeriod": 30,
+      "retentionBucketRef": null,
+      "staleRetentionAction": "Delete",
+      "staleRetentionPeriod": 180,
+      "staleRetentionBucketRef": null,
+      "entryPoints": null,
+      "connections": null,
+      "tags": []
+    },
+    "locks": [],
+    "key": "b616e9cf-3a03-4084-91a6-6e94bc0520d9"
+  }
+}

@@ -3,8 +3,6 @@
   <bpmn:process id="Process_1" name="Process" isExecutable="false">
     <bpmn:extensionElements>
       <uipath:variables version="v1">
-        <uipath:inputOutput id="error2" name="Error" type="jsonSchema" elementId="Activity_eOmgXO"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"}}}]]></uipath:inputOutput>
-        <uipath:inputOutput id="content" name="content" type="string" elementId="Activity_eOmgXO" />
         <uipath:inputOutput id="response4" name="response" type="jsonSchema" elementId="Activity_Qjnsuy"><![CDATA[{"type":"object","properties":{"Id":{"type":"integer","title":"Queue Item ID","description":"The unique identifier of the queue item"},"QueueDefinitionId":{"type":"integer","title":"Queue Definition ID","description":"The ID of the queue definition"},"Status":{"type":"string","title":"Status","description":"The status of the queue item","enum":["New","InProgress","Failed","Successful","Abandoned","Retried","Deleted"]},"Reference":{"type":"string","title":"Reference","description":"The reference identifier for the queue item"},"Priority":{"type":"string","title":"Priority","description":"The priority level of the queue item","enum":["Low","Normal","High"]},"DeferDate":{"type":"string","format":"date-time","title":"Defer Date","description":"The date and time when the queue item should be processed"},"DueDate":{"type":"string","format":"date-time","title":"Due Date","description":"The deadline for processing the queue item"},"CreationTime":{"type":"string","format":"date-time","title":"Creation Time","description":"The date and time when the queue item was created"},"Progress":{"type":"string","title":"Progress","description":"The progress status of the queue item"},"SpecificContent":{"type":"object","title":"Item Information","description":"The specific content/data associated with the queue item"},"Output":{"type":"object","title":"Output","description":"The output data produced by processing the queue item"}},"required":["Id","QueueDefinitionId","Status"]}]]></uipath:inputOutput>
         <uipath:inputOutput id="error5" name="Error" type="jsonSchema" elementId="Activity_Qjnsuy"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"},"response":{"type":"string"}}}]]></uipath:inputOutput>
         <uipath:inputOutput id="response3" name="response" type="jsonSchema" elementId="Activity_JOFEik"><![CDATA[{"type":"object","properties":{"Id":{"type":"integer","title":"Queue Item ID","description":"The unique identifier of the queue item"},"QueueDefinitionId":{"type":"integer","title":"Queue Definition ID","description":"The ID of the queue definition"},"Status":{"type":"string","title":"Status","description":"The status of the queue item","enum":["New","InProgress","Failed","Successful","Abandoned","Retried","Deleted"]},"Reference":{"type":"string","title":"Reference","description":"The reference identifier for the queue item"},"Priority":{"type":"string","title":"Priority","description":"The priority level of the queue item","enum":["Low","Normal","High"]},"DeferDate":{"type":"string","format":"date-time","title":"Defer Date","description":"The date and time when the queue item should be processed"},"DueDate":{"type":"string","format":"date-time","title":"Due Date","description":"The deadline for processing the queue item"},"CreationTime":{"type":"string","format":"date-time","title":"Creation Time","description":"The date and time when the queue item was created"},"Progress":{"type":"string","title":"Progress","description":"The progress status of the queue item"},"SpecificContent":{"type":"object","title":"Item Information","description":"The specific content/data associated with the queue item"},"Output":{"type":"object","title":"Output","description":"The output data produced by processing the queue item"}},"required":["Id","QueueDefinitionId","Status"]}]]></uipath:inputOutput>
@@ -17,8 +15,6 @@
         <uipath:inputOutput id="error9" name="Error" type="jsonSchema" elementId="Activity_CNCnJ8"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"},"response":{"type":"string"}}}]]></uipath:inputOutput>
         <uipath:inputOutput id="response5" name="response" type="jsonSchema" elementId="Activity_VX8tS0"><![CDATA[{"type":"object","properties":{"Id":{"type":"integer","title":"Queue Item ID","description":"The unique identifier of the queue item"},"QueueDefinitionId":{"type":"integer","title":"Queue Definition ID","description":"The ID of the queue definition"},"Status":{"type":"string","title":"Status","description":"The status of the queue item","enum":["New","InProgress","Failed","Successful","Abandoned","Retried","Deleted"]},"Reference":{"type":"string","title":"Reference","description":"The reference identifier for the queue item"},"Priority":{"type":"string","title":"Priority","description":"The priority level of the queue item","enum":["Low","Normal","High"]},"DeferDate":{"type":"string","format":"date-time","title":"Defer Date","description":"The date and time when the queue item should be processed"},"DueDate":{"type":"string","format":"date-time","title":"Due Date","description":"The deadline for processing the queue item"},"CreationTime":{"type":"string","format":"date-time","title":"Creation Time","description":"The date and time when the queue item was created"},"Progress":{"type":"string","title":"Progress","description":"The progress status of the queue item"},"SpecificContent":{"type":"object","title":"Item Information","description":"The specific content/data associated with the queue item"},"Output":{"type":"object","title":"Output","description":"The output data produced by processing the queue item"}},"required":["Id","QueueDefinitionId","Status"]}]]></uipath:inputOutput>
         <uipath:inputOutput id="error6" name="Error" type="jsonSchema" elementId="Activity_VX8tS0"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"},"response":{"type":"string"}}}]]></uipath:inputOutput>
-        <uipath:inputOutput id="error11" name="Error" type="jsonSchema" elementId="Activity_xjYUvD"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"}}}]]></uipath:inputOutput>
-        <uipath:inputOutput id="pdfText" name="pdfText" type="string" elementId="Activity_xjYUvD" />
         <uipath:inputOutput id="response2" name="response" type="jsonSchema" elementId="Activity_bRH4Js"><![CDATA[{"type":"object","properties":{"Id":{"type":"integer","title":"Queue Item ID","description":"The unique identifier of the queue item"},"QueueDefinitionId":{"type":"integer","title":"Queue Definition ID","description":"The ID of the queue definition"},"Status":{"type":"string","title":"Status","description":"The status of the queue item","enum":["New","InProgress","Failed","Successful","Abandoned","Retried","Deleted"]},"Reference":{"type":"string","title":"Reference","description":"The reference identifier for the queue item"},"Priority":{"type":"string","title":"Priority","description":"The priority level of the queue item","enum":["Low","Normal","High"]},"DeferDate":{"type":"string","format":"date-time","title":"Defer Date","description":"The date and time when the queue item should be processed"},"DueDate":{"type":"string","format":"date-time","title":"Due Date","description":"The deadline for processing the queue item"},"CreationTime":{"type":"string","format":"date-time","title":"Creation Time","description":"The date and time when the queue item was created"},"Progress":{"type":"string","title":"Progress","description":"The progress status of the queue item"},"SpecificContent":{"type":"object","title":"Item Information","description":"The specific content/data associated with the queue item"},"Output":{"type":"object","title":"Output","description":"The output data produced by processing the queue item"}},"required":["Id","QueueDefinitionId","Status"]}]]></uipath:inputOutput>
         <uipath:inputOutput id="error3" name="Error" type="jsonSchema" elementId="Activity_bRH4Js"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"},"response":{"type":"string"}}}]]></uipath:inputOutput>
         <uipath:inputOutput id="error" name="Error" type="jsonSchema" elementId="Event_start"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"}}}]]></uipath:inputOutput>
@@ -27,18 +23,25 @@
         <uipath:inputOutput id="response10" name="response" type="jsonSchema" elementId="Activity_L48CqE"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"BCC[*]":{"title":"Bcc","type":"array","items":{"$ref":"#/definitions/BCC[*]"}},"Body":{"title":"Body","type":"string"},"CC[*]":{"title":"Cc","type":"array","items":{"$ref":"#/definitions/CC[*]"}},"ParentFolders[*]":{"title":"Parent folders","type":"array","items":{"$ref":"#/definitions/ParentFolders[*]"}},"ID":{"title":"Id","type":"string"},"From":{"title":"From","$ref":"#/definitions/From"},"Subject":{"title":"Subject","type":"string"},"To[*]":{"title":"To","type":"array","items":{"$ref":"#/definitions/To[*]"}},"HasAttachments":{"title":"With attachments only","type":"boolean"},"Attachments[*]":{"title":"Attachments","type":"array","items":{"$ref":"#/definitions/Attachments[*]"}},"Importance":{"title":"Importance","type":"string"},"Sensitivity":{"title":"Sensitivity","type":"string"},"Categories[*]":{"title":"Categories","type":"array","items":{"$ref":"#/definitions/Categories[*]"}},"Type":{"title":"Type","type":"string"},"ThreadID":{"title":"Thread","type":"string"}},"definitions":{"BCC[*]":{"type":"object","properties":{"Name":{"title":"Bcc name","type":"string"},"Email":{"title":"Bcc email","type":"string"}}},"CC[*]":{"type":"object","properties":{"Name":{"title":"Cc name","type":"string"},"Email":{"title":"Cc","type":"string"}}},"ParentFolders[*]":{"type":"object","properties":{"ID":{"title":"Email folder or label","type":"string"},"Name":{"title":"Label","type":"string"}}},"From":{"type":"object","properties":{"Name":{"title":"Sender name","type":"string"},"Email":{"title":"From","type":"string"}}},"To[*]":{"type":"object","properties":{"Name":{"title":"Recipient name","type":"string"},"Email":{"title":"To","type":"string"}}},"Attachments[*]":{"type":"object","properties":{"Name":{"title":"Attachment name","type":"string"},"Size":{"title":"Attachment size","type":"integer"},"MIMEType":{"title":"Attachment mime type","type":"string"},"ID":{"title":"Attachment ID","type":"string"}}},"Categories[*]":{"type":"object","properties":{"ID":{"title":"Category ID","type":"string"},"Name":{"title":"Category name","type":"string"}}}}}]]></uipath:inputOutput>
         <uipath:inputOutput id="error10" name="Error" type="jsonSchema" elementId="Activity_60rBjn"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"}}}]]></uipath:inputOutput>
         <uipath:inputOutput id="response9" name="response" type="file" elementId="Activity_60rBjn"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"ID":{"type":"string","description":"Orchestrator attachment key"},"FullName":{"type":"string","description":"File name"},"MimeType":{"type":"string","description":"The MIME type of the content, such as application/json or image/png"},"Metadata":{"type":"object","description":"Dictionary<string, string> of metadata","additionalProperties":{"type":"string"}}},"required":["ID"],"x-uipath-resource-kind":"JobAttachment"}]]></uipath:inputOutput>
-        <uipath:inputOutput id="error14" name="Error" type="jsonSchema" elementId="Activity_6YxUml"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"}}}]]></uipath:inputOutput>
-        <uipath:inputOutput id="content3" name="content" type="string" elementId="Activity_6YxUml" />
         <uipath:inputOutput id="error13" name="Error" type="jsonSchema" elementId="Activity_tJyTmM"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"}}}]]></uipath:inputOutput>
         <uipath:inputOutput id="content2" name="content" type="string" elementId="Activity_tJyTmM" />
         <uipath:inputOutput id="error15" name="Error" type="jsonSchema" elementId="Activity_r27CoR"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"}}}]]></uipath:inputOutput>
         <uipath:inputOutput id="content4" name="content" type="string" elementId="Activity_r27CoR" />
+        <uipath:inputOutput id="error11" name="Error" type="jsonSchema" elementId="Activity_xjYUvD"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"}}}]]></uipath:inputOutput>
+        <uipath:inputOutput id="pdfText" name="pdfText" type="string" elementId="Activity_xjYUvD" />
+        <uipath:inputOutput id="error14" name="Error" type="jsonSchema" elementId="Activity_6YxUml"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"}}}]]></uipath:inputOutput>
+        <uipath:inputOutput id="content" name="content" type="string" elementId="Activity_6YxUml" />
+        <uipath:inputOutput id="error2" name="Error" type="jsonSchema" elementId="Activity_eOmgXO"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"}}}]]></uipath:inputOutput>
+        <uipath:inputOutput id="category" name="category" type="string" elementId="Activity_eOmgXO" />
+        <uipath:inputOutput id="confidence" name="confidence" type="number" elementId="Activity_eOmgXO" />
+        <uipath:inputOutput id="reasoning" name="reasoning" type="string" elementId="Activity_eOmgXO" />
+        <uipath:inputOutput id="signalsFound" name="signalsFound" type="jsonSchema" elementId="Activity_eOmgXO"><![CDATA[{"type":"array","items":{},"$schema":"http://json-schema.org/draft-07/schema#"}]]></uipath:inputOutput>
       </uipath:variables>
       <uipath:bindings version="v1">
         <uipath:binding id="bAhXriPsj" name="uipath-google-gmail connection" type="string" default="8306d123-4a99-4a15-b9d3-50554490842c" resource="Connection" resourceKey="8306d123-4a99-4a15-b9d3-50554490842c" propertyAttribute="ConnectionId" />
         <uipath:binding id="bnAtGspHT" name="FolderKey" type="string" default="8402e63e-b92b-416a-8925-d02e8e02cb17" resource="Connection" resourceKey="8306d123-4a99-4a15-b9d3-50554490842c" propertyAttribute="folderKey" />
-        <uipath:binding id="buGCZCdrV" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="Agent" propertyAttribute="folderPath" />
-        <uipath:binding id="bENqKJgP1" name="name" type="string" default="Agent" resource="process" resourceSubType="Agent" resourceKey="Agent" propertyAttribute="name" />
+        <uipath:binding id="buGCZCdrV" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="intakeRouterAgent" propertyAttribute="folderPath" />
+        <uipath:binding id="bENqKJgP1" name="name" type="string" default="intakeRouterAgent" resource="process" resourceSubType="Agent" resourceKey="intakeRouterAgent" propertyAttribute="name" />
         <uipath:binding id="b3Cb1CXPt" name="folderPath" type="string" resource="queue" resourceKey="Loan-Mortgage-Intake" propertyAttribute="folderPath" />
         <uipath:binding id="bsGaUh94q" name="name" type="string" default="Loan-Mortgage-Intake" resource="queue" resourceKey="Loan-Mortgage-Intake" propertyAttribute="name" />
         <uipath:binding id="bXQ2zBVVf" name="folderPath" type="string" resource="queue" resourceKey="Auto-Approved" propertyAttribute="folderPath" />
@@ -55,12 +58,18 @@
         <uipath:binding id="begbSZOAx" name="name" type="string" default="Human-Review" resource="queue" resourceKey="Human-Review" propertyAttribute="name" />
         <uipath:binding id="bIQ7BND1N" name="folderPath" type="string" resource="process" resourceKey="RPA Workflow" propertyAttribute="folderPath" />
         <uipath:binding id="bzn6Y4WkD" name="name" type="string" default="RPA Workflow" resource="process" resourceKey="RPA Workflow" propertyAttribute="name" />
-        <uipath:binding id="bUolCYFM3" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="Agent 1" propertyAttribute="folderPath" />
-        <uipath:binding id="bQEx8EQvT" name="name" type="string" default="Agent 1" resource="process" resourceSubType="Agent" resourceKey="Agent 1" propertyAttribute="name" />
-        <uipath:binding id="bVcfFsevU" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="Agent" propertyAttribute="folderPath" />
-        <uipath:binding id="bpvajdIpZ" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="Agent 1" propertyAttribute="folderPath" />
-        <uipath:binding id="bchl3tK6s" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="Agent 2" propertyAttribute="folderPath" />
-        <uipath:binding id="bfLluDdl8" name="name" type="string" default="Agent 2" resource="process" resourceSubType="Agent" resourceKey="Agent 2" propertyAttribute="name" />
+        <uipath:binding id="bUolCYFM3" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="complianceCheckAgent" propertyAttribute="folderPath" />
+        <uipath:binding id="bQEx8EQvT" name="name" type="string" default="complianceCheckAgent" resource="process" resourceSubType="Agent" resourceKey="complianceCheckAgent" propertyAttribute="name" />
+        <uipath:binding id="bVcfFsevU" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="intakeRouterAgent" propertyAttribute="folderPath" />
+        <uipath:binding id="bpvajdIpZ" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="complianceCheckAgent" propertyAttribute="folderPath" />
+        <uipath:binding id="bchl3tK6s" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="riskAssessmentAgent" propertyAttribute="folderPath" />
+        <uipath:binding id="bfLluDdl8" name="name" type="string" default="riskAssessmentAgent" resource="process" resourceSubType="Agent" resourceKey="riskAssessmentAgent" propertyAttribute="name" />
+        <uipath:binding id="baPTcGTnu" name="folderPath" type="string" resource="process" resourceKey="ILOP.process.RPA.Workflow" propertyAttribute="folderPath" />
+        <uipath:binding id="bMlXLsZjs" name="name" type="string" default="ILOP.process.RPA.Workflow" resource="process" resourceKey="ILOP.process.RPA.Workflow" propertyAttribute="name" />
+        <uipath:binding id="bxopabEod" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="intakeRouterAgent" propertyAttribute="folderPath" />
+        <uipath:binding id="bdGYvan8O" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="complianceCheckAgent" propertyAttribute="folderPath" />
+        <uipath:binding id="b6n9l3GZq" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="ILOP.agent.intakeRouterAgent" propertyAttribute="folderPath" />
+        <uipath:binding id="bLRDIBW1O" name="name" type="string" default="ILOP.agent.intakeRouterAgent" resource="process" resourceSubType="Agent" resourceKey="ILOP.agent.intakeRouterAgent" propertyAttribute="name" />
       </uipath:bindings>
       <uipath:migrationVersion version="15" />
       <uipath:intsvcActivityConfig version="v2" />
@@ -98,12 +107,17 @@
         <uipath:activity version="v1">
           <uipath:type value="Orchestrator.StartAgentJob" version="v2" />
           <uipath:context>
-            <uipath:input name="name" type="string" value="=bindings.bENqKJgP1" />
-            <uipath:input name="folderPath" type="string" value="=bindings.buGCZCdrV" />
-            <uipath:input name="_label" type="string" value="Agent" />
+            <uipath:input name="name" type="string" value="=bindings.bLRDIBW1O" />
+            <uipath:input name="folderPath" type="string" value="=bindings.b6n9l3GZq" />
+            <uipath:input name="_label" type="string" value="ILOP.agent.intakeRouterAgent" />
+            <uipath:inputSchema type="jsonSchema"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"intakePayload":{"type":"string"}},"required":["intakePayload"]}]]></uipath:inputSchema>
           </uipath:context>
+          <uipath:input name="JobArguments" type="json" target="bodyField"><![CDATA[{"intakePayload":"=js:JSON.stringify({\n  from: vars.response.From.Email,\n  subject: vars.response.Subject,\n  body: vars.response.Body,\n  attachmentText: vars.pdfText || \"\"\n})"}]]></uipath:input>
           <uipath:output name="Error" type="jsonSchema" source="=Error" var="error2" />
-          <uipath:output name="content" type="string" description="Output content" source="=content" var="content" />
+          <uipath:output name="category" type="string" source="=category" var="category" />
+          <uipath:output name="confidence" type="number" source="=confidence" var="confidence" />
+          <uipath:output name="reasoning" type="string" source="=reasoning" var="reasoning" />
+          <uipath:output name="signalsFound" type="jsonSchema" source="=signalsFound" var="signalsFound" />
         </uipath:activity>
       </bpmn:extensionElements>
       <bpmn:incoming>edge_p46jKm</bpmn:incoming>
@@ -156,12 +170,12 @@
         <uipath:activity version="v1">
           <uipath:type value="Orchestrator.StartAgentJob" version="v2" />
           <uipath:context>
-            <uipath:input name="name" type="string" value="=bindings.bENqKJgP1" />
-            <uipath:input name="folderPath" type="string" value="=bindings.bVcfFsevU" />
-            <uipath:input name="_label" type="string" value="Agent" />
+            <uipath:input name="name" type="string" value="=bindings.bQEx8EQvT" />
+            <uipath:input name="folderPath" type="string" value="=bindings.bdGYvan8O" />
+            <uipath:input name="_label" type="string" value="Agent 1" />
           </uipath:context>
           <uipath:output name="Error" type="jsonSchema" source="=Error" var="error14" />
-          <uipath:output name="content" type="string" description="Output content" source="=content" var="content3" />
+          <uipath:output name="content" type="string" description="Output content" source="=content" var="content" />
         </uipath:activity>
       </bpmn:extensionElements>
       <bpmn:incoming>edge_qTFxnM</bpmn:incoming>
@@ -391,9 +405,9 @@
         <uipath:activity version="v1">
           <uipath:type value="Orchestrator.StartJob" version="v2" />
           <uipath:context>
-            <uipath:input name="name" type="string" value="=bindings.bzn6Y4WkD" />
-            <uipath:input name="folderPath" type="string" value="=bindings.bIQ7BND1N" />
-            <uipath:input name="_label" type="string" value="RPA Workflow" />
+            <uipath:input name="name" type="string" value="=bindings.bMlXLsZjs" />
+            <uipath:input name="folderPath" type="string" value="=bindings.baPTcGTnu" />
+            <uipath:input name="_label" type="string" value="ILOP.process.RPA.Workflow" />
             <uipath:inputSchema type="jsonSchema"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"inputFile":{"type":"file"}},"required":[]}]]></uipath:inputSchema>
           </uipath:context>
           <uipath:input name="JobArguments" type="json" target="bodyField"><![CDATA[{"inputFile":"=vars.response9"}]]></uipath:input>
@@ -429,8 +443,8 @@
       <bpmn:outgoing>edge_VAVNIH</bpmn:outgoing>
     </bpmn:sendTask>
     <bpmn:sequenceFlow id="edge_CfNHra" sourceRef="Activity_eOmgXO" targetRef="Gateway_YXrWQO" />
-    <bpmn:sequenceFlow id="edge_zUj0aS" sourceRef="Gateway_YXrWQO" targetRef="Activity_5L3fM4">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=1 == 2</bpmn:conditionExpression>
+    <bpmn:sequenceFlow id="edge_zUj0aS" name="If Mortgage" sourceRef="Gateway_YXrWQO" targetRef="Activity_5L3fM4">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=js:vars.category == "MORTGAGE" &amp;&amp; vars.confidence &gt;= 0.75</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="edge_agUOTb" sourceRef="Activity_5L3fM4" targetRef="Gateway_FXulZe" />
     <bpmn:sequenceFlow id="edge_IJcxlw" sourceRef="Activity_6YxUml" targetRef="Activity_tJyTmM" />
@@ -461,11 +475,11 @@
     <bpmn:sequenceFlow id="edge_HPKP9I" sourceRef="Gateway_3bdMPw" targetRef="Activity_VX8tS0" />
     <bpmn:sequenceFlow id="edge_oy6iXU" sourceRef="Activity_VX8tS0" targetRef="Activity_arK2rt" />
     <bpmn:sequenceFlow id="edge_7N00OK" sourceRef="Activity_arK2rt" targetRef="Gateway_wEEv1R" />
-    <bpmn:sequenceFlow id="edge_qdLM6I" sourceRef="Gateway_YXrWQO" targetRef="Activity_rAbXYV">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=1 == 2</bpmn:conditionExpression>
+    <bpmn:sequenceFlow id="edge_qdLM6I" name="If Loan" sourceRef="Gateway_YXrWQO" targetRef="Activity_rAbXYV">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=js:vars.category == "LOAN" &amp;&amp; vars.confidence &gt;= 0.75</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="edge_MB9iMc" sourceRef="Activity_rAbXYV" targetRef="Gateway_FXulZe" />
-    <bpmn:sequenceFlow id="edge_RtbwLH" sourceRef="Gateway_YXrWQO" targetRef="Activity_CNCnJ8" />
+    <bpmn:sequenceFlow id="edge_RtbwLH" name="If Other / Low Confidence" sourceRef="Gateway_YXrWQO" targetRef="Activity_CNCnJ8" />
     <bpmn:sequenceFlow id="edge_HOss6W" sourceRef="Activity_CNCnJ8" targetRef="Event_4LExVk" />
     <bpmn:sequenceFlow id="edge_Event_start-Activity_bRH4Js" sourceRef="Event_start" targetRef="Activity_bRH4Js" />
     <bpmn:sequenceFlow id="edge_GXk7Bh" sourceRef="Activity_bRH4Js" targetRef="Gateway_BxeiM8" />
@@ -498,33 +512,33 @@
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="S_Activity_5L3fM4" bpmnElement="Activity_5L3fM4">
-        <dc:Bounds x="496" y="-224" width="100" height="80" />
+        <dc:Bounds x="528" y="-224" width="100" height="80" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="496" y="-139" width="100" height="14" />
+          <dc:Bounds x="528" y="-139" width="100" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="S_Activity_rAbXYV" bpmnElement="Activity_rAbXYV">
-        <dc:Bounds x="496" y="-64" width="100" height="80" />
+        <dc:Bounds x="528" y="-64" width="100" height="80" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="496" y="21" width="100" height="14" />
+          <dc:Bounds x="528" y="21" width="100" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="S_Gateway_FXulZe" bpmnElement="Gateway_FXulZe">
-        <dc:Bounds x="640" y="-48" width="50" height="50" />
+        <dc:Bounds x="672" y="-48" width="50" height="50" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="640" y="7" width="50" height="14" />
+          <dc:Bounds x="672" y="7" width="50" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="S_Activity_tJyTmM" bpmnElement="Activity_tJyTmM">
-        <dc:Bounds x="880" y="-64" width="100" height="80" />
+        <dc:Bounds x="896" y="-64" width="100" height="80" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="880" y="21" width="100" height="14" />
+          <dc:Bounds x="896" y="21" width="100" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="S_Activity_6YxUml" bpmnElement="Activity_6YxUml">
-        <dc:Bounds x="720" y="-64" width="100" height="80" />
+        <dc:Bounds x="752" y="-64" width="100" height="80" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="720" y="21" width="100" height="14" />
+          <dc:Bounds x="752" y="21" width="100" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="S_Gateway_3bdMPw" bpmnElement="Gateway_3bdMPw">
@@ -612,15 +626,15 @@
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="S_Activity_CNCnJ8" bpmnElement="Activity_CNCnJ8">
-        <dc:Bounds x="496" y="80" width="100" height="80" />
+        <dc:Bounds x="528" y="96" width="100" height="80" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="496" y="165" width="100" height="14" />
+          <dc:Bounds x="528" y="181" width="100" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="S_Event_4LExVk" bpmnElement="Event_4LExVk">
-        <dc:Bounds x="656" y="112" width="36" height="36" />
+        <dc:Bounds x="688" y="112" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="656" y="153" width="36" height="14" />
+          <dc:Bounds x="688" y="153" width="36" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="S_Activity_bRH4Js" bpmnElement="Activity_bRH4Js">
@@ -660,23 +674,23 @@
       <bpmndi:BPMNEdge id="BPMNEdge_edge_zUj0aS" bpmnElement="edge_zUj0aS">
         <di:waypoint x="425" y="-32" />
         <di:waypoint x="425" y="-184" />
-        <di:waypoint x="496" y="-184" />
+        <di:waypoint x="528" y="-184" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="BPMNEdge_edge_agUOTb" bpmnElement="edge_agUOTb">
-        <di:waypoint x="596" y="-184" />
-        <di:waypoint x="665" y="-184" />
-        <di:waypoint x="665" y="-48" />
+        <di:waypoint x="628" y="-184" />
+        <di:waypoint x="697" y="-184" />
+        <di:waypoint x="697" y="-48" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="BPMNEdge_edge_IJcxlw" bpmnElement="edge_IJcxlw">
-        <di:waypoint x="820" y="-24" />
-        <di:waypoint x="880" y="-24" />
+        <di:waypoint x="852" y="-24" />
+        <di:waypoint x="896" y="-24" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="BPMNEdge_edge_qTFxnM" bpmnElement="edge_qTFxnM">
-        <di:waypoint x="690" y="-23" />
-        <di:waypoint x="720" y="-24" />
+        <di:waypoint x="722" y="-23" />
+        <di:waypoint x="752" y="-24" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="BPMNEdge_edge_XNnh6d" bpmnElement="edge_XNnh6d">
-        <di:waypoint x="980" y="-24" />
+        <di:waypoint x="996" y="-24" />
         <di:waypoint x="1024" y="-23" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="BPMNEdge_edge_xd0MRM" bpmnElement="edge_xd0MRM">
@@ -765,24 +779,24 @@
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="BPMNEdge_edge_qdLM6I" bpmnElement="edge_qdLM6I">
         <di:waypoint x="450" y="-7" />
-        <di:waypoint x="473" y="-7" />
-        <di:waypoint x="473" y="-24" />
-        <di:waypoint x="496" y="-24" />
+        <di:waypoint x="489" y="-7" />
+        <di:waypoint x="489" y="-24" />
+        <di:waypoint x="528" y="-24" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="BPMNEdge_edge_MB9iMc" bpmnElement="edge_MB9iMc">
-        <di:waypoint x="596" y="-24" />
-        <di:waypoint x="640" y="-23" />
+        <di:waypoint x="628" y="-24" />
+        <di:waypoint x="672" y="-23" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="BPMNEdge_edge_RtbwLH" bpmnElement="edge_RtbwLH">
         <di:waypoint x="425" y="18" />
-        <di:waypoint x="425" y="120" />
-        <di:waypoint x="496" y="120" />
+        <di:waypoint x="425" y="136" />
+        <di:waypoint x="528" y="136" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="BPMNEdge_edge_HOss6W" bpmnElement="edge_HOss6W">
-        <di:waypoint x="596" y="120" />
-        <di:waypoint x="626" y="120" />
-        <di:waypoint x="626" y="130" />
-        <di:waypoint x="656" y="130" />
+        <di:waypoint x="628" y="136" />
+        <di:waypoint x="658" y="136" />
+        <di:waypoint x="658" y="130" />
+        <di:waypoint x="688" y="130" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="BPMNEdge_edge_Event_start-Activity_bRH4Js" bpmnElement="edge_Event_start-Activity_bRH4Js">
         <di:waypoint x="-268" y="-14" />

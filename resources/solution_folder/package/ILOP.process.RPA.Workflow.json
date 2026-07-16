@@ -1,0 +1,33 @@
+{
+  "docVersion": "1.0.0",
+  "resource": {
+    "name": "ILOP.process.RPA.Workflow",
+    "kind": "package",
+    "apiVersion": "orchestrator.uipath.com/v1",
+    "isOverridable": true,
+    "dependencies": [],
+    "runtimeDependencies": [],
+    "files": [
+      {
+        "name": "ILOP.process.RPA.Workflow.1.0.0.nupkg",
+        "kind": "Package",
+        "version": "1.0.0",
+        "url": "https://cloud.uipath.com/16dc2c06-43e6-4404-b266-6e46e0e28f46/02ace0d3-540b-41d1-8c4c-ad04dfac8baa/orchestrator_/odata/Processes/UiPath.Server.Configuration.OData.DownloadPackage(key=\u0027ILOP.process.RPA.Workflow:1.0.0\u0027)?feedId=94068484-eb55-4ff5-a033-1c468306cb51",
+        "key": "ILOP.process.RPA.Workflow_1.0.0"
+      }
+    ],
+    "folders": [
+      {
+        "fullyQualifiedName": "solution_folder"
+      }
+    ],
+    "spec": {
+      "fileName": "ILOP.process.RPA.Workflow.1.0.0.nupkg",
+      "fileReference": "ILOP.process.RPA.Workflow_1.0.0",
+      "name": "ILOP.process.RPA.Workflow",
+      "description": null
+    },
+    "locks": [],
+    "key": "ILOP.process.RPA.Workflow:1.0.0"
+  }
+}
