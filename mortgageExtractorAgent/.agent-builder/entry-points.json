@@ -1,0 +1,237 @@
+{
+  "$schema": "https://cloud.uipath.com/draft/2024-12/entry-point",
+  "$id": "entry-points.json",
+  "entryPoints": [
+    {
+      "filePath": "/content/agent.json",
+      "type": "agent",
+      "uniqueId": "5d7a77f4-41d1-4599-8f56-afc299d00c82",
+      "input": {
+        "type": "object",
+        "properties": {
+          "intakePayload": {
+            "type": "string"
+          }
+        },
+        "title": "Inputs"
+      },
+      "output": {
+        "type": "object",
+        "title": "Outputs",
+        "properties": {
+          "applicantName": {
+            "type": "string",
+            "description": "Full name of the primary applicant as stated in the source"
+          },
+          "coApplicantName": {
+            "type": "string",
+            "description": "Full name of the co-applicant if present"
+          },
+          "applicantEmail": {
+            "type": "string",
+            "description": "Applicant's email address"
+          },
+          "coApplicantEmail": {
+            "type": "string",
+            "description": "Co-applicant's email address"
+          },
+          "applicantPhone": {
+            "type": "string",
+            "description": "Applicant's phone number"
+          },
+          "coApplicantPhone": {
+            "type": "string",
+            "description": "Co-applicant's phone number"
+          },
+          "loanPurpose": {
+            "type": "string",
+            "description": "Purpose of the loan such as Purchase, Refinance, Cash-Out Refinance, Home Equity, or Construction"
+          },
+          "loanType": {
+            "type": "string",
+            "description": "Loan program such as Conventional, FHA, VA, USDA, or Jumbo"
+          },
+          "occupancyType": {
+            "type": "string",
+            "description": "Primary Residence, Secondary Residence, or Investment Property"
+          },
+          "propertyAddress": {
+            "type": "string",
+            "description": "Full address of the property"
+          },
+          "propertyCity": {
+            "type": "string",
+            "description": "City where the property is located"
+          },
+          "propertyState": {
+            "type": "string",
+            "description": "State where the property is located"
+          },
+          "propertyZipCode": {
+            "type": "string",
+            "description": "ZIP code of the property"
+          },
+          "propertyType": {
+            "type": "string",
+            "description": "Property type such as Single Family, Condo, Townhouse, Duplex, Manufactured Home"
+          },
+          "estimatedPropertyValue": {
+            "type": "number",
+            "description": "Estimated property value in USD"
+          },
+          "purchasePrice": {
+            "type": "number",
+            "description": "Purchase price of the property in USD"
+          },
+          "downPayment": {
+            "type": "number",
+            "description": "Down payment amount in USD"
+          },
+          "currentMortgageBalance": {
+            "type": "number",
+            "description": "Current outstanding mortgage balance in USD"
+          },
+          "requestedLoanAmount": {
+            "type": "number",
+            "description": "Requested loan amount in USD"
+          },
+          "interestRate": {
+            "type": "number",
+            "description": "Requested or quoted interest rate percentage"
+          },
+          "requestedTermMonths": {
+            "type": "number",
+            "description": "Loan term in months"
+          },
+          "cashOutAmount": {
+            "type": "number",
+            "description": "Requested cash-out amount in USD"
+          },
+          "grossAnnualIncome": {
+            "type": "number",
+            "description": "Applicant gross annual income in USD"
+          },
+          "coApplicantAnnualIncome": {
+            "type": "number",
+            "description": "Co-applicant gross annual income in USD"
+          },
+          "monthlyIncome": {
+            "type": "number",
+            "description": "Applicant monthly gross income in USD"
+          },
+          "employer": {
+            "type": "string",
+            "description": "Applicant employer name"
+          },
+          "coApplicantEmployer": {
+            "type": "string",
+            "description": "Co-applicant employer name"
+          },
+          "employmentStatus": {
+            "type": "string",
+            "description": "Employment status such as Full-Time, Part-Time, Self-Employed, Retired, Unemployed"
+          },
+          "jobTitle": {
+            "type": "string",
+            "description": "Applicant job title"
+          },
+          "yearsEmployed": {
+            "type": "number",
+            "description": "Years with current employer"
+          },
+          "creditScore": {
+            "type": "number",
+            "description": "Applicant credit score"
+          },
+          "coApplicantCreditScore": {
+            "type": "number",
+            "description": "Co-applicant credit score"
+          },
+          "monthlyMortgagePayment": {
+            "type": "number",
+            "description": "Monthly mortgage payment"
+          },
+          "monthlyAutoLoans": {
+            "type": "number",
+            "description": "Monthly auto loan payments"
+          },
+          "monthlyStudentLoans": {
+            "type": "number",
+            "description": "Monthly student loan payments"
+          },
+          "monthlyCreditCardPayments": {
+            "type": "number",
+            "description": "Monthly minimum credit card payments"
+          },
+          "monthlyOtherDebts": {
+            "type": "number",
+            "description": "Other recurring monthly debt obligations"
+          },
+          "totalMonthlyDebts": {
+            "type": "number",
+            "description": "Total monthly debt obligations"
+          },
+          "assetsChecking": {
+            "type": "number",
+            "description": "Checking account balance in USD"
+          },
+          "assetsSavings": {
+            "type": "number",
+            "description": "Savings account balance in USD"
+          },
+          "assetsRetirement": {
+            "type": "number",
+            "description": "Retirement account balance in USD"
+          },
+          "otherAssets": {
+            "type": "number",
+            "description": "Other financial assets in USD"
+          },
+          "bankName": {
+            "type": "string",
+            "description": "Primary financial institution"
+          },
+          "citizenshipStatus": {
+            "type": "string",
+            "description": "Citizenship or residency status"
+          },
+          "maritalStatus": {
+            "type": "string",
+            "description": "Applicant marital status"
+          },
+          "applicationDate": {
+            "type": "string",
+            "description": "Loan application date"
+          },
+          "loanOfficer": {
+            "type": "string",
+            "description": "Loan officer name if present"
+          },
+          "applicationNumber": {
+            "type": "string",
+            "description": "Loan application number or reference ID"
+          },
+          "notes": {
+            "type": "string",
+            "description": "Additional underwriting notes or comments"
+          },
+          "missingFields": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of fields that could not be extracted. Never invent values."
+          },
+          "extractionConfidence": {
+            "type": "number",
+            "description": "Overall confidence score from 0.0 to 1.0"
+          }
+        },
+        "required": [
+          "missingFields",
+          "extractionConfidence"
+        ]
+      }
+    }
+  ]
+}

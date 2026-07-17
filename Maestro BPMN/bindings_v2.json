@@ -192,8 +192,8 @@
     },
     {
       "resource": "process",
-      "key": "complianceCheckAgent",
-      "id": "processcomplianceCheckAgent",
+      "key": "complianceCheckmortgageExtractorAgent",
+      "id": "processcomplianceCheckmortgageExtractorAgent",
       "value": {
         "name": {
           "defaultValue": "complianceCheckAgent",
@@ -211,8 +211,8 @@
     },
     {
       "resource": "process",
-      "key": "riskAssessmentAgent",
-      "id": "processriskAssessmentAgent",
+      "key": "riskAssessmentmortgageExtractorAgent",
+      "id": "processriskAssessmentmortgageExtractorAgent",
       "value": {
         "name": {
           "defaultValue": "riskAssessmentAgent",
@@ -248,8 +248,8 @@
     },
     {
       "resource": "process",
-      "key": "ILOP.agent.intakeRouterAgent",
-      "id": "processILOP.agent.intakeRouterAgent",
+      "key": "ILOP.agent.intakeRoutermortgageExtractorAgent",
+      "id": "processILOP.agent.intakeRoutermortgageExtractorAgent",
       "value": {
         "name": {
           "defaultValue": "ILOP.agent.intakeRouterAgent",
@@ -259,6 +259,25 @@
       },
       "metadata": {
         "ActivityName": "Intake Router Agent ",
+        "BindingsVersion": "2.2",
+        "DisplayLabel": "name",
+        "SolutionsSupport": "true",
+        "subType": "Agent"
+      }
+    },
+    {
+      "resource": "process",
+      "key": "ILOP.agent.mortgageExtractorAgent",
+      "id": "processILOP.agent.mortgageExtractorAgent",
+      "value": {
+        "name": {
+          "defaultValue": "ILOP.agent.mortgageExtractorAgent",
+          "isExpression": false,
+          "displayName": "Process name"
+        }
+      },
+      "metadata": {
+        "ActivityName": "mortgage Extractor Agent",
         "BindingsVersion": "2.2",
         "DisplayLabel": "name",
         "SolutionsSupport": "true",

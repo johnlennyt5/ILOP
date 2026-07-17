@@ -1,0 +1,273 @@
+{
+  "id": "bde978d4-2a5b-4c34-bc7e-b988f7f1d6d6",
+  "version": "1.1.0",
+  "name": "mortgageExtractorAgent",
+  "metadata": {
+    "storageVersion": "50.0.0",
+    "isConversational": false,
+    "targetRuntime": "pythonAgent",
+    "showProjectCreationExperience": false
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are the Mortgage Extraction Agent for Harborview Financial Group's lending intake pipeline. You extract structured mortgage application data. You do not classify, make lending decisions, or draft replies.\r\n\r\nYou receive a JSON envelope for a request already classified as MORTGAGE: from, subject, body, and attachmentText (text extracted from an attached application document, possibly a URLA/Form 1003; may be empty).\r\n\r\nExtraction rules:\r\n1. Extract ONLY values explicitly present in the envelope. Never infer, estimate, or invent a value.\r\n2. If a field is not found, leave it empty/null and add its name to missingFields.\r\n3. Numbers must be plain numerics: strip $, commas, and units (\"$285,000\" → 285000; \"30-year fixed\" → requestedTermMonths 360).\r\n4. totalMonthlyDebts is the sum of monthly liabilities explicitly listed (e.g., mortgage payment, auto loan, student loans, credit card minimums). If none are listed, leave it empty and record it in missingFields.\r\n5. attachmentText is the primary source when present; the email body supplements it. If they conflict, prefer attachmentText and mention the conflict in missingFields notes.\r\n6. extractionConfidence reflects overall completeness and clarity: 0.9+ only when a full application document was present and fields were unambiguous.\r\n7. Output nothing beyond the defined schema.",
+      "contentTokens": [
+        {
+          "type": "simpleText",
+          "rawString": "You are the Mortgage Extraction Agent for Harborview Financial Group's lending intake pipeline. You extract structured mortgage application data. You do not classify, make lending decisions, or draft replies.\r\n\r\nYou receive a JSON envelope for a request already classified as MORTGAGE: from, subject, body, and attachmentText (text extracted from an attached application document, possibly a URLA/Form 1003; may be empty).\r\n\r\nExtraction rules:\r\n1. Extract ONLY values explicitly present in the envelope. Never infer, estimate, or invent a value.\r\n2. If a field is not found, leave it empty/null and add its name to missingFields.\r\n3. Numbers must be plain numerics: strip $, commas, and units (\"$285,000\" → 285000; \"30-year fixed\" → requestedTermMonths 360).\r\n4. totalMonthlyDebts is the sum of monthly liabilities explicitly listed (e.g., mortgage payment, auto loan, student loans, credit card minimums). If none are listed, leave it empty and record it in missingFields.\r\n5. attachmentText is the primary source when present; the email body supplements it. If they conflict, prefer attachmentText and mention the conflict in missingFields notes.\r\n6. extractionConfidence reflects overall completeness and clarity: 0.9+ only when a full application document was present and fields were unambiguous.\r\n7. Output nothing beyond the defined schema."
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": "Extract mortgage application data from this envelope:\n\n{{input.intakePayload}}",
+      "contentTokens": [
+        {
+          "type": "simpleText",
+          "rawString": "Extract mortgage application data from this envelope:\n\n"
+        },
+        {
+          "type": "variable",
+          "rawString": "input.intakePayload"
+        }
+      ]
+    }
+  ],
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "intakePayload": {
+        "type": "string"
+      }
+    },
+    "title": "Inputs"
+  },
+  "outputSchema": {
+    "type": "object",
+    "title": "Outputs",
+    "properties": {
+      "applicantName": {
+        "type": "string",
+        "description": "Full name of the primary applicant as stated in the source"
+      },
+      "coApplicantName": {
+        "type": "string",
+        "description": "Full name of the co-applicant if present"
+      },
+      "applicantEmail": {
+        "type": "string",
+        "description": "Applicant's email address"
+      },
+      "coApplicantEmail": {
+        "type": "string",
+        "description": "Co-applicant's email address"
+      },
+      "applicantPhone": {
+        "type": "string",
+        "description": "Applicant's phone number"
+      },
+      "coApplicantPhone": {
+        "type": "string",
+        "description": "Co-applicant's phone number"
+      },
+      "loanPurpose": {
+        "type": "string",
+        "description": "Purpose of the loan such as Purchase, Refinance, Cash-Out Refinance, Home Equity, or Construction"
+      },
+      "loanType": {
+        "type": "string",
+        "description": "Loan program such as Conventional, FHA, VA, USDA, or Jumbo"
+      },
+      "occupancyType": {
+        "type": "string",
+        "description": "Primary Residence, Secondary Residence, or Investment Property"
+      },
+      "propertyAddress": {
+        "type": "string",
+        "description": "Full address of the property"
+      },
+      "propertyCity": {
+        "type": "string",
+        "description": "City where the property is located"
+      },
+      "propertyState": {
+        "type": "string",
+        "description": "State where the property is located"
+      },
+      "propertyZipCode": {
+        "type": "string",
+        "description": "ZIP code of the property"
+      },
+      "propertyType": {
+        "type": "string",
+        "description": "Property type such as Single Family, Condo, Townhouse, Duplex, Manufactured Home"
+      },
+      "estimatedPropertyValue": {
+        "type": "number",
+        "description": "Estimated property value in USD"
+      },
+      "purchasePrice": {
+        "type": "number",
+        "description": "Purchase price of the property in USD"
+      },
+      "downPayment": {
+        "type": "number",
+        "description": "Down payment amount in USD"
+      },
+      "currentMortgageBalance": {
+        "type": "number",
+        "description": "Current outstanding mortgage balance in USD"
+      },
+      "requestedLoanAmount": {
+        "type": "number",
+        "description": "Requested loan amount in USD"
+      },
+      "interestRate": {
+        "type": "number",
+        "description": "Requested or quoted interest rate percentage"
+      },
+      "requestedTermMonths": {
+        "type": "number",
+        "description": "Loan term in months"
+      },
+      "cashOutAmount": {
+        "type": "number",
+        "description": "Requested cash-out amount in USD"
+      },
+      "grossAnnualIncome": {
+        "type": "number",
+        "description": "Applicant gross annual income in USD"
+      },
+      "coApplicantAnnualIncome": {
+        "type": "number",
+        "description": "Co-applicant gross annual income in USD"
+      },
+      "monthlyIncome": {
+        "type": "number",
+        "description": "Applicant monthly gross income in USD"
+      },
+      "employer": {
+        "type": "string",
+        "description": "Applicant employer name"
+      },
+      "coApplicantEmployer": {
+        "type": "string",
+        "description": "Co-applicant employer name"
+      },
+      "employmentStatus": {
+        "type": "string",
+        "description": "Employment status such as Full-Time, Part-Time, Self-Employed, Retired, Unemployed"
+      },
+      "jobTitle": {
+        "type": "string",
+        "description": "Applicant job title"
+      },
+      "yearsEmployed": {
+        "type": "number",
+        "description": "Years with current employer"
+      },
+      "creditScore": {
+        "type": "number",
+        "description": "Applicant credit score"
+      },
+      "coApplicantCreditScore": {
+        "type": "number",
+        "description": "Co-applicant credit score"
+      },
+      "monthlyMortgagePayment": {
+        "type": "number",
+        "description": "Monthly mortgage payment"
+      },
+      "monthlyAutoLoans": {
+        "type": "number",
+        "description": "Monthly auto loan payments"
+      },
+      "monthlyStudentLoans": {
+        "type": "number",
+        "description": "Monthly student loan payments"
+      },
+      "monthlyCreditCardPayments": {
+        "type": "number",
+        "description": "Monthly minimum credit card payments"
+      },
+      "monthlyOtherDebts": {
+        "type": "number",
+        "description": "Other recurring monthly debt obligations"
+      },
+      "totalMonthlyDebts": {
+        "type": "number",
+        "description": "Total monthly debt obligations"
+      },
+      "assetsChecking": {
+        "type": "number",
+        "description": "Checking account balance in USD"
+      },
+      "assetsSavings": {
+        "type": "number",
+        "description": "Savings account balance in USD"
+      },
+      "assetsRetirement": {
+        "type": "number",
+        "description": "Retirement account balance in USD"
+      },
+      "otherAssets": {
+        "type": "number",
+        "description": "Other financial assets in USD"
+      },
+      "bankName": {
+        "type": "string",
+        "description": "Primary financial institution"
+      },
+      "citizenshipStatus": {
+        "type": "string",
+        "description": "Citizenship or residency status"
+      },
+      "maritalStatus": {
+        "type": "string",
+        "description": "Applicant marital status"
+      },
+      "applicationDate": {
+        "type": "string",
+        "description": "Loan application date"
+      },
+      "loanOfficer": {
+        "type": "string",
+        "description": "Loan officer name if present"
+      },
+      "applicationNumber": {
+        "type": "string",
+        "description": "Loan application number or reference ID"
+      },
+      "notes": {
+        "type": "string",
+        "description": "Additional underwriting notes or comments"
+      },
+      "missingFields": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "List of fields that could not be extracted. Never invent values."
+      },
+      "extractionConfidence": {
+        "type": "number",
+        "description": "Overall confidence score from 0.0 to 1.0"
+      }
+    },
+    "required": [
+      "missingFields",
+      "extractionConfidence"
+    ]
+  },
+  "settings": {
+    "model": "gpt-5.4-2026-03-05-community-agents",
+    "maxTokens": 65535,
+    "temperature": 0,
+    "engine": "basic-v2",
+    "maxIterations": 25,
+    "mode": "standard"
+  },
+  "resources": [],
+  "features": []
+}

@@ -1,0 +1,26 @@
+{
+  "docVersion": "1.0.0",
+  "resource": {
+    "name": "mortgageExtractorAgent",
+    "kind": "package",
+    "apiVersion": "orchestrator.uipath.com/v1",
+    "projectKey": "a4c09f63-9949-4ad3-83cd-9d979a1fa01d",
+    "isOverridable": true,
+    "dependencies": [],
+    "runtimeDependencies": [],
+    "files": [],
+    "folders": [
+      {
+        "fullyQualifiedName": "solution_folder"
+      }
+    ],
+    "spec": {
+      "fileName": null,
+      "fileReference": null,
+      "name": "mortgageExtractorAgent",
+      "description": null
+    },
+    "locks": [],
+    "key": "68fb6e4e-ac00-4d8e-86c7-d5730f0adeb9"
+  }
+}

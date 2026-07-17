@@ -20,6 +20,11 @@
     },
     {
       "Type": "Agent",
+      "ProjectRelativePath": "mortgageExtractorAgent/project.uiproj",
+      "Id": "a4c09f63-9949-4ad3-83cd-9d979a1fa01d"
+    },
+    {
+      "Type": "Agent",
       "ProjectRelativePath": "complianceCheckAgent/project.uiproj",
       "Id": "cdef9163-a8bc-4f9b-ae8b-6e730986b06a"
     },

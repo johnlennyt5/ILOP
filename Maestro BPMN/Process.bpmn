@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:uipath="http://uipath.org/schema/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="x-uipath-initial-diagram" targetNamespace="http://www.omg.org/spec/BPMN/20100524/MODEL" exporter="UiPath Studio Web (https://uipath.com)" exporterVersion="4fd2af0f">
-  <bpmn:process id="Process_1" name="Process" isExecutable="false">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:uipath="http://uipath.org/schema/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" exporter="UiPath Studio Web (https://uipath.com)" exporterVersion="4fd2af0f">
+  <bpmn:process id="Process_1" name="Process">
     <bpmn:extensionElements>
       <uipath:variables version="v1">
         <uipath:inputOutput id="response4" name="response" type="jsonSchema" elementId="Activity_Qjnsuy"><![CDATA[{"type":"object","properties":{"Id":{"type":"integer","title":"Queue Item ID","description":"The unique identifier of the queue item"},"QueueDefinitionId":{"type":"integer","title":"Queue Definition ID","description":"The ID of the queue definition"},"Status":{"type":"string","title":"Status","description":"The status of the queue item","enum":["New","InProgress","Failed","Successful","Abandoned","Retried","Deleted"]},"Reference":{"type":"string","title":"Reference","description":"The reference identifier for the queue item"},"Priority":{"type":"string","title":"Priority","description":"The priority level of the queue item","enum":["Low","Normal","High"]},"DeferDate":{"type":"string","format":"date-time","title":"Defer Date","description":"The date and time when the queue item should be processed"},"DueDate":{"type":"string","format":"date-time","title":"Due Date","description":"The deadline for processing the queue item"},"CreationTime":{"type":"string","format":"date-time","title":"Creation Time","description":"The date and time when the queue item was created"},"Progress":{"type":"string","title":"Progress","description":"The progress status of the queue item"},"SpecificContent":{"type":"object","title":"Item Information","description":"The specific content/data associated with the queue item"},"Output":{"type":"object","title":"Output","description":"The output data produced by processing the queue item"}},"required":["Id","QueueDefinitionId","Status"]}]]></uipath:inputOutput>
@@ -36,12 +36,64 @@
         <uipath:inputOutput id="confidence" name="confidence" type="number" elementId="Activity_eOmgXO" />
         <uipath:inputOutput id="reasoning" name="reasoning" type="string" elementId="Activity_eOmgXO" />
         <uipath:inputOutput id="signalsFound" name="signalsFound" type="jsonSchema" elementId="Activity_eOmgXO"><![CDATA[{"type":"array","items":{},"$schema":"http://json-schema.org/draft-07/schema#"}]]></uipath:inputOutput>
+        <uipath:inputOutput id="error16" name="Error" type="jsonSchema" elementId="Activity_5L3fM4"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"}}}]]></uipath:inputOutput>
+        <uipath:inputOutput id="applicantName" name="applicantName" type="string" elementId="Activity_5L3fM4" />
+        <uipath:inputOutput id="coApplicantName" name="coApplicantName" type="string" elementId="Activity_5L3fM4" />
+        <uipath:inputOutput id="applicantEmail" name="applicantEmail" type="string" elementId="Activity_5L3fM4" />
+        <uipath:inputOutput id="coApplicantEmail" name="coApplicantEmail" type="string" elementId="Activity_5L3fM4" />
+        <uipath:inputOutput id="applicantPhone" name="applicantPhone" type="string" elementId="Activity_5L3fM4" />
+        <uipath:inputOutput id="coApplicantPhone" name="coApplicantPhone" type="string" elementId="Activity_5L3fM4" />
+        <uipath:inputOutput id="loanPurpose" name="loanPurpose" type="string" elementId="Activity_5L3fM4" />
+        <uipath:inputOutput id="loanType" name="loanType" type="string" elementId="Activity_5L3fM4" />
+        <uipath:inputOutput id="occupancyType" name="occupancyType" type="string" elementId="Activity_5L3fM4" />
+        <uipath:inputOutput id="propertyAddress" name="propertyAddress" type="string" elementId="Activity_5L3fM4" />
+        <uipath:inputOutput id="propertyCity" name="propertyCity" type="string" elementId="Activity_5L3fM4" />
+        <uipath:inputOutput id="propertyState" name="propertyState" type="string" elementId="Activity_5L3fM4" />
+        <uipath:inputOutput id="propertyZipCode" name="propertyZipCode" type="string" elementId="Activity_5L3fM4" />
+        <uipath:inputOutput id="propertyType" name="propertyType" type="string" elementId="Activity_5L3fM4" />
+        <uipath:inputOutput id="estimatedPropertyValue" name="estimatedPropertyValue" type="number" elementId="Activity_5L3fM4" />
+        <uipath:inputOutput id="purchasePrice" name="purchasePrice" type="number" elementId="Activity_5L3fM4" />
+        <uipath:inputOutput id="downPayment" name="downPayment" type="number" elementId="Activity_5L3fM4" />
+        <uipath:inputOutput id="currentMortgageBalance" name="currentMortgageBalance" type="number" elementId="Activity_5L3fM4" />
+        <uipath:inputOutput id="requestedLoanAmount" name="requestedLoanAmount" type="number" elementId="Activity_5L3fM4" />
+        <uipath:inputOutput id="interestRate" name="interestRate" type="number" elementId="Activity_5L3fM4" />
+        <uipath:inputOutput id="requestedTermMonths" name="requestedTermMonths" type="number" elementId="Activity_5L3fM4" />
+        <uipath:inputOutput id="cashOutAmount" name="cashOutAmount" type="number" elementId="Activity_5L3fM4" />
+        <uipath:inputOutput id="grossAnnualIncome" name="grossAnnualIncome" type="number" elementId="Activity_5L3fM4" />
+        <uipath:inputOutput id="coApplicantAnnualIncome" name="coApplicantAnnualIncome" type="number" elementId="Activity_5L3fM4" />
+        <uipath:inputOutput id="monthlyIncome" name="monthlyIncome" type="number" elementId="Activity_5L3fM4" />
+        <uipath:inputOutput id="employer" name="employer" type="string" elementId="Activity_5L3fM4" />
+        <uipath:inputOutput id="coApplicantEmployer" name="coApplicantEmployer" type="string" elementId="Activity_5L3fM4" />
+        <uipath:inputOutput id="employmentStatus" name="employmentStatus" type="string" elementId="Activity_5L3fM4" />
+        <uipath:inputOutput id="jobTitle" name="jobTitle" type="string" elementId="Activity_5L3fM4" />
+        <uipath:inputOutput id="yearsEmployed" name="yearsEmployed" type="number" elementId="Activity_5L3fM4" />
+        <uipath:inputOutput id="creditScore" name="creditScore" type="number" elementId="Activity_5L3fM4" />
+        <uipath:inputOutput id="coApplicantCreditScore" name="coApplicantCreditScore" type="number" elementId="Activity_5L3fM4" />
+        <uipath:inputOutput id="monthlyMortgagePayment" name="monthlyMortgagePayment" type="number" elementId="Activity_5L3fM4" />
+        <uipath:inputOutput id="monthlyAutoLoans" name="monthlyAutoLoans" type="number" elementId="Activity_5L3fM4" />
+        <uipath:inputOutput id="monthlyStudentLoans" name="monthlyStudentLoans" type="number" elementId="Activity_5L3fM4" />
+        <uipath:inputOutput id="monthlyCreditCardPayments" name="monthlyCreditCardPayments" type="number" elementId="Activity_5L3fM4" />
+        <uipath:inputOutput id="monthlyOtherDebts" name="monthlyOtherDebts" type="number" elementId="Activity_5L3fM4" />
+        <uipath:inputOutput id="totalMonthlyDebts" name="totalMonthlyDebts" type="number" elementId="Activity_5L3fM4" />
+        <uipath:inputOutput id="assetsChecking" name="assetsChecking" type="number" elementId="Activity_5L3fM4" />
+        <uipath:inputOutput id="assetsSavings" name="assetsSavings" type="number" elementId="Activity_5L3fM4" />
+        <uipath:inputOutput id="assetsRetirement" name="assetsRetirement" type="number" elementId="Activity_5L3fM4" />
+        <uipath:inputOutput id="otherAssets" name="otherAssets" type="number" elementId="Activity_5L3fM4" />
+        <uipath:inputOutput id="bankName" name="bankName" type="string" elementId="Activity_5L3fM4" />
+        <uipath:inputOutput id="citizenshipStatus" name="citizenshipStatus" type="string" elementId="Activity_5L3fM4" />
+        <uipath:inputOutput id="maritalStatus" name="maritalStatus" type="string" elementId="Activity_5L3fM4" />
+        <uipath:inputOutput id="applicationDate" name="applicationDate" type="string" elementId="Activity_5L3fM4" />
+        <uipath:inputOutput id="loanOfficer" name="loanOfficer" type="string" elementId="Activity_5L3fM4" />
+        <uipath:inputOutput id="applicationNumber" name="applicationNumber" type="string" elementId="Activity_5L3fM4" />
+        <uipath:inputOutput id="notes" name="notes" type="string" elementId="Activity_5L3fM4" />
+        <uipath:inputOutput id="missingFields" name="missingFields" type="jsonSchema" subType="string" elementId="Activity_5L3fM4"><![CDATA[{"type":"array","description":"List of fields that could not be extracted. Never invent values.","items":{"type":"string"},"$schema":"http://json-schema.org/draft-07/schema#"}]]></uipath:inputOutput>
+        <uipath:inputOutput id="extractionConfidence" name="extractionConfidence" type="number" elementId="Activity_5L3fM4" />
       </uipath:variables>
       <uipath:bindings version="v1">
         <uipath:binding id="bAhXriPsj" name="uipath-google-gmail connection" type="string" default="8306d123-4a99-4a15-b9d3-50554490842c" resource="Connection" resourceKey="8306d123-4a99-4a15-b9d3-50554490842c" propertyAttribute="ConnectionId" />
         <uipath:binding id="bnAtGspHT" name="FolderKey" type="string" default="8402e63e-b92b-416a-8925-d02e8e02cb17" resource="Connection" resourceKey="8306d123-4a99-4a15-b9d3-50554490842c" propertyAttribute="folderKey" />
-        <uipath:binding id="buGCZCdrV" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="intakeRouterAgent" propertyAttribute="folderPath" />
-        <uipath:binding id="bENqKJgP1" name="name" type="string" default="intakeRouterAgent" resource="process" resourceSubType="Agent" resourceKey="intakeRouterAgent" propertyAttribute="name" />
+        <uipath:binding id="buGCZCdrV" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="intakeRoutermortgageExtractorAgent" propertyAttribute="folderPath" />
+        <uipath:binding id="bENqKJgP1" name="name" type="string" default="intakeRouterAgent" resource="process" resourceSubType="Agent" resourceKey="intakeRoutermortgageExtractorAgent" propertyAttribute="name" />
         <uipath:binding id="b3Cb1CXPt" name="folderPath" type="string" resource="queue" resourceKey="Loan-Mortgage-Intake" propertyAttribute="folderPath" />
         <uipath:binding id="bsGaUh94q" name="name" type="string" default="Loan-Mortgage-Intake" resource="queue" resourceKey="Loan-Mortgage-Intake" propertyAttribute="name" />
         <uipath:binding id="bXQ2zBVVf" name="folderPath" type="string" resource="queue" resourceKey="Auto-Approved" propertyAttribute="folderPath" />
@@ -58,18 +110,22 @@
         <uipath:binding id="begbSZOAx" name="name" type="string" default="Human-Review" resource="queue" resourceKey="Human-Review" propertyAttribute="name" />
         <uipath:binding id="bIQ7BND1N" name="folderPath" type="string" resource="process" resourceKey="RPA Workflow" propertyAttribute="folderPath" />
         <uipath:binding id="bzn6Y4WkD" name="name" type="string" default="RPA Workflow" resource="process" resourceKey="RPA Workflow" propertyAttribute="name" />
-        <uipath:binding id="bUolCYFM3" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="complianceCheckAgent" propertyAttribute="folderPath" />
-        <uipath:binding id="bQEx8EQvT" name="name" type="string" default="complianceCheckAgent" resource="process" resourceSubType="Agent" resourceKey="complianceCheckAgent" propertyAttribute="name" />
-        <uipath:binding id="bVcfFsevU" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="intakeRouterAgent" propertyAttribute="folderPath" />
-        <uipath:binding id="bpvajdIpZ" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="complianceCheckAgent" propertyAttribute="folderPath" />
-        <uipath:binding id="bchl3tK6s" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="riskAssessmentAgent" propertyAttribute="folderPath" />
-        <uipath:binding id="bfLluDdl8" name="name" type="string" default="riskAssessmentAgent" resource="process" resourceSubType="Agent" resourceKey="riskAssessmentAgent" propertyAttribute="name" />
+        <uipath:binding id="bUolCYFM3" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="complianceCheckmortgageExtractorAgent" propertyAttribute="folderPath" />
+        <uipath:binding id="bQEx8EQvT" name="name" type="string" default="complianceCheckAgent" resource="process" resourceSubType="Agent" resourceKey="complianceCheckmortgageExtractorAgent" propertyAttribute="name" />
+        <uipath:binding id="bVcfFsevU" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="intakeRoutermortgageExtractorAgent" propertyAttribute="folderPath" />
+        <uipath:binding id="bpvajdIpZ" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="complianceCheckmortgageExtractorAgent" propertyAttribute="folderPath" />
+        <uipath:binding id="bchl3tK6s" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="riskAssessmentmortgageExtractorAgent" propertyAttribute="folderPath" />
+        <uipath:binding id="bfLluDdl8" name="name" type="string" default="riskAssessmentAgent" resource="process" resourceSubType="Agent" resourceKey="riskAssessmentmortgageExtractorAgent" propertyAttribute="name" />
         <uipath:binding id="baPTcGTnu" name="folderPath" type="string" resource="process" resourceKey="ILOP.process.RPA.Workflow" propertyAttribute="folderPath" />
         <uipath:binding id="bMlXLsZjs" name="name" type="string" default="ILOP.process.RPA.Workflow" resource="process" resourceKey="ILOP.process.RPA.Workflow" propertyAttribute="name" />
-        <uipath:binding id="bxopabEod" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="intakeRouterAgent" propertyAttribute="folderPath" />
-        <uipath:binding id="bdGYvan8O" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="complianceCheckAgent" propertyAttribute="folderPath" />
-        <uipath:binding id="b6n9l3GZq" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="ILOP.agent.intakeRouterAgent" propertyAttribute="folderPath" />
-        <uipath:binding id="bLRDIBW1O" name="name" type="string" default="ILOP.agent.intakeRouterAgent" resource="process" resourceSubType="Agent" resourceKey="ILOP.agent.intakeRouterAgent" propertyAttribute="name" />
+        <uipath:binding id="bxopabEod" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="intakeRoutermortgageExtractorAgent" propertyAttribute="folderPath" />
+        <uipath:binding id="bdGYvan8O" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="complianceCheckmortgageExtractorAgent" propertyAttribute="folderPath" />
+        <uipath:binding id="b6n9l3GZq" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="ILOP.agent.intakeRoutermortgageExtractorAgent" propertyAttribute="folderPath" />
+        <uipath:binding id="bLRDIBW1O" name="name" type="string" default="ILOP.agent.intakeRouterAgent" resource="process" resourceSubType="Agent" resourceKey="ILOP.agent.intakeRoutermortgageExtractorAgent" propertyAttribute="name" />
+        <uipath:binding id="bSjB8KgpU" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="mortgageExtractorAgent" propertyAttribute="folderPath" />
+        <uipath:binding id="bCplYR2ks" name="name" type="string" default="mortgageExtractorAgent" resource="process" resourceSubType="Agent" resourceKey="mortgageExtractorAgent" propertyAttribute="name" />
+        <uipath:binding id="bnX09habj" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="ILOP.agent.mortgageExtractorAgent" propertyAttribute="folderPath" />
+        <uipath:binding id="bdgKKZlYv" name="name" type="string" default="ILOP.agent.mortgageExtractorAgent" resource="process" resourceSubType="Agent" resourceKey="ILOP.agent.mortgageExtractorAgent" propertyAttribute="name" />
       </uipath:bindings>
       <uipath:migrationVersion version="15" />
       <uipath:intsvcActivityConfig version="v2" />
@@ -130,10 +186,77 @@
       <bpmn:outgoing>edge_qdLM6I</bpmn:outgoing>
       <bpmn:outgoing>edge_RtbwLH</bpmn:outgoing>
     </bpmn:exclusiveGateway>
-    <bpmn:task id="Activity_5L3fM4" name="Extract Mortgage Details">
+    <bpmn:serviceTask id="Activity_5L3fM4" name="mortgage Extractor Agent">
+      <bpmn:extensionElements>
+        <uipath:tags>
+          <uipath:tag key="caseTaskType">agent</uipath:tag>
+        </uipath:tags>
+        <uipath:activity version="v1">
+          <uipath:type value="Orchestrator.StartAgentJob" version="v2" />
+          <uipath:context>
+            <uipath:input name="name" type="string" value="=bindings.bdgKKZlYv" />
+            <uipath:input name="folderPath" type="string" value="=bindings.bnX09habj" />
+            <uipath:input name="_label" type="string" value="ILOP.agent.mortgageExtractorAgent" />
+            <uipath:inputSchema type="jsonSchema"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"intakePayload":{"type":"string","title":"intakePayload"}},"required":[]}]]></uipath:inputSchema>
+          </uipath:context>
+          <uipath:input name="JobArguments" type="json" target="bodyField"><![CDATA[{"intakePayload":"=js:JSON.stringify({\n  from: vars.response.From.Email,\n  subject: vars.response.Subject,\n  body: vars.response.Body,\n  attachmentText: vars.pdfText || \"\"\n})"}]]></uipath:input>
+          <uipath:output name="Error" type="jsonSchema" source="=Error" var="error16" />
+          <uipath:output name="applicantName" type="string" description="Full name of the primary applicant as stated in the source" source="=applicantName" var="applicantName" />
+          <uipath:output name="coApplicantName" type="string" description="Full name of the co-applicant if present" source="=coApplicantName" var="coApplicantName" />
+          <uipath:output name="applicantEmail" type="string" description="Applicant&#39;s email address" source="=applicantEmail" var="applicantEmail" />
+          <uipath:output name="coApplicantEmail" type="string" description="Co-applicant&#39;s email address" source="=coApplicantEmail" var="coApplicantEmail" />
+          <uipath:output name="applicantPhone" type="string" description="Applicant&#39;s phone number" source="=applicantPhone" var="applicantPhone" />
+          <uipath:output name="coApplicantPhone" type="string" description="Co-applicant&#39;s phone number" source="=coApplicantPhone" var="coApplicantPhone" />
+          <uipath:output name="loanPurpose" type="string" description="Purpose of the loan such as Purchase, Refinance, Cash-Out Refinance, Home Equity, or Construction" source="=loanPurpose" var="loanPurpose" />
+          <uipath:output name="loanType" type="string" description="Loan program such as Conventional, FHA, VA, USDA, or Jumbo" source="=loanType" var="loanType" />
+          <uipath:output name="occupancyType" type="string" description="Primary Residence, Secondary Residence, or Investment Property" source="=occupancyType" var="occupancyType" />
+          <uipath:output name="propertyAddress" type="string" description="Full address of the property" source="=propertyAddress" var="propertyAddress" />
+          <uipath:output name="propertyCity" type="string" description="City where the property is located" source="=propertyCity" var="propertyCity" />
+          <uipath:output name="propertyState" type="string" description="State where the property is located" source="=propertyState" var="propertyState" />
+          <uipath:output name="propertyZipCode" type="string" description="ZIP code of the property" source="=propertyZipCode" var="propertyZipCode" />
+          <uipath:output name="propertyType" type="string" description="Property type such as Single Family, Condo, Townhouse, Duplex, Manufactured Home" source="=propertyType" var="propertyType" />
+          <uipath:output name="estimatedPropertyValue" type="number" description="Estimated property value in USD" source="=estimatedPropertyValue" var="estimatedPropertyValue" />
+          <uipath:output name="purchasePrice" type="number" description="Purchase price of the property in USD" source="=purchasePrice" var="purchasePrice" />
+          <uipath:output name="downPayment" type="number" description="Down payment amount in USD" source="=downPayment" var="downPayment" />
+          <uipath:output name="currentMortgageBalance" type="number" description="Current outstanding mortgage balance in USD" source="=currentMortgageBalance" var="currentMortgageBalance" />
+          <uipath:output name="requestedLoanAmount" type="number" description="Requested loan amount in USD" source="=requestedLoanAmount" var="requestedLoanAmount" />
+          <uipath:output name="interestRate" type="number" description="Requested or quoted interest rate percentage" source="=interestRate" var="interestRate" />
+          <uipath:output name="requestedTermMonths" type="number" description="Loan term in months" source="=requestedTermMonths" var="requestedTermMonths" />
+          <uipath:output name="cashOutAmount" type="number" description="Requested cash-out amount in USD" source="=cashOutAmount" var="cashOutAmount" />
+          <uipath:output name="grossAnnualIncome" type="number" description="Applicant gross annual income in USD" source="=grossAnnualIncome" var="grossAnnualIncome" />
+          <uipath:output name="coApplicantAnnualIncome" type="number" description="Co-applicant gross annual income in USD" source="=coApplicantAnnualIncome" var="coApplicantAnnualIncome" />
+          <uipath:output name="monthlyIncome" type="number" description="Applicant monthly gross income in USD" source="=monthlyIncome" var="monthlyIncome" />
+          <uipath:output name="employer" type="string" description="Applicant employer name" source="=employer" var="employer" />
+          <uipath:output name="coApplicantEmployer" type="string" description="Co-applicant employer name" source="=coApplicantEmployer" var="coApplicantEmployer" />
+          <uipath:output name="employmentStatus" type="string" description="Employment status such as Full-Time, Part-Time, Self-Employed, Retired, Unemployed" source="=employmentStatus" var="employmentStatus" />
+          <uipath:output name="jobTitle" type="string" description="Applicant job title" source="=jobTitle" var="jobTitle" />
+          <uipath:output name="yearsEmployed" type="number" description="Years with current employer" source="=yearsEmployed" var="yearsEmployed" />
+          <uipath:output name="creditScore" type="number" description="Applicant credit score" source="=creditScore" var="creditScore" />
+          <uipath:output name="coApplicantCreditScore" type="number" description="Co-applicant credit score" source="=coApplicantCreditScore" var="coApplicantCreditScore" />
+          <uipath:output name="monthlyMortgagePayment" type="number" description="Monthly mortgage payment" source="=monthlyMortgagePayment" var="monthlyMortgagePayment" />
+          <uipath:output name="monthlyAutoLoans" type="number" description="Monthly auto loan payments" source="=monthlyAutoLoans" var="monthlyAutoLoans" />
+          <uipath:output name="monthlyStudentLoans" type="number" description="Monthly student loan payments" source="=monthlyStudentLoans" var="monthlyStudentLoans" />
+          <uipath:output name="monthlyCreditCardPayments" type="number" description="Monthly minimum credit card payments" source="=monthlyCreditCardPayments" var="monthlyCreditCardPayments" />
+          <uipath:output name="monthlyOtherDebts" type="number" description="Other recurring monthly debt obligations" source="=monthlyOtherDebts" var="monthlyOtherDebts" />
+          <uipath:output name="totalMonthlyDebts" type="number" description="Total monthly debt obligations" source="=totalMonthlyDebts" var="totalMonthlyDebts" />
+          <uipath:output name="assetsChecking" type="number" description="Checking account balance in USD" source="=assetsChecking" var="assetsChecking" />
+          <uipath:output name="assetsSavings" type="number" description="Savings account balance in USD" source="=assetsSavings" var="assetsSavings" />
+          <uipath:output name="assetsRetirement" type="number" description="Retirement account balance in USD" source="=assetsRetirement" var="assetsRetirement" />
+          <uipath:output name="otherAssets" type="number" description="Other financial assets in USD" source="=otherAssets" var="otherAssets" />
+          <uipath:output name="bankName" type="string" description="Primary financial institution" source="=bankName" var="bankName" />
+          <uipath:output name="citizenshipStatus" type="string" description="Citizenship or residency status" source="=citizenshipStatus" var="citizenshipStatus" />
+          <uipath:output name="maritalStatus" type="string" description="Applicant marital status" source="=maritalStatus" var="maritalStatus" />
+          <uipath:output name="applicationDate" type="string" description="Loan application date" source="=applicationDate" var="applicationDate" />
+          <uipath:output name="loanOfficer" type="string" description="Loan officer name if present" source="=loanOfficer" var="loanOfficer" />
+          <uipath:output name="applicationNumber" type="string" description="Loan application number or reference ID" source="=applicationNumber" var="applicationNumber" />
+          <uipath:output name="notes" type="string" description="Additional underwriting notes or comments" source="=notes" var="notes" />
+          <uipath:output name="missingFields" type="jsonSchema" subType="string" source="=missingFields" var="missingFields" />
+          <uipath:output name="extractionConfidence" type="number" description="Overall confidence score from 0.0 to 1.0" source="=extractionConfidence" var="extractionConfidence" />
+        </uipath:activity>
+      </bpmn:extensionElements>
       <bpmn:incoming>edge_zUj0aS</bpmn:incoming>
       <bpmn:outgoing>edge_agUOTb</bpmn:outgoing>
-    </bpmn:task>
+    </bpmn:serviceTask>
     <bpmn:task id="Activity_rAbXYV" name="Extract Loan Details">
       <bpmn:incoming>edge_qdLM6I</bpmn:incoming>
       <bpmn:outgoing>edge_MB9iMc</bpmn:outgoing>
