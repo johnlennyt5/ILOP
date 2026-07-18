@@ -1,0 +1,26 @@
+{
+  "docVersion": "1.0.0",
+  "resource": {
+    "name": "loanExtractorAgent",
+    "kind": "package",
+    "apiVersion": "orchestrator.uipath.com/v1",
+    "projectKey": "cb4f6990-4917-42bd-8215-6dabbd676e3b",
+    "isOverridable": true,
+    "dependencies": [],
+    "runtimeDependencies": [],
+    "files": [],
+    "folders": [
+      {
+        "fullyQualifiedName": "solution_folder"
+      }
+    ],
+    "spec": {
+      "fileName": null,
+      "fileReference": null,
+      "name": "loanExtractorAgent",
+      "description": null
+    },
+    "locks": [],
+    "key": "965950d9-8b2b-46ca-9eab-00d1807bc3a3"
+  }
+}

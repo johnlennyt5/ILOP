@@ -1,1 +1,16 @@
-{}
+{
+  "zoom": 1.2,
+  "agentPosition": {
+    "x": 0,
+    "y": 0
+  },
+  "resourceNodes": [
+    {
+      "id": "agent=>New tool:placeholder-tool-1784316109578",
+      "position": {
+        "x": 128,
+        "y": 176
+      }
+    }
+  ]
+}

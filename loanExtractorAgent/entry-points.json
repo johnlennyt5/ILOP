@@ -1,0 +1,131 @@
+{
+  "$schema": "https://cloud.uipath.com/draft/2024-12/entry-point",
+  "$id": "entry-points.json",
+  "entryPoints": [
+    {
+      "filePath": "/content/agent.json",
+      "type": "agent",
+      "uniqueId": "d46f8379-75ff-48c3-8583-c3bbe0c411f6",
+      "input": {
+        "type": "object",
+        "required": [
+          "intakePayload"
+        ],
+        "properties": {
+          "intakePayload": {
+            "type": "string"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "required": [
+          "missingFields",
+          "extractionConfidence"
+        ],
+        "properties": {
+          "applicantName": {
+            "type": "string",
+            "description": "Full name of the primary applicant"
+          },
+          "coApplicantName": {
+            "type": "string",
+            "description": "Co-applicant full name if present"
+          },
+          "applicantEmail": {
+            "type": "string",
+            "description": "Applicant's email address"
+          },
+          "applicantPhone": {
+            "type": "string",
+            "description": "Applicant's phone number"
+          },
+          "loanCategory": {
+            "type": "string",
+            "description": "Product type: 'Auto', 'Personal', 'Small Business', 'Other' — only if explicitly indicated"
+          },
+          "loanPurpose": {
+            "type": "string",
+            "description": "Stated purpose, e.g. 'finance a used 2024 Honda CR-V', 'debt consolidation'"
+          },
+          "itemDescription": {
+            "type": "string",
+            "description": "Description of the item or need being financed, e.g. vehicle year/make/model"
+          },
+          "purchasePrice": {
+            "type": "number",
+            "description": "Price of the item being financed in USD, plain numeric"
+          },
+          "downPayment": {
+            "type": "number",
+            "description": "Down payment offered in USD, plain numeric"
+          },
+          "requestedLoanAmount": {
+            "type": "number",
+            "description": "Requested loan amount in USD; only if explicitly stated — do not compute price minus down payment"
+          },
+          "requestedTermMonths": {
+            "type": "number",
+            "description": "Requested term in months ('60-month term' → 60)"
+          },
+          "grossAnnualIncome": {
+            "type": "number",
+            "description": "Gross annual income in USD, plain numeric"
+          },
+          "employer": {
+            "type": "string",
+            "description": "Current employer name"
+          },
+          "jobTitle": {
+            "type": "string",
+            "description": "Applicant's job title"
+          },
+          "employmentStatus": {
+            "type": "string",
+            "description": "e.g. 'Employed', 'Self-employed' — only if stated"
+          },
+          "yearsEmployed": {
+            "type": "number",
+            "description": "Years at current employer"
+          },
+          "creditScore": {
+            "type": "number",
+            "description": "Credit score if explicitly stated"
+          },
+          "totalMonthlyDebts": {
+            "type": "number",
+            "description": "Sum of monthly liabilities explicitly listed in the source"
+          },
+          "notes": {
+            "type": "string",
+            "description": "Data found with no matching schema field, conflicts between sources, or wrong-product observations"
+          },
+          "missingFields": {
+            "type": "array",
+            "description": "Names of schema fields not found in the envelope; never invent values for these",
+            "items": {
+              "type": "string"
+            }
+          },
+          "extractionConfidence": {
+            "type": "number",
+            "description": "Overall extraction completeness and clarity, 0.0-1.0; 0.9+ only when the request was clearly a loan inquiry with most fields present"
+          },
+          "dateOfBirth": {
+            "type": "string",
+            "description": "Applicant's date of birth as stated in the source"
+          },
+          "taxpayerId": {
+            "type": "string",
+            "description": "Applicant's taxpayer ID / SSN as stated in the source"
+          },
+          "currentAddress": {
+            "type": "string",
+            "description": "Applicant's current residential address (distinct from the subject property address)"
+          }
+        },
+        "title": "Outputs"
+      }
+    }
+  ]
+}

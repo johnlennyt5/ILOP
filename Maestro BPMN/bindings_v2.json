@@ -192,44 +192,6 @@
     },
     {
       "resource": "process",
-      "key": "complianceCheckmortgageExtractorAgent",
-      "id": "processcomplianceCheckmortgageExtractorAgent",
-      "value": {
-        "name": {
-          "defaultValue": "complianceCheckAgent",
-          "isExpression": false,
-          "displayName": "Process name"
-        }
-      },
-      "metadata": {
-        "ActivityName": "Risk Assessment Agent",
-        "BindingsVersion": "2.2",
-        "DisplayLabel": "name",
-        "SolutionsSupport": "true",
-        "subType": "Agent"
-      }
-    },
-    {
-      "resource": "process",
-      "key": "riskAssessmentmortgageExtractorAgent",
-      "id": "processriskAssessmentmortgageExtractorAgent",
-      "value": {
-        "name": {
-          "defaultValue": "riskAssessmentAgent",
-          "isExpression": false,
-          "displayName": "Process name"
-        }
-      },
-      "metadata": {
-        "ActivityName": "Compose & Send Approval Email Agent",
-        "BindingsVersion": "2.2",
-        "DisplayLabel": "name",
-        "SolutionsSupport": "true",
-        "subType": "Agent"
-      }
-    },
-    {
-      "resource": "process",
       "key": "ILOP.process.RPA.Workflow",
       "id": "processILOP.process.RPA.Workflow",
       "value": {
@@ -278,6 +240,63 @@
       },
       "metadata": {
         "ActivityName": "mortgage Extractor Agent",
+        "BindingsVersion": "2.2",
+        "DisplayLabel": "name",
+        "SolutionsSupport": "true",
+        "subType": "Agent"
+      }
+    },
+    {
+      "resource": "process",
+      "key": "ILOP.agent.loanExtractorAgent",
+      "id": "processILOP.agent.loanExtractorAgent",
+      "value": {
+        "name": {
+          "defaultValue": "ILOP.agent.loanExtractorAgent",
+          "isExpression": false,
+          "displayName": "Process name"
+        }
+      },
+      "metadata": {
+        "ActivityName": "Extract Loan Details",
+        "BindingsVersion": "2.2",
+        "DisplayLabel": "name",
+        "SolutionsSupport": "true",
+        "subType": "Agent"
+      }
+    },
+    {
+      "resource": "process",
+      "key": "ILOP.agent.riskAssessmentAgent",
+      "id": "processILOP.agent.riskAssessmentAgent",
+      "value": {
+        "name": {
+          "defaultValue": "ILOP.agent.riskAssessmentAgent",
+          "isExpression": false,
+          "displayName": "Process name"
+        }
+      },
+      "metadata": {
+        "ActivityName": "Risk Assessment Agent",
+        "BindingsVersion": "2.2",
+        "DisplayLabel": "name",
+        "SolutionsSupport": "true",
+        "subType": "Agent"
+      }
+    },
+    {
+      "resource": "process",
+      "key": "ILOP.agent.complianceCheckAgent",
+      "id": "processILOP.agent.complianceCheckAgent",
+      "value": {
+        "name": {
+          "defaultValue": "ILOP.agent.complianceCheckAgent",
+          "isExpression": false,
+          "displayName": "Process name"
+        }
+      },
+      "metadata": {
+        "ActivityName": "Compliance Check Agent",
         "BindingsVersion": "2.2",
         "DisplayLabel": "name",
         "SolutionsSupport": "true",

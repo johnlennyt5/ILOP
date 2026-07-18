@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:uipath="http://uipath.org/schema/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" exporter="UiPath Studio Web (https://uipath.com)" exporterVersion="4fd2af0f">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:uipath="http://uipath.org/schema/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" exporter="UiPath Studio Web (https://uipath.com)" exporterVersion="cc0e8cb7">
   <bpmn:process id="Process_1" name="Process">
     <bpmn:extensionElements>
       <uipath:variables version="v1">
@@ -23,19 +23,29 @@
         <uipath:inputOutput id="response10" name="response" type="jsonSchema" elementId="Activity_L48CqE"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"BCC[*]":{"title":"Bcc","type":"array","items":{"$ref":"#/definitions/BCC[*]"}},"Body":{"title":"Body","type":"string"},"CC[*]":{"title":"Cc","type":"array","items":{"$ref":"#/definitions/CC[*]"}},"ParentFolders[*]":{"title":"Parent folders","type":"array","items":{"$ref":"#/definitions/ParentFolders[*]"}},"ID":{"title":"Id","type":"string"},"From":{"title":"From","$ref":"#/definitions/From"},"Subject":{"title":"Subject","type":"string"},"To[*]":{"title":"To","type":"array","items":{"$ref":"#/definitions/To[*]"}},"HasAttachments":{"title":"With attachments only","type":"boolean"},"Attachments[*]":{"title":"Attachments","type":"array","items":{"$ref":"#/definitions/Attachments[*]"}},"Importance":{"title":"Importance","type":"string"},"Sensitivity":{"title":"Sensitivity","type":"string"},"Categories[*]":{"title":"Categories","type":"array","items":{"$ref":"#/definitions/Categories[*]"}},"Type":{"title":"Type","type":"string"},"ThreadID":{"title":"Thread","type":"string"}},"definitions":{"BCC[*]":{"type":"object","properties":{"Name":{"title":"Bcc name","type":"string"},"Email":{"title":"Bcc email","type":"string"}}},"CC[*]":{"type":"object","properties":{"Name":{"title":"Cc name","type":"string"},"Email":{"title":"Cc","type":"string"}}},"ParentFolders[*]":{"type":"object","properties":{"ID":{"title":"Email folder or label","type":"string"},"Name":{"title":"Label","type":"string"}}},"From":{"type":"object","properties":{"Name":{"title":"Sender name","type":"string"},"Email":{"title":"From","type":"string"}}},"To[*]":{"type":"object","properties":{"Name":{"title":"Recipient name","type":"string"},"Email":{"title":"To","type":"string"}}},"Attachments[*]":{"type":"object","properties":{"Name":{"title":"Attachment name","type":"string"},"Size":{"title":"Attachment size","type":"integer"},"MIMEType":{"title":"Attachment mime type","type":"string"},"ID":{"title":"Attachment ID","type":"string"}}},"Categories[*]":{"type":"object","properties":{"ID":{"title":"Category ID","type":"string"},"Name":{"title":"Category name","type":"string"}}}}}]]></uipath:inputOutput>
         <uipath:inputOutput id="error10" name="Error" type="jsonSchema" elementId="Activity_60rBjn"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"}}}]]></uipath:inputOutput>
         <uipath:inputOutput id="response9" name="response" type="file" elementId="Activity_60rBjn"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"ID":{"type":"string","description":"Orchestrator attachment key"},"FullName":{"type":"string","description":"File name"},"MimeType":{"type":"string","description":"The MIME type of the content, such as application/json or image/png"},"Metadata":{"type":"object","description":"Dictionary<string, string> of metadata","additionalProperties":{"type":"string"}}},"required":["ID"],"x-uipath-resource-kind":"JobAttachment"}]]></uipath:inputOutput>
-        <uipath:inputOutput id="error13" name="Error" type="jsonSchema" elementId="Activity_tJyTmM"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"}}}]]></uipath:inputOutput>
-        <uipath:inputOutput id="content2" name="content" type="string" elementId="Activity_tJyTmM" />
-        <uipath:inputOutput id="error15" name="Error" type="jsonSchema" elementId="Activity_r27CoR"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"}}}]]></uipath:inputOutput>
-        <uipath:inputOutput id="content4" name="content" type="string" elementId="Activity_r27CoR" />
         <uipath:inputOutput id="error11" name="Error" type="jsonSchema" elementId="Activity_xjYUvD"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"}}}]]></uipath:inputOutput>
         <uipath:inputOutput id="pdfText" name="pdfText" type="string" elementId="Activity_xjYUvD" />
-        <uipath:inputOutput id="error14" name="Error" type="jsonSchema" elementId="Activity_6YxUml"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"}}}]]></uipath:inputOutput>
-        <uipath:inputOutput id="content" name="content" type="string" elementId="Activity_6YxUml" />
         <uipath:inputOutput id="error2" name="Error" type="jsonSchema" elementId="Activity_eOmgXO"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"}}}]]></uipath:inputOutput>
         <uipath:inputOutput id="category" name="category" type="string" elementId="Activity_eOmgXO" />
         <uipath:inputOutput id="confidence" name="confidence" type="number" elementId="Activity_eOmgXO" />
         <uipath:inputOutput id="reasoning" name="reasoning" type="string" elementId="Activity_eOmgXO" />
         <uipath:inputOutput id="signalsFound" name="signalsFound" type="jsonSchema" elementId="Activity_eOmgXO"><![CDATA[{"type":"array","items":{},"$schema":"http://json-schema.org/draft-07/schema#"}]]></uipath:inputOutput>
+        <uipath:inputOutput id="error13" name="Error" type="jsonSchema" elementId="Activity_tJyTmM"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"}}}]]></uipath:inputOutput>
+        <uipath:inputOutput id="reasoning2" name="reasoning" type="string" elementId="Activity_tJyTmM" />
+        <uipath:inputOutput id="riskScore2" name="riskScore" type="number" elementId="Activity_tJyTmM" />
+        <uipath:inputOutput id="riskTier2" name="riskTier" type="string" elementId="Activity_tJyTmM" />
+        <uipath:inputOutput id="confidence3" name="confidence" type="number" elementId="Activity_tJyTmM" />
+        <uipath:inputOutput id="factorsPositive2" name="factorsPositive" type="jsonSchema" subType="string" elementId="Activity_tJyTmM"><![CDATA[{"type":"array","description":"Specific record facts that strengthen the profile","items":{"type":"string"},"$schema":"http://json-schema.org/draft-07/schema#"}]]></uipath:inputOutput>
+        <uipath:inputOutput id="factorsNegative2" name="factorsNegative" type="jsonSchema" subType="string" elementId="Activity_tJyTmM"><![CDATA[{"type":"array","description":"Specific record facts that weaken the profile","items":{"type":"string"},"$schema":"http://json-schema.org/draft-07/schema#"}]]></uipath:inputOutput>
+        <uipath:inputOutput id="dataGaps2" name="dataGaps" type="jsonSchema" subType="string" elementId="Activity_tJyTmM"><![CDATA[{"type":"array","description":"Fields whose absence limited the assessment","items":{"type":"string"},"$schema":"http://json-schema.org/draft-07/schema#"}]]></uipath:inputOutput>
+        <uipath:inputOutput id="error14" name="Error" type="jsonSchema" elementId="Activity_6YxUml"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"}}}]]></uipath:inputOutput>
+        <uipath:inputOutput id="complianceStatus2" name="complianceStatus" type="string" elementId="Activity_6YxUml" />
+        <uipath:inputOutput id="vetoCodes2" name="vetoCodes" type="jsonSchema" subType="string" elementId="Activity_6YxUml"><![CDATA[{"type":"array","description":"Veto reason codes from the approved list only","items":{"type":"string"},"$schema":"http://json-schema.org/draft-07/schema#"}]]></uipath:inputOutput>
+        <uipath:inputOutput id="flagCodes2" name="flagCodes" type="jsonSchema" subType="string" elementId="Activity_6YxUml"><![CDATA[{"type":"array","description":"Flag reason codes from the approved list only","items":{"type":"string"},"$schema":"http://json-schema.org/draft-07/schema#"}]]></uipath:inputOutput>
+        <uipath:inputOutput id="checksPerformed2" name="checksPerformed" type="jsonSchema" subType="string" elementId="Activity_6YxUml"><![CDATA[{"type":"array","description":"Names of checks executed","items":{"type":"string"},"$schema":"http://json-schema.org/draft-07/schema#"}]]></uipath:inputOutput>
+        <uipath:inputOutput id="dtiRatio2" name="dtiRatio" type="number" elementId="Activity_6YxUml" />
+        <uipath:inputOutput id="reasoning3" name="reasoning" type="string" elementId="Activity_6YxUml" />
+        <uipath:inputOutput id="notes4" name="notes" type="string" elementId="Activity_6YxUml" />
         <uipath:inputOutput id="error16" name="Error" type="jsonSchema" elementId="Activity_5L3fM4"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"}}}]]></uipath:inputOutput>
         <uipath:inputOutput id="applicantName" name="applicantName" type="string" elementId="Activity_5L3fM4" />
         <uipath:inputOutput id="coApplicantName" name="coApplicantName" type="string" elementId="Activity_5L3fM4" />
@@ -88,6 +98,34 @@
         <uipath:inputOutput id="notes" name="notes" type="string" elementId="Activity_5L3fM4" />
         <uipath:inputOutput id="missingFields" name="missingFields" type="jsonSchema" subType="string" elementId="Activity_5L3fM4"><![CDATA[{"type":"array","description":"List of fields that could not be extracted. Never invent values.","items":{"type":"string"},"$schema":"http://json-schema.org/draft-07/schema#"}]]></uipath:inputOutput>
         <uipath:inputOutput id="extractionConfidence" name="extractionConfidence" type="number" elementId="Activity_5L3fM4" />
+        <uipath:inputOutput id="dateOfBirth" name="dateOfBirth" type="string" elementId="Activity_5L3fM4" />
+        <uipath:inputOutput id="taxpayerId" name="taxpayerId" type="string" elementId="Activity_5L3fM4" />
+        <uipath:inputOutput id="currentAddress" name="currentAddress" type="string" elementId="Activity_5L3fM4" />
+        <uipath:inputOutput id="error17" name="Error" type="jsonSchema" elementId="Activity_rAbXYV"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"},"element":{"type":"string"}}}]]></uipath:inputOutput>
+        <uipath:inputOutput id="applicantName2" name="applicantName" type="string" elementId="Activity_rAbXYV" />
+        <uipath:inputOutput id="coApplicantName2" name="coApplicantName" type="string" elementId="Activity_rAbXYV" />
+        <uipath:inputOutput id="applicantEmail2" name="applicantEmail" type="string" elementId="Activity_rAbXYV" />
+        <uipath:inputOutput id="applicantPhone2" name="applicantPhone" type="string" elementId="Activity_rAbXYV" />
+        <uipath:inputOutput id="loanCategory" name="loanCategory" type="string" elementId="Activity_rAbXYV" />
+        <uipath:inputOutput id="loanPurpose2" name="loanPurpose" type="string" elementId="Activity_rAbXYV" />
+        <uipath:inputOutput id="itemDescription" name="itemDescription" type="string" elementId="Activity_rAbXYV" />
+        <uipath:inputOutput id="purchasePrice2" name="purchasePrice" type="number" elementId="Activity_rAbXYV" />
+        <uipath:inputOutput id="downPayment2" name="downPayment" type="number" elementId="Activity_rAbXYV" />
+        <uipath:inputOutput id="requestedLoanAmount2" name="requestedLoanAmount" type="number" elementId="Activity_rAbXYV" />
+        <uipath:inputOutput id="requestedTermMonths2" name="requestedTermMonths" type="number" elementId="Activity_rAbXYV" />
+        <uipath:inputOutput id="grossAnnualIncome2" name="grossAnnualIncome" type="number" elementId="Activity_rAbXYV" />
+        <uipath:inputOutput id="employer2" name="employer" type="string" elementId="Activity_rAbXYV" />
+        <uipath:inputOutput id="jobTitle2" name="jobTitle" type="string" elementId="Activity_rAbXYV" />
+        <uipath:inputOutput id="employmentStatus2" name="employmentStatus" type="string" elementId="Activity_rAbXYV" />
+        <uipath:inputOutput id="yearsEmployed2" name="yearsEmployed" type="number" elementId="Activity_rAbXYV" />
+        <uipath:inputOutput id="creditScore2" name="creditScore" type="number" elementId="Activity_rAbXYV" />
+        <uipath:inputOutput id="totalMonthlyDebts2" name="totalMonthlyDebts" type="number" elementId="Activity_rAbXYV" />
+        <uipath:inputOutput id="notes2" name="notes" type="string" elementId="Activity_rAbXYV" />
+        <uipath:inputOutput id="missingFields2" name="missingFields" type="jsonSchema" subType="string" elementId="Activity_rAbXYV"><![CDATA[{"type":"array","description":"Names of schema fields not found in the envelope; never invent values for these","items":{"type":"string"},"$schema":"http://json-schema.org/draft-07/schema#"}]]></uipath:inputOutput>
+        <uipath:inputOutput id="extractionConfidence2" name="extractionConfidence" type="number" elementId="Activity_rAbXYV" />
+        <uipath:inputOutput id="dateOfBirth2" name="dateOfBirth" type="string" elementId="Activity_rAbXYV" />
+        <uipath:inputOutput id="taxpayerId2" name="taxpayerId" type="string" elementId="Activity_rAbXYV" />
+        <uipath:inputOutput id="currentAddress2" name="currentAddress" type="string" elementId="Activity_rAbXYV" />
       </uipath:variables>
       <uipath:bindings version="v1">
         <uipath:binding id="bAhXriPsj" name="uipath-google-gmail connection" type="string" default="8306d123-4a99-4a15-b9d3-50554490842c" resource="Connection" resourceKey="8306d123-4a99-4a15-b9d3-50554490842c" propertyAttribute="ConnectionId" />
@@ -126,8 +164,33 @@
         <uipath:binding id="bCplYR2ks" name="name" type="string" default="mortgageExtractorAgent" resource="process" resourceSubType="Agent" resourceKey="mortgageExtractorAgent" propertyAttribute="name" />
         <uipath:binding id="bnX09habj" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="ILOP.agent.mortgageExtractorAgent" propertyAttribute="folderPath" />
         <uipath:binding id="bdgKKZlYv" name="name" type="string" default="ILOP.agent.mortgageExtractorAgent" resource="process" resourceSubType="Agent" resourceKey="ILOP.agent.mortgageExtractorAgent" propertyAttribute="name" />
+        <uipath:binding id="bXt6SdcpI" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="loanExtractorAgent" propertyAttribute="folderPath" />
+        <uipath:binding id="bWEreKB2I" name="name" type="string" default="loanExtractorAgent" resource="process" resourceSubType="Agent" resourceKey="loanExtractorAgent" propertyAttribute="name" />
+        <uipath:binding id="b0WKV5qIc" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="ILOP.agent.loanExtractorAgent" propertyAttribute="folderPath" />
+        <uipath:binding id="bTtt1SR6b" name="name" type="string" default="ILOP.agent.loanExtractorAgent" resource="process" resourceSubType="Agent" resourceKey="ILOP.agent.loanExtractorAgent" propertyAttribute="name" />
+        <uipath:binding id="bMNZZxWSt" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="riskAssessmentAgent" propertyAttribute="folderPath" />
+        <uipath:binding id="ba35pEXnA" name="name" type="string" default="riskAssessmentAgent" resource="process" resourceSubType="Agent" resourceKey="riskAssessmentAgent" propertyAttribute="name" />
+        <uipath:binding id="bmikH1JJN" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="ILOP.agent.riskAssessmentAgent" propertyAttribute="folderPath" />
+        <uipath:binding id="bTvYlJm5z" name="name" type="string" default="ILOP.agent.riskAssessmentAgent" resource="process" resourceSubType="Agent" resourceKey="ILOP.agent.riskAssessmentAgent" propertyAttribute="name" />
+        <uipath:binding id="bljqCaMnS" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="ILOP.agent.complianceCheckAgent" propertyAttribute="folderPath" />
+        <uipath:binding id="bT577wHG6" name="name" type="string" default="ILOP.agent.complianceCheckAgent" resource="process" resourceSubType="Agent" resourceKey="ILOP.agent.complianceCheckAgent" propertyAttribute="name" />
+        <uipath:binding id="bqnAUeAL7" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="ILOP.agent.complianceCheckAgent" propertyAttribute="folderPath" />
+        <uipath:binding id="bjPlErWxA" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="ILOP.agent.mortgageExtractorAgent" propertyAttribute="folderPath" />
+        <uipath:binding id="bXZMoiKJp" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="ILOP.agent.loanExtractorAgent" propertyAttribute="folderPath" />
+        <uipath:binding id="byf8utNl4" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="mortgageExtractorAgent" propertyAttribute="folderPath" />
+        <uipath:binding id="b6LDBSCVV" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="loanExtractorAgent" propertyAttribute="folderPath" />
+        <uipath:binding id="bPiHUgAxS" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="ILOP.agent.mortgageExtractorAgent" propertyAttribute="folderPath" />
+        <uipath:binding id="bpbgtnxYC" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="ILOP.agent.mortgageExtractorAgent_1" propertyAttribute="folderPath" />
+        <uipath:binding id="bxALhSg7P" name="name" type="string" default="ILOP.agent.mortgageExtractorAgent_1" resource="process" resourceSubType="Agent" resourceKey="ILOP.agent.mortgageExtractorAgent_1" propertyAttribute="name" />
+        <uipath:binding id="bCcZmNGMw" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="ILOP.agent.loanExtractorAgent_1" propertyAttribute="folderPath" />
+        <uipath:binding id="b1hJOowK0" name="name" type="string" default="ILOP.agent.loanExtractorAgent_1" resource="process" resourceSubType="Agent" resourceKey="ILOP.agent.loanExtractorAgent_1" propertyAttribute="name" />
+        <uipath:binding id="bdDuFHro1" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="ILOP.agent.mortgageExtractorAgent" propertyAttribute="folderPath" />
+        <uipath:binding id="bVCRlmAVk" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="ILOP.agent.mortgageExtractorAgent_1" propertyAttribute="folderPath" />
+        <uipath:binding id="bzUpGQKN4" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="ILOP.agent.loanExtractorAgent" propertyAttribute="folderPath" />
+        <uipath:binding id="bvspGlQt4" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="ILOP.agent.mortgageExtractorAgent" propertyAttribute="folderPath" />
+        <uipath:binding id="bnIm4Wose" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="ILOP.agent.loanExtractorAgent" propertyAttribute="folderPath" />
       </uipath:bindings>
-      <uipath:migrationVersion version="15" />
+      <uipath:migrationVersion version="16" />
       <uipath:intsvcActivityConfig version="v2" />
     </bpmn:extensionElements>
     <bpmn:startEvent id="Event_start" name="Email recieved">
@@ -195,9 +258,9 @@
           <uipath:type value="Orchestrator.StartAgentJob" version="v2" />
           <uipath:context>
             <uipath:input name="name" type="string" value="=bindings.bdgKKZlYv" />
-            <uipath:input name="folderPath" type="string" value="=bindings.bnX09habj" />
+            <uipath:input name="folderPath" type="string" value="=bindings.bvspGlQt4" />
             <uipath:input name="_label" type="string" value="ILOP.agent.mortgageExtractorAgent" />
-            <uipath:inputSchema type="jsonSchema"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"intakePayload":{"type":"string","title":"intakePayload"}},"required":[]}]]></uipath:inputSchema>
+            <uipath:inputSchema type="jsonSchema"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"intakePayload":{"type":"string"}},"required":["intakePayload"]}]]></uipath:inputSchema>
           </uipath:context>
           <uipath:input name="JobArguments" type="json" target="bodyField"><![CDATA[{"intakePayload":"=js:JSON.stringify({\n  from: vars.response.From.Email,\n  subject: vars.response.Subject,\n  body: vars.response.Body,\n  attachmentText: vars.pdfText || \"\"\n})"}]]></uipath:input>
           <uipath:output name="Error" type="jsonSchema" source="=Error" var="error16" />
@@ -252,15 +315,58 @@
           <uipath:output name="notes" type="string" description="Additional underwriting notes or comments" source="=notes" var="notes" />
           <uipath:output name="missingFields" type="jsonSchema" subType="string" source="=missingFields" var="missingFields" />
           <uipath:output name="extractionConfidence" type="number" description="Overall confidence score from 0.0 to 1.0" source="=extractionConfidence" var="extractionConfidence" />
+          <uipath:output name="dateOfBirth" type="string" description="Applicant&#39;s date of birth as stated in the source&#34;" source="=dateOfBirth" var="dateOfBirth" />
+          <uipath:output name="taxpayerId" type="string" description="Applicant&#39;s taxpayer ID / SSN as stated in the source" source="=taxpayerId" var="taxpayerId" />
+          <uipath:output name="currentAddress" type="string" description="Applicant&#39;s current residential address (distinct from the subject property address)" source="=currentAddress" var="currentAddress" />
         </uipath:activity>
       </bpmn:extensionElements>
       <bpmn:incoming>edge_zUj0aS</bpmn:incoming>
       <bpmn:outgoing>edge_agUOTb</bpmn:outgoing>
     </bpmn:serviceTask>
-    <bpmn:task id="Activity_rAbXYV" name="Extract Loan Details">
+    <bpmn:serviceTask id="Activity_rAbXYV" name="Extract Loan Details">
+      <bpmn:extensionElements>
+        <uipath:tags>
+          <uipath:tag key="caseTaskType">agent</uipath:tag>
+        </uipath:tags>
+        <uipath:activity version="v1">
+          <uipath:type value="Orchestrator.StartAgentJob" version="v2" />
+          <uipath:context>
+            <uipath:input name="name" type="string" value="=bindings.bTtt1SR6b" />
+            <uipath:input name="folderPath" type="string" value="=bindings.bnIm4Wose" />
+            <uipath:input name="_label" type="string" value="ILOP.agent.loanExtractorAgent" />
+            <uipath:inputSchema type="jsonSchema"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"intakePayload":{"type":"string"}},"required":["intakePayload"]}]]></uipath:inputSchema>
+          </uipath:context>
+          <uipath:input name="JobArguments" type="json" target="bodyField"><![CDATA[{"intakePayload":"=js:JSON.stringify({\n  from: vars.response.From.Email,\n  subject: vars.response.Subject,\n  body: vars.response.Body,\n  attachmentText: vars.pdfText || \"\"\n})"}]]></uipath:input>
+          <uipath:output name="Error" type="jsonSchema" source="=Error" var="error17" />
+          <uipath:output name="applicantName" type="string" description="Full name of the primary applicant" source="=applicantName" var="applicantName2" />
+          <uipath:output name="coApplicantName" type="string" description="Co-applicant full name if present" source="=coApplicantName" var="coApplicantName2" />
+          <uipath:output name="applicantEmail" type="string" description="Applicant&#39;s email address" source="=applicantEmail" var="applicantEmail2" />
+          <uipath:output name="applicantPhone" type="string" description="Applicant&#39;s phone number" source="=applicantPhone" var="applicantPhone2" />
+          <uipath:output name="loanCategory" type="string" description="Product type: &#39;Auto&#39;, &#39;Personal&#39;, &#39;Small Business&#39;, &#39;Other&#39; — only if explicitly indicated" source="=loanCategory" var="loanCategory" />
+          <uipath:output name="loanPurpose" type="string" description="Stated purpose, e.g. &#39;finance a used 2024 Honda CR-V&#39;, &#39;debt consolidation&#39;" source="=loanPurpose" var="loanPurpose2" />
+          <uipath:output name="itemDescription" type="string" description="Description of the item or need being financed, e.g. vehicle year/make/model" source="=itemDescription" var="itemDescription" />
+          <uipath:output name="purchasePrice" type="number" description="Price of the item being financed in USD, plain numeric" source="=purchasePrice" var="purchasePrice2" />
+          <uipath:output name="downPayment" type="number" description="Down payment offered in USD, plain numeric" source="=downPayment" var="downPayment2" />
+          <uipath:output name="requestedLoanAmount" type="number" description="Requested loan amount in USD; only if explicitly stated — do not compute price minus down payment" source="=requestedLoanAmount" var="requestedLoanAmount2" />
+          <uipath:output name="requestedTermMonths" type="number" description="Requested term in months (&#39;60-month term&#39; → 60)" source="=requestedTermMonths" var="requestedTermMonths2" />
+          <uipath:output name="grossAnnualIncome" type="number" description="Gross annual income in USD, plain numeric" source="=grossAnnualIncome" var="grossAnnualIncome2" />
+          <uipath:output name="employer" type="string" description="Current employer name" source="=employer" var="employer2" />
+          <uipath:output name="jobTitle" type="string" description="Applicant&#39;s job title" source="=jobTitle" var="jobTitle2" />
+          <uipath:output name="employmentStatus" type="string" description="e.g. &#39;Employed&#39;, &#39;Self-employed&#39; — only if stated" source="=employmentStatus" var="employmentStatus2" />
+          <uipath:output name="yearsEmployed" type="number" description="Years at current employer" source="=yearsEmployed" var="yearsEmployed2" />
+          <uipath:output name="creditScore" type="number" description="Credit score if explicitly stated" source="=creditScore" var="creditScore2" />
+          <uipath:output name="totalMonthlyDebts" type="number" description="Sum of monthly liabilities explicitly listed in the source" source="=totalMonthlyDebts" var="totalMonthlyDebts2" />
+          <uipath:output name="notes" type="string" description="Data found with no matching schema field, conflicts between sources, or wrong-product observations" source="=notes" var="notes2" />
+          <uipath:output name="missingFields" type="jsonSchema" subType="string" source="=missingFields" var="missingFields2" />
+          <uipath:output name="extractionConfidence" type="number" description="Overall extraction completeness and clarity, 0.0-1.0; 0.9+ only when the request was clearly a loan inquiry with most fields present" source="=extractionConfidence" var="extractionConfidence2" />
+          <uipath:output name="dateOfBirth" type="string" description="Applicant&#39;s date of birth as stated in the source" source="=dateOfBirth" var="dateOfBirth2" />
+          <uipath:output name="taxpayerId" type="string" description="Applicant&#39;s taxpayer ID / SSN as stated in the source" source="=taxpayerId" var="taxpayerId2" />
+          <uipath:output name="currentAddress" type="string" description="Applicant&#39;s current residential address (distinct from the subject property address)" source="=currentAddress" var="currentAddress2" />
+        </uipath:activity>
+      </bpmn:extensionElements>
       <bpmn:incoming>edge_qdLM6I</bpmn:incoming>
       <bpmn:outgoing>edge_MB9iMc</bpmn:outgoing>
-    </bpmn:task>
+    </bpmn:serviceTask>
     <bpmn:exclusiveGateway id="Gateway_FXulZe" name="Unified Pipeline">
       <bpmn:incoming>edge_agUOTb</bpmn:incoming>
       <bpmn:incoming>edge_MB9iMc</bpmn:incoming>
@@ -274,12 +380,20 @@
         <uipath:activity version="v1">
           <uipath:type value="Orchestrator.StartAgentJob" version="v2" />
           <uipath:context>
-            <uipath:input name="name" type="string" value="=bindings.bQEx8EQvT" />
-            <uipath:input name="folderPath" type="string" value="=bindings.bpvajdIpZ" />
-            <uipath:input name="_label" type="string" value="Agent 1" />
+            <uipath:input name="name" type="string" value="=bindings.bTvYlJm5z" />
+            <uipath:input name="folderPath" type="string" value="=bindings.bmikH1JJN" />
+            <uipath:input name="_label" type="string" value="ILOP.agent.riskAssessmentAgent" />
+            <uipath:inputSchema type="jsonSchema"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"riskRecord":{"type":"string"}},"required":["riskRecord"]}]]></uipath:inputSchema>
           </uipath:context>
+          <uipath:input name="JobArguments" type="json" target="bodyField"><![CDATA[{"riskRecord":"=js:JSON.stringify({\n  productType: vars.category,\n  applicantName: vars.applicantName || null,\n  applicantEmail: vars.applicantEmail || null,\n  applicantPhone: vars.applicantPhone || null,\n  maritalStatus: vars.maritalStatus || null,\n  loanPurpose: vars.loanPurpose || null,\n  loanCategory: vars.loanCategory || null,\n  itemDescription: vars.itemDescription || null,\n  propertyAddress: vars.propertyAddress || null,\n  propertyState: vars.propertyState || null,\n  propertyType: vars.propertyType || null,\n  occupancyType: vars.occupancyType || null,\n  estimatedPropertyValue: vars.estimatedPropertyValue || null,\n  currentMortgageBalance: vars.currentMortgageBalance || null,\n  purchasePrice: vars.purchasePrice || null,\n  downPayment: vars.downPayment || null,\n  requestedLoanAmount: vars.requestedLoanAmount || null,\n  requestedTermMonths: vars.requestedTermMonths || null,\n  grossAnnualIncome: vars.grossAnnualIncome || null,\n  employer: vars.employer || null,\n  employmentStatus: vars.employmentStatus || null,\n  yearsEmployed: vars.yearsEmployed || null,\n  creditScore: vars.creditScore || null,\n  totalMonthlyDebts: vars.totalMonthlyDebts || null,\n  extractionConfidence: vars.extractionConfidence || null,\n  missingFields: vars.missingFields || [],\n  complianceStatus: vars.complianceStatus2 || null,\n  vetoCodes: vars.vetoCodes2 || [],\n  flagCodes: vars.flagCodes2 || [],\n  dtiRatio: vars.dtiRatio2 || null\n})"}]]></uipath:input>
           <uipath:output name="Error" type="jsonSchema" source="=Error" var="error13" />
-          <uipath:output name="content" type="string" description="Output content" source="=content" var="content2" />
+          <uipath:output name="riskScore" type="number" description="0-100; higher is lower risk (100 = strongest applicant profile)" source="=riskScore" var="riskScore2" />
+          <uipath:output name="riskTier" type="string" description="LOW, MODERATE, or HIGH risk tier derived from riskScore" source="=riskTier" var="riskTier2" />
+          <uipath:output name="confidence" type="number" description="0.0-1.0 certainty in the score given data completeness" source="=confidence" var="confidence3" />
+          <uipath:output name="factorsPositive" type="jsonSchema" subType="string" source="=factorsPositive" var="factorsPositive2" />
+          <uipath:output name="factorsNegative" type="jsonSchema" subType="string" source="=factorsNegative" var="factorsNegative2" />
+          <uipath:output name="dataGaps" type="jsonSchema" subType="string" source="=dataGaps" var="dataGaps2" />
+          <uipath:output name="reasoning" type="string" description="How the score was reached, citing record fields" source="=reasoning" var="reasoning2" />
         </uipath:activity>
       </bpmn:extensionElements>
       <bpmn:incoming>edge_IJcxlw</bpmn:incoming>
@@ -293,12 +407,20 @@
         <uipath:activity version="v1">
           <uipath:type value="Orchestrator.StartAgentJob" version="v2" />
           <uipath:context>
-            <uipath:input name="name" type="string" value="=bindings.bQEx8EQvT" />
-            <uipath:input name="folderPath" type="string" value="=bindings.bdGYvan8O" />
-            <uipath:input name="_label" type="string" value="Agent 1" />
+            <uipath:input name="name" type="string" value="=bindings.bT577wHG6" />
+            <uipath:input name="folderPath" type="string" value="=bindings.bqnAUeAL7" />
+            <uipath:input name="_label" type="string" value="ILOP.agent.complianceCheckAgent" />
+            <uipath:inputSchema type="jsonSchema"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"complianceRecord":{"type":"string"}},"required":["complianceRecord"]}]]></uipath:inputSchema>
           </uipath:context>
+          <uipath:input name="JobArguments" type="json" target="bodyField"><![CDATA[{"complianceRecord":"=js:JSON.stringify({\n  productType: vars.category,\n  applicantName: vars.applicantName || null,\n  coApplicantName: vars.coApplicantName || null,\n  applicantEmail: vars.applicantEmail || null,\n  applicantPhone: vars.applicantPhone || null,\n  maritalStatus: vars.maritalStatus || null,\n  citizenshipStatus: vars.citizenshipStatus || null,\n  loanPurpose: vars.loanPurpose || null,\n  loanCategory: vars.loanCategory || null,\n  itemDescription: vars.itemDescription || null,\n  propertyAddress: vars.propertyAddress || null,\n  propertyCity: vars.propertyCity || null,\n  propertyState: vars.propertyState || null,\n  propertyZipCode: vars.propertyZipCode || null,\n  propertyType: vars.propertyType || null,\n  occupancyType: vars.occupancyType || null,\n  estimatedPropertyValue: vars.estimatedPropertyValue || null,\n  currentMortgageBalance: vars.currentMortgageBalance || null,\n  purchasePrice: vars.purchasePrice || null,\n  downPayment: vars.downPayment || null,\n  requestedLoanAmount: vars.requestedLoanAmount || null,\n  requestedTermMonths: vars.requestedTermMonths || null,\n  grossAnnualIncome: vars.grossAnnualIncome || null,\n  employer: vars.employer || null,\n  jobTitle: vars.jobTitle || null,\n  employmentStatus: vars.employmentStatus || null,\n  yearsEmployed: vars.yearsEmployed || null,\n  creditScore: vars.creditScore || null,\n  totalMonthlyDebts: vars.totalMonthlyDebts || null,\n  extractionConfidence: vars.extractionConfidence || null,\n  extractorNotes: vars.notes || null,\n  missingFields: vars.missingFields || [],\n  dateOfBirth: vars.dateOfBirth || null,\n  taxpayerId: vars.taxpayerId || null,\n  currentAddress: vars.currentAddress || null,\n})"}]]></uipath:input>
           <uipath:output name="Error" type="jsonSchema" source="=Error" var="error14" />
-          <uipath:output name="content" type="string" description="Output content" source="=content" var="content" />
+          <uipath:output name="complianceStatus" type="string" description="PASS, VETO, or FLAG. VETO if any veto code; else FLAG if any flag code; else PASS" source="=complianceStatus" var="complianceStatus2" />
+          <uipath:output name="vetoCodes" type="jsonSchema" subType="string" source="=vetoCodes" var="vetoCodes2" />
+          <uipath:output name="flagCodes" type="jsonSchema" subType="string" source="=flagCodes" var="flagCodes2" />
+          <uipath:output name="checksPerformed" type="jsonSchema" subType="string" source="=checksPerformed" var="checksPerformed2" />
+          <uipath:output name="dtiRatio" type="number" description="Debt-to-income ratio if computable (monthly debts / monthly income), else empty" source="=dtiRatio" var="dtiRatio2" />
+          <uipath:output name="reasoning" type="string" description="Concise per-check summary citing the record fields relied on" source="=reasoning" var="reasoning3" />
+          <uipath:output name="notes" type="string" description="Observations or data gaps a reviewer should see" source="=notes" var="notes4" />
         </uipath:activity>
       </bpmn:extensionElements>
       <bpmn:incoming>edge_qTFxnM</bpmn:incoming>
@@ -372,25 +494,10 @@
       <bpmn:outgoing>edge_JE8FmZ</bpmn:outgoing>
       <bpmn:outgoing>edge_pVR0nZ</bpmn:outgoing>
     </bpmn:exclusiveGateway>
-    <bpmn:serviceTask id="Activity_r27CoR" name="Compose &#38; Send Approval Email Agent">
-      <bpmn:extensionElements>
-        <uipath:tags>
-          <uipath:tag key="caseTaskType">agent</uipath:tag>
-        </uipath:tags>
-        <uipath:activity version="v1">
-          <uipath:type value="Orchestrator.StartAgentJob" version="v2" />
-          <uipath:context>
-            <uipath:input name="name" type="string" value="=bindings.bfLluDdl8" />
-            <uipath:input name="folderPath" type="string" value="=bindings.bchl3tK6s" />
-            <uipath:input name="_label" type="string" value="Agent 2" />
-          </uipath:context>
-          <uipath:output name="Error" type="jsonSchema" source="=Error" var="error15" />
-          <uipath:output name="content" type="string" description="Output content" source="=content" var="content4" />
-        </uipath:activity>
-      </bpmn:extensionElements>
+    <bpmn:task id="Activity_r27CoR" name="Compose &#38; Send Approval Email Agent">
       <bpmn:incoming>edge_JE8FmZ</bpmn:incoming>
       <bpmn:outgoing>edge_nV5708</bpmn:outgoing>
-    </bpmn:serviceTask>
+    </bpmn:task>
     <bpmn:exclusiveGateway id="Gateway_wEEv1R" name="Human Disposition routing" default="edge_qFrlDT">
       <bpmn:incoming>edge_7N00OK</bpmn:incoming>
       <bpmn:outgoing>edge_83dfBW</bpmn:outgoing>
@@ -574,10 +681,10 @@
     <bpmn:sequenceFlow id="edge_qTFxnM" sourceRef="Gateway_FXulZe" targetRef="Activity_6YxUml" />
     <bpmn:sequenceFlow id="edge_XNnh6d" sourceRef="Activity_tJyTmM" targetRef="Gateway_3bdMPw" />
     <bpmn:sequenceFlow id="edge_xd0MRM" sourceRef="Gateway_3bdMPw" targetRef="Activity_Qjnsuy">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=1 == 2</bpmn:conditionExpression>
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=js:vars.complianceStatus2 == "PASS" &amp;&amp; vars.riskScore2 &gt;= 70 &amp;&amp; vars.confidence &gt;= 0.75</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="edge_GSxzGo" sourceRef="Gateway_3bdMPw" targetRef="Activity_JOFEik">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=1 == 2</bpmn:conditionExpression>
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=js:vars.vetoCodes2.length &gt; 0</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="edge_x5xxqr" sourceRef="Activity_JOFEik" targetRef="Gateway_tHd0JW" />
     <bpmn:sequenceFlow id="edge_83dfBW" name="Final Decision == APPROVED" sourceRef="Gateway_wEEv1R" targetRef="Activity_8CsSkN">
@@ -635,15 +742,15 @@
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="S_Activity_5L3fM4" bpmnElement="Activity_5L3fM4">
-        <dc:Bounds x="528" y="-224" width="100" height="80" />
+        <dc:Bounds x="526" y="-216" width="100" height="80" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="528" y="-139" width="100" height="14" />
+          <dc:Bounds x="526" y="-131" width="100" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="S_Activity_rAbXYV" bpmnElement="Activity_rAbXYV">
-        <dc:Bounds x="528" y="-64" width="100" height="80" />
+        <dc:Bounds x="526" y="-56" width="100" height="80" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="528" y="21" width="100" height="14" />
+          <dc:Bounds x="526" y="29" width="100" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="S_Gateway_FXulZe" bpmnElement="Gateway_FXulZe">
@@ -653,15 +760,15 @@
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="S_Activity_tJyTmM" bpmnElement="Activity_tJyTmM">
-        <dc:Bounds x="896" y="-64" width="100" height="80" />
+        <dc:Bounds x="894" y="-40" width="100" height="80" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="896" y="21" width="100" height="14" />
+          <dc:Bounds x="894" y="45" width="100" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="S_Activity_6YxUml" bpmnElement="Activity_6YxUml">
-        <dc:Bounds x="752" y="-64" width="100" height="80" />
+        <dc:Bounds x="750" y="-40" width="100" height="80" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="752" y="21" width="100" height="14" />
+          <dc:Bounds x="750" y="45" width="100" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="S_Gateway_3bdMPw" bpmnElement="Gateway_3bdMPw">
@@ -805,15 +912,23 @@
         <di:waypoint x="697" y="-48" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="BPMNEdge_edge_IJcxlw" bpmnElement="edge_IJcxlw">
-        <di:waypoint x="852" y="-24" />
-        <di:waypoint x="896" y="-24" />
+        <di:waypoint x="850" y="0" />
+        <di:waypoint x="894" y="0" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="BPMNEdge_edge_qTFxnM" bpmnElement="edge_qTFxnM">
         <di:waypoint x="722" y="-23" />
-        <di:waypoint x="752" y="-24" />
+        <di:waypoint x="742" y="-23" />
+        <di:waypoint x="742" y="-11.5" />
+        <di:waypoint x="730" y="-11.5" />
+        <di:waypoint x="730" y="0" />
+        <di:waypoint x="750" y="0" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="BPMNEdge_edge_XNnh6d" bpmnElement="edge_XNnh6d">
-        <di:waypoint x="996" y="-24" />
+        <di:waypoint x="994" y="0" />
+        <di:waypoint x="1014" y="0" />
+        <di:waypoint x="1014" y="-11.5" />
+        <di:waypoint x="1004" y="-11.5" />
+        <di:waypoint x="1004" y="-23" />
         <di:waypoint x="1024" y="-23" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="BPMNEdge_edge_xd0MRM" bpmnElement="edge_xd0MRM">

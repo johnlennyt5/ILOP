@@ -1,0 +1,165 @@
+{
+  "version": "1.1.0",
+  "settings": {
+    "model": "gpt-5.4-2026-03-05-community-agents",
+    "maxTokens": 16384,
+    "temperature": 0,
+    "engine": "basic-v2",
+    "maxIterations": 25,
+    "mode": "standard"
+  },
+  "inputSchema": {
+    "type": "object",
+    "required": [
+      "intakePayload"
+    ],
+    "properties": {
+      "intakePayload": {
+        "type": "string"
+      }
+    }
+  },
+  "outputSchema": {
+    "type": "object",
+    "required": [
+      "missingFields",
+      "extractionConfidence"
+    ],
+    "properties": {
+      "applicantName": {
+        "type": "string",
+        "description": "Full name of the primary applicant"
+      },
+      "coApplicantName": {
+        "type": "string",
+        "description": "Co-applicant full name if present"
+      },
+      "applicantEmail": {
+        "type": "string",
+        "description": "Applicant's email address"
+      },
+      "applicantPhone": {
+        "type": "string",
+        "description": "Applicant's phone number"
+      },
+      "loanCategory": {
+        "type": "string",
+        "description": "Product type: 'Auto', 'Personal', 'Small Business', 'Other' — only if explicitly indicated"
+      },
+      "loanPurpose": {
+        "type": "string",
+        "description": "Stated purpose, e.g. 'finance a used 2024 Honda CR-V', 'debt consolidation'"
+      },
+      "itemDescription": {
+        "type": "string",
+        "description": "Description of the item or need being financed, e.g. vehicle year/make/model"
+      },
+      "purchasePrice": {
+        "type": "number",
+        "description": "Price of the item being financed in USD, plain numeric"
+      },
+      "downPayment": {
+        "type": "number",
+        "description": "Down payment offered in USD, plain numeric"
+      },
+      "requestedLoanAmount": {
+        "type": "number",
+        "description": "Requested loan amount in USD; only if explicitly stated — do not compute price minus down payment"
+      },
+      "requestedTermMonths": {
+        "type": "number",
+        "description": "Requested term in months ('60-month term' → 60)"
+      },
+      "grossAnnualIncome": {
+        "type": "number",
+        "description": "Gross annual income in USD, plain numeric"
+      },
+      "employer": {
+        "type": "string",
+        "description": "Current employer name"
+      },
+      "jobTitle": {
+        "type": "string",
+        "description": "Applicant's job title"
+      },
+      "employmentStatus": {
+        "type": "string",
+        "description": "e.g. 'Employed', 'Self-employed' — only if stated"
+      },
+      "yearsEmployed": {
+        "type": "number",
+        "description": "Years at current employer"
+      },
+      "creditScore": {
+        "type": "number",
+        "description": "Credit score if explicitly stated"
+      },
+      "totalMonthlyDebts": {
+        "type": "number",
+        "description": "Sum of monthly liabilities explicitly listed in the source"
+      },
+      "notes": {
+        "type": "string",
+        "description": "Data found with no matching schema field, conflicts between sources, or wrong-product observations"
+      },
+      "missingFields": {
+        "type": "array",
+        "description": "Names of schema fields not found in the envelope; never invent values for these",
+        "items": {
+          "type": "string"
+        }
+      },
+      "extractionConfidence": {
+        "type": "number",
+        "description": "Overall extraction completeness and clarity, 0.0-1.0; 0.9+ only when the request was clearly a loan inquiry with most fields present"
+      },
+      "dateOfBirth": {
+        "type": "string",
+        "description": "Applicant's date of birth as stated in the source"
+      },
+      "taxpayerId": {
+        "type": "string",
+        "description": "Applicant's taxpayer ID / SSN as stated in the source"
+      },
+      "currentAddress": {
+        "type": "string",
+        "description": "Applicant's current residential address (distinct from the subject property address)"
+      }
+    },
+    "title": "Outputs"
+  },
+  "metadata": {
+    "storageVersion": "50.0.0",
+    "isConversational": false,
+    "targetRuntime": "pythonAgent",
+    "showProjectCreationExperience": false
+  },
+  "type": "lowCode",
+  "projectId": "655f1cf0-efad-42ef-88dc-c64b319c6f18",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are the Loan Extraction Agent for Harborview Financial Group's lending intake pipeline. You extract structured loan application data for non-real-estate lending (auto, personal, small business). You do not classify, make lending decisions, or draft replies.\r\n\r\nYou receive a JSON envelope for a request already classified as LOAN: from, subject, body, and attachmentText (text extracted from an attached document; may be empty).\r\n\r\nExtraction rules:\r\n1. Extract ONLY values explicitly present in the envelope. Never infer, estimate, compute, or invent a value.\r\n2. If a field is not found, leave it empty and add its name to missingFields.\r\n3. Numbers must be plain numerics: strip $, commas, and units (\"$31,500\" → 31500; \"60-month term\" → 60).\r\n4. requestedLoanAmount only if explicitly stated. Do not calculate it from purchase price and down payment; if both are present without a stated amount, note that in notes.\r\n5. attachmentText is the primary source when present; the email body supplements it. If they conflict, prefer attachmentText and note the conflict in notes.\r\n6. Use notes for data found with no matching schema field, conflicts between sources, or other observations.\r\n7. extractionConfidence reflects overall completeness and clarity: 0.9+ only for a clear loan inquiry with most fields present.\r\n8. If the envelope appears to describe a product outside this agent's scope (real-estate lending such as mortgage purchase, refinance, or home equity), set extractionConfidence to 0.4 or lower regardless of completeness, and state the mismatch in notes.\r\n9. Output nothing beyond the defined schema.",
+      "contentTokens": [
+        {
+          "type": "simpleText",
+          "rawString": "You are the Loan Extraction Agent for Harborview Financial Group's lending intake pipeline. You extract structured loan application data for non-real-estate lending (auto, personal, small business). You do not classify, make lending decisions, or draft replies.\r\n\r\nYou receive a JSON envelope for a request already classified as LOAN: from, subject, body, and attachmentText (text extracted from an attached document; may be empty).\r\n\r\nExtraction rules:\r\n1. Extract ONLY values explicitly present in the envelope. Never infer, estimate, compute, or invent a value.\r\n2. If a field is not found, leave it empty and add its name to missingFields.\r\n3. Numbers must be plain numerics: strip $, commas, and units (\"$31,500\" → 31500; \"60-month term\" → 60).\r\n4. requestedLoanAmount only if explicitly stated. Do not calculate it from purchase price and down payment; if both are present without a stated amount, note that in notes.\r\n5. attachmentText is the primary source when present; the email body supplements it. If they conflict, prefer attachmentText and note the conflict in notes.\r\n6. Use notes for data found with no matching schema field, conflicts between sources, or other observations.\r\n7. extractionConfidence reflects overall completeness and clarity: 0.9+ only for a clear loan inquiry with most fields present.\r\n8. If the envelope appears to describe a product outside this agent's scope (real-estate lending such as mortgage purchase, refinance, or home equity), set extractionConfidence to 0.4 or lower regardless of completeness, and state the mismatch in notes.\r\n9. Output nothing beyond the defined schema."
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": "Extract loan application data from this envelope:\n\n{{input.intakePayload}}",
+      "contentTokens": [
+        {
+          "type": "simpleText",
+          "rawString": "Extract loan application data from this envelope:\n\n"
+        },
+        {
+          "type": "variable",
+          "rawString": "input.intakePayload"
+        }
+      ]
+    }
+  ]
+}

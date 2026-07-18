@@ -5,19 +5,70 @@
     {
       "filePath": "/content/agent.json",
       "type": "agent",
-      "uniqueId": "6cdebc26-1579-4409-a075-700892d96f90",
+      "uniqueId": "59a758d6-9996-4658-9516-c218938233ef",
       "input": {
         "type": "object",
-        "properties": {}
+        "properties": {
+          "riskRecord": {
+            "type": "string"
+          }
+        },
+        "title": "Inputs",
+        "required": [
+          "riskRecord"
+        ]
       },
       "output": {
         "type": "object",
         "properties": {
-          "content": {
+          "riskScore": {
+            "type": "number",
+            "description": "0-100; higher is lower risk (100 = strongest applicant profile)"
+          },
+          "riskTier": {
             "type": "string",
-            "description": "Output content"
+            "description": "LOW, MODERATE, or HIGH risk tier derived from riskScore"
+          },
+          "confidence": {
+            "type": "number",
+            "description": "0.0-1.0 certainty in the score given data completeness"
+          },
+          "factorsPositive": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Specific record facts that strengthen the profile"
+          },
+          "factorsNegative": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Specific record facts that weaken the profile"
+          },
+          "dataGaps": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Fields whose absence limited the assessment"
+          },
+          "reasoning": {
+            "type": "string",
+            "description": "How the score was reached, citing record fields"
           }
-        }
+        },
+        "required": [
+          "riskScore",
+          "riskTier",
+          "confidence",
+          "factorsPositive",
+          "factorsNegative",
+          "dataGaps",
+          "reasoning"
+        ],
+        "title": "Outputs"
       }
     }
   ]

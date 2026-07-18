@@ -5,18 +5,17 @@
     {
       "filePath": "/content/agent.json",
       "type": "agent",
-      "uniqueId": "6d849e1b-b377-4f6d-8bb2-5a5d8553425e",
+      "uniqueId": "45225b14-c599-4af9-a10b-6be0f3fbb846",
       "input": {
         "type": "object",
+        "required": [
+          "intakePayload"
+        ],
         "properties": {
           "intakePayload": {
             "type": "string"
           }
-        },
-        "title": "Inputs",
-        "required": [
-          "intakePayload"
-        ]
+        }
       },
       "output": {
         "type": "object",
@@ -231,8 +230,21 @@
           "extractionConfidence": {
             "type": "number",
             "description": "Overall confidence score from 0.0 to 1.0"
+          },
+          "dateOfBirth": {
+            "type": "string",
+            "description": "Applicant's date of birth as stated in the source\""
+          },
+          "taxpayerId": {
+            "type": "string",
+            "description": "Applicant's taxpayer ID / SSN as stated in the source"
+          },
+          "currentAddress": {
+            "type": "string",
+            "description": "Applicant's current residential address (distinct from the subject property address)"
           }
-        }
+        },
+        "title": "Outputs"
       }
     }
   ]

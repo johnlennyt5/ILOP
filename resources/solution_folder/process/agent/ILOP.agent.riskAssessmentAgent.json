@@ -1,0 +1,61 @@
+{
+  "docVersion": "1.0.0",
+  "resource": {
+    "name": "ILOP.agent.riskAssessmentAgent",
+    "kind": "process",
+    "type": "agent",
+    "apiVersion": "orchestrator.uipath.com/v1",
+    "isOverridable": true,
+    "dependencies": [
+      {
+        "name": "ILOP.agent.riskAssessmentAgent",
+        "kind": "Package"
+      }
+    ],
+    "runtimeDependencies": [],
+    "files": [],
+    "folders": [
+      {
+        "fullyQualifiedName": "solution_folder"
+      }
+    ],
+    "spec": {
+      "type": "Agent",
+      "agentMemory": null,
+      "targetRuntime": "pythonAgent",
+      "environmentVariables": "",
+      "referencedAssets": null,
+      "isConversational": false,
+      "name": "ILOP.agent.riskAssessmentAgent",
+      "description": "Risk Assessment Agent",
+      "package": {
+        "name": "ILOP.agent.riskAssessmentAgent",
+        "key": "ILOP.agent.riskAssessmentAgent:1.0.8"
+      },
+      "packageName": "ILOP.agent.riskAssessmentAgent",
+      "packageVersion": "1.0.8",
+      "entryPointUniqueId": "76fc97e1-7c4c-44cb-af64-11981eb81c07",
+      "entryPointName": "content/agent.json",
+      "inputArguments": null,
+      "inputArgumentsSchema": null,
+      "outputArgumentsSchema": null,
+      "inputArgumentsSchemaV2": "{\n  \u0022type\u0022: \u0022object\u0022,\n  \u0022required\u0022: [\n    \u0022riskRecord\u0022\n  ],\n  \u0022properties\u0022: {\n    \u0022riskRecord\u0022: {\n      \u0022type\u0022: \u0022string\u0022\n    }\n  }\n}",
+      "outputArgumentsSchemaV2": "{\n  \u0022type\u0022: \u0022object\u0022,\n  \u0022required\u0022: [\n    \u0022riskScore\u0022,\n    \u0022riskTier\u0022,\n    \u0022confidence\u0022,\n    \u0022factorsPositive\u0022,\n    \u0022factorsNegative\u0022,\n    \u0022dataGaps\u0022,\n    \u0022reasoning\u0022\n  ],\n  \u0022properties\u0022: {\n    \u0022riskScore\u0022: {\n      \u0022type\u0022: \u0022number\u0022,\n      \u0022description\u0022: \u00220-100; higher is lower risk (100 = strongest applicant profile)\u0022\n    },\n    \u0022riskTier\u0022: {\n      \u0022type\u0022: \u0022string\u0022,\n      \u0022description\u0022: \u0022LOW, MODERATE, or HIGH risk tier derived from riskScore\u0022\n    },\n    \u0022confidence\u0022: {\n      \u0022type\u0022: \u0022number\u0022,\n      \u0022description\u0022: \u00220.0-1.0 certainty in the score given data completeness\u0022\n    },\n    \u0022factorsPositive\u0022: {\n      \u0022type\u0022: \u0022array\u0022,\n      \u0022description\u0022: \u0022Specific record facts that strengthen the profile\u0022,\n      \u0022items\u0022: {\n        \u0022type\u0022: \u0022string\u0022\n      }\n    },\n    \u0022factorsNegative\u0022: {\n      \u0022type\u0022: \u0022array\u0022,\n      \u0022description\u0022: \u0022Specific record facts that weaken the profile\u0022,\n      \u0022items\u0022: {\n        \u0022type\u0022: \u0022string\u0022\n      }\n    },\n    \u0022dataGaps\u0022: {\n      \u0022type\u0022: \u0022array\u0022,\n      \u0022description\u0022: \u0022Fields whose absence limited the assessment\u0022,\n      \u0022items\u0022: {\n        \u0022type\u0022: \u0022string\u0022\n      }\n    },\n    \u0022reasoning\u0022: {\n      \u0022type\u0022: \u0022string\u0022,\n      \u0022description\u0022: \u0022How the score was reached, citing record fields\u0022\n    }\n  }\n}",
+      "hiddenForAttendedUser": false,
+      "alwaysRunning": false,
+      "autoStartProcess": false,
+      "targetFrameworkValue": "Portable",
+      "retentionAction": "Delete",
+      "retentionPeriod": 30,
+      "retentionBucketRef": null,
+      "staleRetentionAction": "Delete",
+      "staleRetentionPeriod": 180,
+      "staleRetentionBucketRef": null,
+      "entryPoints": "[{\u0022UniqueId\u0022:\u002276fc97e1-7c4c-44cb-af64-11981eb81c07\u0022,\u0022Path\u0022:\u0022content/agent.json\u0022,\u0022DisplayName\u0022:null,\u0022InputArguments\u0022:\u0022{\\n  \\\u0022type\\\u0022: \\\u0022object\\\u0022,\\n  \\\u0022required\\\u0022: [\\n    \\\u0022riskRecord\\\u0022\\n  ],\\n  \\\u0022properties\\\u0022: {\\n    \\\u0022riskRecord\\\u0022: {\\n      \\\u0022type\\\u0022: \\\u0022string\\\u0022\\n    }\\n  }\\n}\u0022,\u0022OutputArguments\u0022:\u0022{\\n  \\\u0022type\\\u0022: \\\u0022object\\\u0022,\\n  \\\u0022required\\\u0022: [\\n    \\\u0022riskScore\\\u0022,\\n    \\\u0022riskTier\\\u0022,\\n    \\\u0022confidence\\\u0022,\\n    \\\u0022factorsPositive\\\u0022,\\n    \\\u0022factorsNegative\\\u0022,\\n    \\\u0022dataGaps\\\u0022,\\n    \\\u0022reasoning\\\u0022\\n  ],\\n  \\\u0022properties\\\u0022: {\\n    \\\u0022riskScore\\\u0022: {\\n      \\\u0022type\\\u0022: \\\u0022number\\\u0022,\\n      \\\u0022description\\\u0022: \\\u00220-100; higher is lower risk (100 = strongest applicant profile)\\\u0022\\n    },\\n    \\\u0022riskTier\\\u0022: {\\n      \\\u0022type\\\u0022: \\\u0022string\\\u0022,\\n      \\\u0022description\\\u0022: \\\u0022LOW, MODERATE, or HIGH risk tier derived from riskScore\\\u0022\\n    },\\n    \\\u0022confidence\\\u0022: {\\n      \\\u0022type\\\u0022: \\\u0022number\\\u0022,\\n      \\\u0022description\\\u0022: \\\u00220.0-1.0 certainty in the score given data completeness\\\u0022\\n    },\\n    \\\u0022factorsPositive\\\u0022: {\\n      \\\u0022type\\\u0022: \\\u0022array\\\u0022,\\n      \\\u0022description\\\u0022: \\\u0022Specific record facts that strengthen the profile\\\u0022,\\n      \\\u0022items\\\u0022: {\\n        \\\u0022type\\\u0022: \\\u0022string\\\u0022\\n      }\\n    },\\n    \\\u0022factorsNegative\\\u0022: {\\n      \\\u0022type\\\u0022: \\\u0022array\\\u0022,\\n      \\\u0022description\\\u0022: \\\u0022Specific record facts that weaken the profile\\\u0022,\\n      \\\u0022items\\\u0022: {\\n        \\\u0022type\\\u0022: \\\u0022string\\\u0022\\n      }\\n    },\\n    \\\u0022dataGaps\\\u0022: {\\n      \\\u0022type\\\u0022: \\\u0022array\\\u0022,\\n      \\\u0022description\\\u0022: \\\u0022Fields whose absence limited the assessment\\\u0022,\\n      \\\u0022items\\\u0022: {\\n        \\\u0022type\\\u0022: \\\u0022string\\\u0022\\n      }\\n    },\\n    \\\u0022reasoning\\\u0022: {\\n      \\\u0022type\\\u0022: \\\u0022string\\\u0022,\\n      \\\u0022description\\\u0022: \\\u0022How the score was reached, citing record fields\\\u0022\\n    }\\n  }\\n}\u0022,\u0022Type\u0022:4,\u0022TargetRuntime\u0022:null,\u0022ContentRoot\u0022:null,\u0022DataVariation\u0022:null,\u0022Id\u0022:6485998}]",
+      "connections": null,
+      "tags": []
+    },
+    "locks": [],
+    "key": "3a392533-ea34-407c-8beb-f4de1f964993"
+  }
+}

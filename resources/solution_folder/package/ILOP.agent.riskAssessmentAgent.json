@@ -1,0 +1,33 @@
+{
+  "docVersion": "1.0.0",
+  "resource": {
+    "name": "ILOP.agent.riskAssessmentAgent",
+    "kind": "package",
+    "apiVersion": "orchestrator.uipath.com/v1",
+    "isOverridable": true,
+    "dependencies": [],
+    "runtimeDependencies": [],
+    "files": [
+      {
+        "name": "ILOP.agent.riskAssessmentAgent.1.0.8.nupkg",
+        "kind": "Package",
+        "version": "1.0.8",
+        "url": "https://cloud.uipath.com/16dc2c06-43e6-4404-b266-6e46e0e28f46/02ace0d3-540b-41d1-8c4c-ad04dfac8baa/orchestrator_/odata/Processes/UiPath.Server.Configuration.OData.DownloadPackage(key=\u0027ILOP.agent.riskAssessmentAgent:1.0.8\u0027)?feedId=94068484-eb55-4ff5-a033-1c468306cb51",
+        "key": "ILOP.agent.riskAssessmentAgent_1.0.8"
+      }
+    ],
+    "folders": [
+      {
+        "fullyQualifiedName": "solution_folder"
+      }
+    ],
+    "spec": {
+      "fileName": "ILOP.agent.riskAssessmentAgent.1.0.8.nupkg",
+      "fileReference": "ILOP.agent.riskAssessmentAgent_1.0.8",
+      "name": "ILOP.agent.riskAssessmentAgent",
+      "description": null
+    },
+    "locks": [],
+    "key": "ILOP.agent.riskAssessmentAgent:1.0.8"
+  }
+}

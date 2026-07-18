@@ -25,6 +25,11 @@
     },
     {
       "Type": "Agent",
+      "ProjectRelativePath": "loanExtractorAgent/project.uiproj",
+      "Id": "cb4f6990-4917-42bd-8215-6dabbd676e3b"
+    },
+    {
+      "Type": "Agent",
       "ProjectRelativePath": "complianceCheckAgent/project.uiproj",
       "Id": "cdef9163-a8bc-4f9b-ae8b-6e730986b06a"
     },

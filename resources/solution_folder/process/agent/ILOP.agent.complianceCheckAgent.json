@@ -1,0 +1,61 @@
+{
+  "docVersion": "1.0.0",
+  "resource": {
+    "name": "ILOP.agent.complianceCheckAgent",
+    "kind": "process",
+    "type": "agent",
+    "apiVersion": "orchestrator.uipath.com/v1",
+    "isOverridable": true,
+    "dependencies": [
+      {
+        "name": "ILOP.agent.complianceCheckAgent",
+        "kind": "Package"
+      }
+    ],
+    "runtimeDependencies": [],
+    "files": [],
+    "folders": [
+      {
+        "fullyQualifiedName": "solution_folder"
+      }
+    ],
+    "spec": {
+      "type": "Agent",
+      "agentMemory": null,
+      "targetRuntime": "pythonAgent",
+      "environmentVariables": "",
+      "referencedAssets": null,
+      "isConversational": false,
+      "name": "ILOP.agent.complianceCheckAgent",
+      "description": "compliance Check Agent",
+      "package": {
+        "name": "ILOP.agent.complianceCheckAgent",
+        "key": "ILOP.agent.complianceCheckAgent:1.0.8"
+      },
+      "packageName": "ILOP.agent.complianceCheckAgent",
+      "packageVersion": "1.0.8",
+      "entryPointUniqueId": "c22d1884-92f6-4bda-83b7-6dd89bc930de",
+      "entryPointName": "content/agent.json",
+      "inputArguments": null,
+      "inputArgumentsSchema": null,
+      "outputArgumentsSchema": null,
+      "inputArgumentsSchemaV2": "{\n  \u0022type\u0022: \u0022object\u0022,\n  \u0022required\u0022: [\n    \u0022complianceRecord\u0022\n  ],\n  \u0022properties\u0022: {\n    \u0022complianceRecord\u0022: {\n      \u0022type\u0022: \u0022string\u0022\n    }\n  }\n}",
+      "outputArgumentsSchemaV2": "{\n  \u0022type\u0022: \u0022object\u0022,\n  \u0022required\u0022: [\n    \u0022complianceStatus\u0022,\n    \u0022vetoCodes\u0022,\n    \u0022flagCodes\u0022,\n    \u0022checksPerformed\u0022,\n    \u0022reasoning\u0022\n  ],\n  \u0022properties\u0022: {\n    \u0022complianceStatus\u0022: {\n      \u0022type\u0022: \u0022string\u0022,\n      \u0022description\u0022: \u0022PASS, VETO, or FLAG. VETO if any veto code; else FLAG if any flag code; else PASS\u0022\n    },\n    \u0022vetoCodes\u0022: {\n      \u0022type\u0022: \u0022array\u0022,\n      \u0022description\u0022: \u0022Veto reason codes from the approved list only\u0022,\n      \u0022items\u0022: {\n        \u0022type\u0022: \u0022string\u0022\n      }\n    },\n    \u0022flagCodes\u0022: {\n      \u0022type\u0022: \u0022array\u0022,\n      \u0022description\u0022: \u0022Flag reason codes from the approved list only\u0022,\n      \u0022items\u0022: {\n        \u0022type\u0022: \u0022string\u0022\n      }\n    },\n    \u0022checksPerformed\u0022: {\n      \u0022type\u0022: \u0022array\u0022,\n      \u0022description\u0022: \u0022Names of checks executed\u0022,\n      \u0022items\u0022: {\n        \u0022type\u0022: \u0022string\u0022\n      }\n    },\n    \u0022dtiRatio\u0022: {\n      \u0022type\u0022: \u0022number\u0022,\n      \u0022description\u0022: \u0022Debt-to-income ratio if computable (monthly debts / monthly income), else empty\u0022\n    },\n    \u0022reasoning\u0022: {\n      \u0022type\u0022: \u0022string\u0022,\n      \u0022description\u0022: \u0022Concise per-check summary citing the record fields relied on\u0022\n    },\n    \u0022notes\u0022: {\n      \u0022type\u0022: \u0022string\u0022,\n      \u0022description\u0022: \u0022Observations or data gaps a reviewer should see\u0022\n    }\n  }\n}",
+      "hiddenForAttendedUser": false,
+      "alwaysRunning": false,
+      "autoStartProcess": false,
+      "targetFrameworkValue": "Portable",
+      "retentionAction": "Delete",
+      "retentionPeriod": 30,
+      "retentionBucketRef": null,
+      "staleRetentionAction": "Delete",
+      "staleRetentionPeriod": 180,
+      "staleRetentionBucketRef": null,
+      "entryPoints": "[{\u0022UniqueId\u0022:\u0022c22d1884-92f6-4bda-83b7-6dd89bc930de\u0022,\u0022Path\u0022:\u0022content/agent.json\u0022,\u0022DisplayName\u0022:null,\u0022InputArguments\u0022:\u0022{\\n  \\\u0022type\\\u0022: \\\u0022object\\\u0022,\\n  \\\u0022required\\\u0022: [\\n    \\\u0022complianceRecord\\\u0022\\n  ],\\n  \\\u0022properties\\\u0022: {\\n    \\\u0022complianceRecord\\\u0022: {\\n      \\\u0022type\\\u0022: \\\u0022string\\\u0022\\n    }\\n  }\\n}\u0022,\u0022OutputArguments\u0022:\u0022{\\n  \\\u0022type\\\u0022: \\\u0022object\\\u0022,\\n  \\\u0022required\\\u0022: [\\n    \\\u0022complianceStatus\\\u0022,\\n    \\\u0022vetoCodes\\\u0022,\\n    \\\u0022flagCodes\\\u0022,\\n    \\\u0022checksPerformed\\\u0022,\\n    \\\u0022reasoning\\\u0022\\n  ],\\n  \\\u0022properties\\\u0022: {\\n    \\\u0022complianceStatus\\\u0022: {\\n      \\\u0022type\\\u0022: \\\u0022string\\\u0022,\\n      \\\u0022description\\\u0022: \\\u0022PASS, VETO, or FLAG. VETO if any veto code; else FLAG if any flag code; else PASS\\\u0022\\n    },\\n    \\\u0022vetoCodes\\\u0022: {\\n      \\\u0022type\\\u0022: \\\u0022array\\\u0022,\\n      \\\u0022description\\\u0022: \\\u0022Veto reason codes from the approved list only\\\u0022,\\n      \\\u0022items\\\u0022: {\\n        \\\u0022type\\\u0022: \\\u0022string\\\u0022\\n      }\\n    },\\n    \\\u0022flagCodes\\\u0022: {\\n      \\\u0022type\\\u0022: \\\u0022array\\\u0022,\\n      \\\u0022description\\\u0022: \\\u0022Flag reason codes from the approved list only\\\u0022,\\n      \\\u0022items\\\u0022: {\\n        \\\u0022type\\\u0022: \\\u0022string\\\u0022\\n      }\\n    },\\n    \\\u0022checksPerformed\\\u0022: {\\n      \\\u0022type\\\u0022: \\\u0022array\\\u0022,\\n      \\\u0022description\\\u0022: \\\u0022Names of checks executed\\\u0022,\\n      \\\u0022items\\\u0022: {\\n        \\\u0022type\\\u0022: \\\u0022string\\\u0022\\n      }\\n    },\\n    \\\u0022dtiRatio\\\u0022: {\\n      \\\u0022type\\\u0022: \\\u0022number\\\u0022,\\n      \\\u0022description\\\u0022: \\\u0022Debt-to-income ratio if computable (monthly debts / monthly income), else empty\\\u0022\\n    },\\n    \\\u0022reasoning\\\u0022: {\\n      \\\u0022type\\\u0022: \\\u0022string\\\u0022,\\n      \\\u0022description\\\u0022: \\\u0022Concise per-check summary citing the record fields relied on\\\u0022\\n    },\\n    \\\u0022notes\\\u0022: {\\n      \\\u0022type\\\u0022: \\\u0022string\\\u0022,\\n      \\\u0022description\\\u0022: \\\u0022Observations or data gaps a reviewer should see\\\u0022\\n    }\\n  }\\n}\u0022,\u0022Type\u0022:4,\u0022TargetRuntime\u0022:null,\u0022ContentRoot\u0022:null,\u0022DataVariation\u0022:null,\u0022Id\u0022:6486000}]",
+      "connections": null,
+      "tags": []
+    },
+    "locks": [],
+    "key": "64dbe27a-7509-4414-8bd1-49efb9d763c8"
+  }
+}

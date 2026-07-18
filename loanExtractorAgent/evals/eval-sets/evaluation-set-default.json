@@ -1,0 +1,65 @@
+{
+  "fileName": "evaluation-set-default.json",
+  "id": "87115372-f184-4107-88d5-0fb14b45ebff",
+  "name": "Default Evaluation Set",
+  "batchSize": 10,
+  "evaluatorRefs": [
+    "fdc74dc5-0ab8-436d-8b89-752af64ff2bd"
+  ],
+  "evaluations": [
+    {
+      "id": "4b4e500b-8cb7-4ec2-9be9-a8c34e6db765",
+      "name": "Debug Run 7/17/2026, 12:54:54 PM",
+      "inputs": {
+        "intakePayload": "{\"from\":\"marcus.webb.demo@example.com\",\"subject\":\"Auto Loan Inquiry - 2024 Honda CR-V\",\"body\":\"Hi, I'm looking to finance a used 2024 Honda CR-V priced at $31,500. I can put $6,000 down and would like a 60-month term. I make about $68,000 a year and have been at my job for 3 years. What rates could you offer me? Best, Marcus Webb\\r\\n\",\"attachmentText\":\"\"}"
+      },
+      "expectedOutput": {
+        "applicantName": "Marcus Webb",
+        "coApplicantName": null,
+        "applicantEmail": "marcus.webb.demo@example.com",
+        "applicantPhone": null,
+        "loanCategory": "Auto",
+        "loanPurpose": "finance a used 2024 Honda CR-V",
+        "itemDescription": "used 2024 Honda CR-V",
+        "purchasePrice": 31500,
+        "downPayment": 6000,
+        "requestedLoanAmount": null,
+        "requestedTermMonths": 60,
+        "grossAnnualIncome": 68000,
+        "employer": null,
+        "jobTitle": null,
+        "employmentStatus": null,
+        "yearsEmployed": 3,
+        "creditScore": null,
+        "totalMonthlyDebts": null,
+        "notes": "Requested loan amount not explicitly stated; purchase price and down payment are present but no stated amount.",
+        "missingFields": [
+          "coApplicantName",
+          "applicantPhone",
+          "requestedLoanAmount",
+          "employer",
+          "jobTitle",
+          "employmentStatus",
+          "creditScore",
+          "totalMonthlyDebts"
+        ],
+        "extractionConfidence": 0.92
+      },
+      "expectedAgentBehavior": "",
+      "simulationInstructions": "",
+      "simulateInput": false,
+      "inputGenerationInstructions": "",
+      "simulateTools": false,
+      "evalSetId": "87115372-f184-4107-88d5-0fb14b45ebff",
+      "createdAt": "2026-07-17T16:54:54.259Z",
+      "updatedAt": "2026-07-17T16:54:54.259Z",
+      "source": "firstSuccessfulRun"
+    }
+  ],
+  "modelSettings": [],
+  "createdAt": "2026-07-15T22:06:06.402Z",
+  "updatedAt": "2026-07-17T16:54:54.259Z",
+  "agentMemoryEnabled": false,
+  "agentMemorySettings": [],
+  "lineByLineEvaluation": false
+}
