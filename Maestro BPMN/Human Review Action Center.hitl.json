@@ -1,0 +1,85 @@
+{
+  "fields": [
+    {
+      "id": "applicantName",
+      "label": "Applicant",
+      "type": "string",
+      "direction": "input"
+    },
+    {
+      "id": "product",
+      "label": "Product (LOAN or MORTGAGE)",
+      "type": "string",
+      "direction": "input"
+    },
+    {
+      "id": "requestedAmount",
+      "label": "Requested amount (USD)",
+      "type": "number",
+      "direction": "input"
+    },
+    {
+      "id": "complianceStatus",
+      "label": "Compliance status",
+      "type": "string",
+      "direction": "input"
+    },
+    {
+      "id": "flagCodes",
+      "label": "Compliance flags",
+      "type": "string",
+      "direction": "input"
+    },
+    {
+      "id": "complianceNotes",
+      "label": "Compliance notes",
+      "type": "string",
+      "direction": "input"
+    },
+    {
+      "id": "riskScore",
+      "label": "Risk score (0-100, higher is safer)",
+      "type": "number",
+      "direction": "input"
+    },
+    {
+      "id": "riskTier",
+      "label": "Risk tier",
+      "type": "string",
+      "direction": "input"
+    },
+    {
+      "id": "riskReasoning",
+      "label": "Risk reasoning",
+      "type": "string",
+      "direction": "input"
+    },
+    {
+      "id": "emailSubject",
+      "label": "Email subject",
+      "type": "string",
+      "direction": "input"
+    },
+    {
+      "id": "reviewerComment",
+      "label": "Reviewer comment",
+      "type": "string",
+      "direction": "output"
+    }
+  ],
+  "outcomes": [
+    {
+      "id": "outcome-0",
+      "name": "Approve",
+      "type": "string",
+      "isPrimary": true
+    },
+    {
+      "id": "outcome-1",
+      "name": "Reject",
+      "type": "string",
+      "isPrimary": false
+    }
+  ],
+  "schemaId": "1c88e6f5-484e-47c9-b280-38739c6566aa"
+}

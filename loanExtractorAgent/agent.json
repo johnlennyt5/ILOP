@@ -1,7 +1,7 @@
 {
   "version": "1.1.0",
   "settings": {
-    "model": "gpt-5.4-2026-03-05-community-agents",
+    "model": "anthropic.claude-sonnet-5",
     "maxTokens": 16384,
     "temperature": 0,
     "engine": "basic-v2",
@@ -125,8 +125,7 @@
         "type": "string",
         "description": "Applicant's current residential address (distinct from the subject property address)"
       }
-    },
-    "title": "Outputs"
+    }
   },
   "metadata": {
     "storageVersion": "50.0.0",

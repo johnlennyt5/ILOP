@@ -27,7 +27,7 @@
     },
     {
       "resource": "Property",
-      "key": "EMAIL_RECEIVED_EventTrigger.8306d123-4a99-4a15-b9d3-50554490842c_Event_start",
+      "key": "Event_start",
       "value": {
         "ParentFolders[*].ID": {
           "defaultValue": "INBOX",
@@ -39,6 +39,7 @@
         "ActivityName": "Email recieved",
         "BindingsVersion": "2.2",
         "ObjectName": "Message",
+        "Operation": "EMAIL_RECEIVED",
         "ParentResourceKey": "EventTrigger.8306d123-4a99-4a15-b9d3-50554490842c_Event_start",
         "TriggerCreateParameters": "ParentFolders[*].ID",
         "DebugQueryParameters": "ParentFolders[*].ID"
@@ -209,12 +210,31 @@
       }
     },
     {
+      "resource": "Connection",
+      "key": "d21ceb93-89f3-4718-8f40-b4471aab5b38",
+      "id": "Connectiond21ceb93-89f3-4718-8f40-b4471aab5b38",
+      "value": {
+        "ConnectionId": {
+          "defaultValue": "d21ceb93-89f3-4718-8f40-b4471aab5b38",
+          "isExpression": false,
+          "displayName": "uipath-uipath-dataservice connection"
+        }
+      },
+      "metadata": {
+        "ActivityName": "log final record save in new app for me to see all decisions",
+        "BindingsVersion": "2.2",
+        "DisplayLabel": "uipath-uipath-dataservice connection",
+        "UseConnectionService": "true",
+        "Connector": "uipath-uipath-dataservice"
+      }
+    },
+    {
       "resource": "process",
-      "key": "ILOP.agent.intakeRoutermortgageExtractorAgent",
-      "id": "processILOP.agent.intakeRoutermortgageExtractorAgent",
+      "key": "intakeRouterAgent",
+      "id": "processintakeRouterAgent",
       "value": {
         "name": {
-          "defaultValue": "ILOP.agent.intakeRouterAgent",
+          "defaultValue": "intakeRouterAgent",
           "isExpression": false,
           "displayName": "Process name"
         }
@@ -229,11 +249,11 @@
     },
     {
       "resource": "process",
-      "key": "ILOP.agent.mortgageExtractorAgent",
-      "id": "processILOP.agent.mortgageExtractorAgent",
+      "key": "mortgageExtractorAgent",
+      "id": "processmortgageExtractorAgent",
       "value": {
         "name": {
-          "defaultValue": "ILOP.agent.mortgageExtractorAgent",
+          "defaultValue": "mortgageExtractorAgent",
           "isExpression": false,
           "displayName": "Process name"
         }
@@ -248,11 +268,11 @@
     },
     {
       "resource": "process",
-      "key": "ILOP.agent.loanExtractorAgent",
-      "id": "processILOP.agent.loanExtractorAgent",
+      "key": "loanExtractorAgent",
+      "id": "processloanExtractorAgent",
       "value": {
         "name": {
-          "defaultValue": "ILOP.agent.loanExtractorAgent",
+          "defaultValue": "loanExtractorAgent",
           "isExpression": false,
           "displayName": "Process name"
         }
@@ -267,17 +287,17 @@
     },
     {
       "resource": "process",
-      "key": "ILOP.agent.riskAssessmentAgent",
-      "id": "processILOP.agent.riskAssessmentAgent",
+      "key": "complianceCheckAgent",
+      "id": "processcomplianceCheckAgent",
       "value": {
         "name": {
-          "defaultValue": "ILOP.agent.riskAssessmentAgent",
+          "defaultValue": "complianceCheckAgent",
           "isExpression": false,
           "displayName": "Process name"
         }
       },
       "metadata": {
-        "ActivityName": "Risk Assessment Agent",
+        "ActivityName": "Compliance Check Agent",
         "BindingsVersion": "2.2",
         "DisplayLabel": "name",
         "SolutionsSupport": "true",
@@ -286,17 +306,17 @@
     },
     {
       "resource": "process",
-      "key": "ILOP.agent.complianceCheckAgent",
-      "id": "processILOP.agent.complianceCheckAgent",
+      "key": "riskAssessmentAgent",
+      "id": "processriskAssessmentAgent",
       "value": {
         "name": {
-          "defaultValue": "ILOP.agent.complianceCheckAgent",
+          "defaultValue": "riskAssessmentAgent",
           "isExpression": false,
           "displayName": "Process name"
         }
       },
       "metadata": {
-        "ActivityName": "Compliance Check Agent",
+        "ActivityName": "Risk Assessment Agent",
         "BindingsVersion": "2.2",
         "DisplayLabel": "name",
         "SolutionsSupport": "true",

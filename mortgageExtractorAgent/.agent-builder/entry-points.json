@@ -5,19 +5,24 @@
     {
       "filePath": "/content/agent.json",
       "type": "agent",
-      "uniqueId": "5d7a77f4-41d1-4599-8f56-afc299d00c82",
+      "uniqueId": "45225b14-c599-4af9-a10b-6be0f3fbb846",
       "input": {
         "type": "object",
+        "required": [
+          "intakePayload"
+        ],
         "properties": {
           "intakePayload": {
             "type": "string"
           }
-        },
-        "title": "Inputs"
+        }
       },
       "output": {
         "type": "object",
-        "title": "Outputs",
+        "required": [
+          "missingFields",
+          "extractionConfidence"
+        ],
         "properties": {
           "applicantName": {
             "type": "string",
@@ -217,20 +222,29 @@
           },
           "missingFields": {
             "type": "array",
+            "description": "List of fields that could not be extracted. Never invent values.",
             "items": {
               "type": "string"
-            },
-            "description": "List of fields that could not be extracted. Never invent values."
+            }
           },
           "extractionConfidence": {
             "type": "number",
             "description": "Overall confidence score from 0.0 to 1.0"
+          },
+          "dateOfBirth": {
+            "type": "string",
+            "description": "Applicant's date of birth as stated in the source\""
+          },
+          "taxpayerId": {
+            "type": "string",
+            "description": "Applicant's taxpayer ID / SSN as stated in the source"
+          },
+          "currentAddress": {
+            "type": "string",
+            "description": "Applicant's current residential address (distinct from the subject property address)"
           }
         },
-        "required": [
-          "missingFields",
-          "extractionConfidence"
-        ]
+        "title": "Outputs"
       }
     }
   ]

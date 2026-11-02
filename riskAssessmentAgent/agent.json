@@ -1,7 +1,7 @@
 {
   "version": "1.1.0",
   "settings": {
-    "model": "gpt-5.4-2026-03-05-community-agents",
+    "model": "anthropic.claude-sonnet-5",
     "maxTokens": 16384,
     "temperature": 0,
     "engine": "basic-v2",
@@ -10,18 +10,26 @@
   },
   "inputSchema": {
     "type": "object",
+    "required": [
+      "riskRecord"
+    ],
     "properties": {
       "riskRecord": {
         "type": "string"
       }
-    },
-    "title": "Inputs",
-    "required": [
-      "riskRecord"
-    ]
+    }
   },
   "outputSchema": {
     "type": "object",
+    "required": [
+      "riskScore",
+      "riskTier",
+      "confidence",
+      "factorsPositive",
+      "factorsNegative",
+      "dataGaps",
+      "reasoning"
+    ],
     "properties": {
       "riskScore": {
         "type": "number",
@@ -37,40 +45,30 @@
       },
       "factorsPositive": {
         "type": "array",
+        "description": "Specific record facts that strengthen the profile",
         "items": {
           "type": "string"
-        },
-        "description": "Specific record facts that strengthen the profile"
+        }
       },
       "factorsNegative": {
         "type": "array",
+        "description": "Specific record facts that weaken the profile",
         "items": {
           "type": "string"
-        },
-        "description": "Specific record facts that weaken the profile"
+        }
       },
       "dataGaps": {
         "type": "array",
+        "description": "Fields whose absence limited the assessment",
         "items": {
           "type": "string"
-        },
-        "description": "Fields whose absence limited the assessment"
+        }
       },
       "reasoning": {
         "type": "string",
         "description": "How the score was reached, citing record fields"
       }
-    },
-    "required": [
-      "riskScore",
-      "riskTier",
-      "confidence",
-      "factorsPositive",
-      "factorsNegative",
-      "dataGaps",
-      "reasoning"
-    ],
-    "title": "Outputs"
+    }
   },
   "metadata": {
     "storageVersion": "50.0.0",
